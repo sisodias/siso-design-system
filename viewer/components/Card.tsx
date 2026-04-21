@@ -20,8 +20,11 @@ export default function Card({ component }: Props) {
     <div className="group relative">
       <Link href={href} scroll={false} className="block">
         <div className="relative overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 transition-all duration-200 group-hover:border-neutral-700 group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
-          {/* Preview */}
-          <div className="aspect-[4/3] w-full bg-neutral-950">
+          {/* Preview — contain:strict caps any escaping child (fixed/absolute elements stay inside) */}
+          <div
+            className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-950 isolate"
+            style={{ contain: 'strict' }}
+          >
             <LivePreview
               source={component.source}
               slug={component.name}

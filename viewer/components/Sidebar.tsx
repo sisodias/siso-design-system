@@ -1,7 +1,16 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
 import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2 } from 'lucide-react'
+import {
+  TreeExpander,
+  TreeIcon,
+  TreeLabel,
+  TreeNode,
+  TreeNodeContent,
+  TreeNodeTrigger,
+  TreeProvider,
+  TreeView,
+} from '@/components/ui/tree'
 
 interface SourceCount {
   source: string
@@ -18,6 +27,20 @@ interface Props {
 }
 
 export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, onSearchChange, searchValue = '' }: Props) {
+  // Tree selection reflects active source
+  const selectedIds = activeSource ? [`source-${activeSource}`] : ['all']
+
+  const handleSelectionChange = (ids: string[]) => {
+    const id = ids[0]
+    if (!id || id === 'all') {
+      onSourceFilter?.(null)
+      return
+    }
+    if (id.startsWith('source-')) {
+      onSourceFilter?.(id.slice('source-'.length))
+    }
+  }
+
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-neutral-800 bg-neutral-950 flex flex-col">
       {/* Brand */}
@@ -29,7 +52,7 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
       </div>
 
       {/* Search */}
-      <div className="px-3 pb-4">
+      <div className="px-3 pb-2">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-neutral-500" />
           <input
@@ -43,73 +66,111 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
         </div>
       </div>
 
-      {/* Nav */}
-      <nav className="flex-1 overflow-y-auto px-2 pb-6 text-sm">
-        <NavButton active={activeSource === undefined} onClick={() => onSourceFilter?.(null)} icon={<Home className="h-4 w-4" />}>
-          All components
-        </NavButton>
+      {/* Tree nav */}
+      <nav className="flex-1 overflow-y-auto px-1 pb-6 text-sm">
+        <TreeProvider
+          defaultExpandedIds={['sources', 'build']}
+          selectedIds={selectedIds}
+          onSelectionChange={handleSelectionChange}
+          indent={14}
+        >
+          <TreeView className="px-1">
+            {/* All components */}
+            <TreeNode nodeId="all">
+              <TreeNodeTrigger>
+                <TreeExpander />
+                <TreeIcon icon={<Home className="h-4 w-4" />} />
+                <TreeLabel>All components</TreeLabel>
+              </TreeNodeTrigger>
+            </TreeNode>
 
-        <NavSectionHeader>Sources</NavSectionHeader>
-        {sourceCounts.map(sc => (
-          <NavButton
-            key={sc.source}
-            active={activeSource === sc.source}
-            onClick={() => onSourceFilter?.(sc.source)}
-            icon={sc.source === '21st.dev' ? <Package className="h-4 w-4" /> : <Folder className="h-4 w-4" />}
-            count={sc.count}
-          >
-            {sc.label}
-          </NavButton>
-        ))}
+            {/* Sources group */}
+            <TreeNode nodeId="sources">
+              <TreeNodeTrigger>
+                <TreeExpander hasChildren />
+                <TreeIcon hasChildren />
+                <TreeLabel className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                  Sources
+                </TreeLabel>
+              </TreeNodeTrigger>
+              <TreeNodeContent hasChildren>
+                {sourceCounts.map((sc, i) => (
+                  <TreeNode
+                    key={sc.source}
+                    nodeId={`source-${sc.source}`}
+                    level={1}
+                    isLast={i === sourceCounts.length - 1}
+                  >
+                    <TreeNodeTrigger>
+                      <TreeExpander />
+                      <TreeIcon
+                        icon={
+                          sc.source === '21st.dev' ? (
+                            <Package className="h-4 w-4" />
+                          ) : (
+                            <Folder className="h-4 w-4" />
+                          )
+                        }
+                      />
+                      <TreeLabel>{sc.label}</TreeLabel>
+                      <span className="ml-auto pr-2 text-[11px] text-neutral-500">{sc.count}</span>
+                    </TreeNodeTrigger>
+                  </TreeNode>
+                ))}
+              </TreeNodeContent>
+            </TreeNode>
 
-        <NavSectionHeader>Build</NavSectionHeader>
-        <NavButtonLink href="/export" icon={<Wand2 className="h-4 w-4" />}>
-          Agent prompt
-        </NavButtonLink>
-        <NavButtonDisabled icon={<FileCode className="h-4 w-4" />}>
-          Promoted (coming soon)
-        </NavButtonDisabled>
-        <NavButtonDisabled icon={<Bookmark className="h-4 w-4" />}>
-          Bookmarks (coming soon)
-        </NavButtonDisabled>
+            {/* Build group */}
+            <TreeNode nodeId="build">
+              <TreeNodeTrigger>
+                <TreeExpander hasChildren />
+                <TreeIcon hasChildren />
+                <TreeLabel className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                  Build
+                </TreeLabel>
+              </TreeNodeTrigger>
+              <TreeNodeContent hasChildren>
+                <TreeNode nodeId="build-prompt" level={1}>
+                  <TreeNodeTrigger>
+                    <TreeExpander />
+                    <TreeIcon icon={<Wand2 className="h-4 w-4" />} />
+                    <Link href="/export" className="flex-1 truncate text-sm">
+                      Agent prompt
+                    </Link>
+                  </TreeNodeTrigger>
+                </TreeNode>
+                <TreeNode nodeId="build-promoted" level={1}>
+                  <TreeNodeTrigger className="cursor-not-allowed opacity-50">
+                    <TreeExpander />
+                    <TreeIcon icon={<FileCode className="h-4 w-4" />} />
+                    <TreeLabel>Promoted (soon)</TreeLabel>
+                  </TreeNodeTrigger>
+                </TreeNode>
+                <TreeNode nodeId="build-bookmarks" level={1} isLast>
+                  <TreeNodeTrigger className="cursor-not-allowed opacity-50">
+                    <TreeExpander />
+                    <TreeIcon icon={<Bookmark className="h-4 w-4" />} />
+                    <TreeLabel>Bookmarks (soon)</TreeLabel>
+                  </TreeNodeTrigger>
+                </TreeNode>
+              </TreeNodeContent>
+            </TreeNode>
+          </TreeView>
+        </TreeProvider>
       </nav>
 
       {/* Footer */}
       <div className="border-t border-neutral-800 px-4 py-3 text-[11px] text-neutral-500">
-        Design system v0.1 · <a href="https://github.com/Lordsisodia/siso-design-system" className="text-neutral-400 hover:text-neutral-200" target="_blank" rel="noreferrer">GitHub</a>
+        Design system v0.1 ·{' '}
+        <a
+          href="https://github.com/Lordsisodia/siso-design-system"
+          className="text-neutral-400 hover:text-neutral-200"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
       </div>
     </aside>
-  )
-}
-
-function NavSectionHeader({ children }: { children: React.ReactNode }) {
-  return <div className="mt-5 mb-1 px-3 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{children}</div>
-}
-
-function NavButton({ active, onClick, icon, count, children }: { active?: boolean, onClick?: () => void, icon?: React.ReactNode, count?: number, children: React.ReactNode }) {
-  return (
-    <button
-      onClick={onClick}
-      className={`flex w-full items-center justify-between rounded-md px-3 py-1.5 text-left transition-colors ${active ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-900 hover:text-white'}`}
-    >
-      <span className="flex items-center gap-2">{icon}{children}</span>
-      {count !== undefined && <span className={`text-xs ${active ? 'text-neutral-300' : 'text-neutral-500'}`}>{count}</span>}
-    </button>
-  )
-}
-
-function NavButtonLink({ href, icon, children }: { href: string, icon?: React.ReactNode, children: React.ReactNode }) {
-  return (
-    <Link href={href} className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-neutral-300 transition-colors hover:bg-neutral-900 hover:text-white">
-      {icon}{children}
-    </Link>
-  )
-}
-
-function NavButtonDisabled({ icon, children }: { icon?: React.ReactNode, children: React.ReactNode }) {
-  return (
-    <div className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-neutral-600 cursor-not-allowed">
-      {icon}{children}
-    </div>
   )
 }
