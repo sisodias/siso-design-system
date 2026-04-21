@@ -10,6 +10,14 @@ export async function parseReadme(readmePath: string): Promise<ReadmeData | null
   }
 }
 
+export async function getReadmeContent(readmePath: string): Promise<string | null> {
+  try {
+    return await fs.readFile(readmePath, 'utf-8')
+  } catch {
+    return null
+  }
+}
+
 function parseReadmeContent(content: string): ReadmeData {
   const lines = content.split('\n')
   let heading = ''

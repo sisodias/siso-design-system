@@ -1,13 +1,11 @@
 import { getComponent, getComponentFiles } from '@/lib/walk'
-import { parseReadme } from '@/lib/readme'
+import { getReadmeContent } from '@/lib/readme'
 import SourceBadge from '@/components/SourceBadge'
 import CopyPathButton from '@/components/CopyPathButton'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import fs from 'fs/promises'
-import path from 'path'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,7 +21,7 @@ export default async function ComponentPage({ params }: PageProps) {
   const component = await getComponent(decodedSource, decodedName)
   if (!component) notFound()
 
-  const readme = await parseReadme(component.readmePath)
+  const readme = await getReadmeContent(component.readmePath)
   const files = await getComponentFiles(component.folderPath)
 
   return (
@@ -49,28 +47,24 @@ export default async function ComponentPage({ params }: PageProps) {
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-8">
-        {readme && (
-          <section className="mb-8 rounded-lg border border-neutral-800 bg-neutral-900/50 p-6">
-            <h2 className="mb-4 text-lg font-medium">Description</h2>
-            <div className="prose prose-invert prose-sm max-w-none">
-              {readme.heading && <h3 className="text-xl font-semibold">{readme.heading}</h3>}
-              {readme.description && <p className="mt-2 text-neutral-300">{readme.description}</p>}
-              {readme.tags.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {readme.tags.map(tag => (
-                    <span key={tag} className="rounded-full bg-neutral-800 px-2 py-0.5 text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </section>
-        )}
+        <section className="mb-8">
+          <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-neutral-400">README</h2>
+          {readme ? (
+            <article className="prose prose-invert prose-neutral max-w-none rounded-lg border border-neutral-800 bg-neutral-900/50 p-6">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {readme}
+              </ReactMarkdown>
+            </article>
+          ) : (
+            <p className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-6 text-neutral-500">
+              No README available.
+            </p>
+          )}
+        </section>
 
         {files.length > 0 && (
           <section className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-6">
-            <h2 className="mb-4 text-lg font-medium">Files</h2>
+            <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-neutral-400">Files</h2>
             <ul className="space-y-1">
               {files.map(file => (
                 <li key={file} className="flex items-center gap-2 text-sm text-neutral-400">

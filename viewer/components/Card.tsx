@@ -1,5 +1,6 @@
 import { ComponentEntry } from '@/lib/types'
 import SourceBadge from './SourceBadge'
+import CartToggleButton from './CartToggleButton'
 import Link from 'next/link'
 
 interface CardProps {
@@ -8,12 +9,24 @@ interface CardProps {
 
 export default function Card({ component }: CardProps) {
   const href = `/component/${encodeURIComponent(component.source)}/${encodeURIComponent(component.name)}`
+  const cartItem = {
+    source: component.source,
+    name: component.name,
+    displayName: component.displayName,
+    relativePath: component.relativePath,
+    description: component.description,
+  }
 
   return (
     <Link
       href={href}
-      className="group block rounded-lg border border-neutral-800 bg-neutral-900/50 p-4 transition-all hover:-translate-y-0.5 hover:border-neutral-700 hover:bg-neutral-900"
+      className="group relative block rounded-lg border border-neutral-800 bg-neutral-900/50 p-4 transition-all hover:-translate-y-0.5 hover:border-neutral-700 hover:bg-neutral-900"
     >
+      {/* Cart toggle top-right */}
+      <div className="absolute top-3 right-3" onClick={e => e.preventDefault()}>
+        <CartToggleButton item={cartItem} />
+      </div>
+
       <div className="mb-2 flex items-center gap-2">
         <SourceBadge source={component.source} />
         <span className="rounded-full border border-neutral-700 px-2 py-0.5 text-xs text-neutral-400">
