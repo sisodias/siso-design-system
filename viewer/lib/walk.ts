@@ -41,7 +41,7 @@ export async function getAllComponents(): Promise<ComponentEntry[]> {
           try {
             const folderEntries = await fs.readdir(folderPath)
             files = folderEntries.filter(f =>
-              f.endsWith('.tsx') || f.endsWith('.ts') || f.endsWith('.css')
+              /\.(tsx?|jsx?|css|json|md|mdx|scss)$/.test(f)
             )
           } catch {
             // Ignore
@@ -78,7 +78,7 @@ export async function getComponentFiles(folderPath: string): Promise<string[]> {
   try {
     const entries = await fs.readdir(folderPath)
     return entries.filter(f =>
-      f.endsWith('.tsx') || f.endsWith('.ts') || f.endsWith('.css')
+      /\.(tsx?|jsx?|css|json|md|mdx|scss)$/.test(f)
     ).sort()
   } catch {
     return []

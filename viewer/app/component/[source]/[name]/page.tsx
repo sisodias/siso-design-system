@@ -1,11 +1,14 @@
 import { getComponent, getComponentFiles } from '@/lib/walk'
 import { getReadmeContent } from '@/lib/readme'
+import { readAllComponentFiles } from '@/lib/files'
 import SourceBadge from '@/components/SourceBadge'
 import CopyPathButton from '@/components/CopyPathButton'
+import CodeBlock from '@/components/CodeBlock'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { codeToHtml } from 'shiki'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,6 +26,21 @@ export default async function ComponentPage({ params }: PageProps) {
 
   const readme = await getReadmeContent(component.readmePath)
   const files = await getComponentFiles(component.folderPath)
+
+  // Read file contents and render syntax-highlighted HTML
+  const fileData = await readAllComponentFiles(component.folderPath, files)
+
+  const fileBlocks = await Promise.all(
+    fileData.map(async (f) => {
+      const html = await codeToHtml(f.content, {
+        lang: f.language,
+        theme: 'github-dark',
+      })
+      return { name: f.name, content: f.content, html }
+    })
+  )
+
+  const autoOpen = fileBlocks.length <= 5
 
   return (
     <div className="min-h-screen">
@@ -47,6 +65,27 @@ export default async function ComponentPage({ params }: PageProps) {
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-8">
+        {/* Code files section FIRST — priority for Shaan */}
+        {fileBlocks.length > 0 && (
+          <section className="mb-8">
+            <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-neutral-400">
+              Files ({fileBlocks.length})
+            </h2>
+            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
+              {fileBlocks.map((block, i) => (
+                <CodeBlock
+                  key={block.name}
+                  filename={block.name}
+                  content={block.content}
+                  html={block.html}
+                  defaultOpen={autoOpen && i === 0}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* README section — below code */}
         <section className="mb-8">
           <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-neutral-400">README</h2>
           {readme ? (
@@ -61,20 +100,6 @@ export default async function ComponentPage({ params }: PageProps) {
             </p>
           )}
         </section>
-
-        {files.length > 0 && (
-          <section className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-6">
-            <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-neutral-400">Files</h2>
-            <ul className="space-y-1">
-              {files.map(file => (
-                <li key={file} className="flex items-center gap-2 text-sm text-neutral-400">
-                  <span className="text-neutral-600">├</span>
-                  {file}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
       </main>
     </div>
   )
