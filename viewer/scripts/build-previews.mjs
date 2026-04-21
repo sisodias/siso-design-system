@@ -151,7 +151,13 @@ async function main() {
     }
 
     built++
-    builtSlugs.push(slug)
+
+    // Only add to manifest if the folder has a demo.tsx — otherwise it's a pure primitive
+    // (e.g. shared shadcn button/card/avatar) that can't be rendered standalone.
+    const dstFiles = await fs.readdir(dstDir)
+    if (dstFiles.includes('demo.tsx') || dstFiles.includes('demo.ts')) {
+      builtSlugs.push(slug)
+    }
   }
 
   // Emit manifest so LivePreview knows which slugs are renderable
