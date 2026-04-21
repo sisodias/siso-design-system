@@ -70,6 +70,7 @@ async function main() {
 
   let built = 0
   let skipped = 0
+  const builtSlugs = []
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue
@@ -150,7 +151,12 @@ async function main() {
     }
 
     built++
+    builtSlugs.push(slug)
   }
+
+  // Emit manifest so LivePreview knows which slugs are renderable
+  const manifestPath = path.join(DST_ROOT, '_utils', 'available.json')
+  await fs.writeFile(manifestPath, JSON.stringify({ slugs: builtSlugs.sort() }, null, 2))
 
   console.log(`[build-previews] Built: ${built}, Skipped: ${skipped}`)
 }

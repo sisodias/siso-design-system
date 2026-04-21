@@ -1,0 +1,32 @@
+{
+  "slugs": [
+    "animated-card",
+    "animated-card-chart",
+    "animated-card-diagram",
+    "anomaly-heatmap",
+    "avatar",
+    "award",
+    "badge",
+    "button",
+    "card",
+    "countdown-number",
+    "donut-chart",
+    "dropdown-menu",
+    "futuristic-file-uploader",
+    "gradient-selector-card",
+    "messaging-conversation",
+    "notification",
+    "orbiting-skills",
+    "pixel-grid",
+    "prediction-market-card",
+    "screen-time-card",
+    "scroll-area",
+    "separator",
+    "siri-orb",
+    "sleep-tracker-card",
+    "statistics-card",
+    "stats-card-2",
+    "to-do-card",
+    "ui"
+  ]
+}

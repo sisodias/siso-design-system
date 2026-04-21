@@ -3,6 +3,9 @@
 import dynamic from 'next/dynamic'
 import { useMemo, Suspense, type ComponentType } from 'react'
 import ErrorBoundary from './ErrorBoundary'
+import available from '../app/_previews/_utils/available.json'
+
+const AVAILABLE_SLUGS = new Set<string>(available.slugs)
 
 interface Props {
   source: string
@@ -16,8 +19,9 @@ interface Props {
 }
 
 export default function LivePreview({ source, slug, scale = 1, height = 300, inert = false }: Props) {
-  // Only 21st.dev components have live previews right now.
-  if (source !== '21st.dev') {
+  // Only 21st.dev components have live previews right now,
+  // and only if build-previews successfully copied the slug.
+  if (source !== '21st.dev' || !AVAILABLE_SLUGS.has(slug)) {
     return (
       <div
         style={{ height }}
@@ -25,7 +29,11 @@ export default function LivePreview({ source, slug, scale = 1, height = 300, ine
       >
         <div>
           <div className="mb-1">No live preview</div>
-          <div className="text-[10px] opacity-60">Source app component — broken imports preserved as reference</div>
+          <div className="text-[10px] opacity-60">
+            {source !== '21st.dev'
+              ? 'Source app component — broken imports preserved as reference'
+              : 'Preview skipped — heavy deps or build errors, see code below'}
+          </div>
         </div>
       </div>
     )
