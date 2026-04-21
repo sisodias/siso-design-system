@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "example-component",
+  "type": "registry:ui",
+  "title": "Example Component",
+  "description": "A reference component folder showing every required and optional file. Copy this structure when adding new components.",
+  "source": "siso-primitives",
+  "platform": "Mixed",
+  "tags": ["reference", "example", "template"],
+
+  "files": [
+    { "path": "example-component.tsx", "type": "registry:ui" },
+    { "path": "demo.tsx", "type": "registry:example" }
+  ],
+
+  "dependencies": [
+    "lucide-react"
+  ],
+
+  "registryDependencies": [],
+
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  }
+}

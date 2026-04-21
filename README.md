@@ -46,14 +46,20 @@ The `_external/21st-dev/` bank is platform-agnostic (mix of desktop + mobile + r
 
 ## Related docs
 
+**Start here:**
+- [ARCHITECTURE.md](./ARCHITECTURE.md) — how we store, describe, and render components (the 3 building principles + iframe preview contract)
+- [CONTRIBUTING.md](./CONTRIBUTING.md) — quick reference for adding a component
+- [docs/examples/example-component/](./docs/examples/example-component/) — copy-pasteable reference folder
+
+**Reference:**
 - [KEEPERS.md](./KEEPERS.md) — running log of greenlit harvests
 - [PROVENANCE.md](./PROVENANCE.md) — every component → source mapping
+- [CATALOG.md](./CATALOG.md) — usage-first index: "I'm building X, which components?"
 - [ADAPTERS.md](./ADAPTERS.md) — adapter contract spec + wiring recipes
+
+**Legacy (being migrated per ARCHITECTURE.md):**
 - [_raw/README.md](./_raw/README.md) — raw bank rules
 - [_external/README.md](./_external/README.md) — 3rd-party bank rules
-- [primitives/README.md](./primitives/README.md) — tier 1 rules
-- [composites/README.md](./composites/README.md) — tier 2 rules
-- [systems/README.md](./systems/README.md) — tier 3 rules
 
 ## Philosophy
 
