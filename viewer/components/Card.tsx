@@ -1,15 +1,13 @@
 import { ComponentEntry } from '@/lib/types'
-import SourceBadge from './SourceBadge'
+import Link from 'next/link'
 import CartToggleButton from './CartToggleButton'
 import LivePreview from './LivePreview'
-import Link from 'next/link'
+import SourceBadge from './SourceBadge'
 
-interface CardProps {
-  component: ComponentEntry
-}
+interface Props { component: ComponentEntry }
 
-export default function Card({ component }: CardProps) {
-  const href = `/component/${encodeURIComponent(component.source)}/${encodeURIComponent(component.name)}`
+export default function Card({ component }: Props) {
+  const href = `/?preview=${encodeURIComponent(component.source)}/${encodeURIComponent(component.name)}`
   const cartItem = {
     source: component.source,
     name: component.name,
@@ -19,46 +17,39 @@ export default function Card({ component }: CardProps) {
   }
 
   return (
-    <Link
-      href={href}
-      className="group relative block rounded-lg border border-neutral-800 bg-neutral-900/50 overflow-hidden transition-all hover:-translate-y-0.5 hover:border-neutral-700 hover:bg-neutral-900"
-    >
-      {/* Live preview thumbnail */}
-      <LivePreview source={component.source} slug={component.name} scale={0.4} height={200} inert={true} />
+    <div className="group relative">
+      <Link href={href} scroll={false} className="block">
+        <div className="relative overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 transition-all duration-200 group-hover:border-neutral-700 group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
+          {/* Preview */}
+          <div className="aspect-[4/3] w-full bg-neutral-950">
+            <LivePreview
+              source={component.source}
+              slug={component.name}
+              mode="natural-centered"
+              height={undefined}
+              inert={true}
+            />
+          </div>
 
-      {/* Cart toggle top-right — sits over the preview */}
-      <div className="absolute top-2 right-2 z-10" onClick={e => e.preventDefault()}>
+          {/* Hover title overlay */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
+                <div className="truncate text-sm font-medium text-white">{component.displayName}</div>
+                <div className="mt-0.5 flex items-center gap-2 text-[10px] text-neutral-400">
+                  <SourceBadge source={component.source} />
+                  <span>{component.platform}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Link>
+
+      {/* Select button — top-right, visible always */}
+      <div className="pointer-events-auto absolute right-2 top-2 z-10">
         <CartToggleButton item={cartItem} />
       </div>
-
-      <div className="p-4">
-        <div className="mb-2 flex items-center gap-2">
-          <SourceBadge source={component.source} />
-          <span className="rounded-full border border-neutral-700 px-2 py-0.5 text-xs text-neutral-400">
-            {component.platform}
-          </span>
-        </div>
-
-        <h3 className="mb-2 text-lg font-medium group-hover:text-white">{component.displayName}</h3>
-
-        <p className="mb-3 text-sm text-neutral-400 line-clamp-2">
-          {component.description}
-        </p>
-
-        {component.tags.length > 0 && (
-          <div className="mb-3 flex flex-wrap gap-1">
-            {component.tags.slice(0, 3).map(tag => (
-              <span key={tag} className="rounded bg-neutral-800 px-1.5 py-0.5 text-xs text-neutral-400">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <span className="text-sm text-neutral-500 group-hover:text-neutral-300">
-          View →
-        </span>
-      </div>
-    </Link>
+    </div>
   )
 }
