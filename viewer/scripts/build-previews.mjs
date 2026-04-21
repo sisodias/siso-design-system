@@ -89,10 +89,15 @@ async function main() {
     const files = await fs.readdir(srcDir)
 
     for (const f of files) {
-      if (!f.endsWith('.tsx') && !f.endsWith('.ts')) continue
       const srcPath = path.join(srcDir, f)
       const stat = await fs.stat(srcPath)
       if (!stat.isFile()) continue
+
+      // Copy non-TS/TSX files verbatim (README, JSON, etc.)
+      if (!f.endsWith('.tsx') && !f.endsWith('.ts')) {
+        await fs.copyFile(srcPath, path.join(dstDir, f))
+        continue
+      }
 
       let content = await fs.readFile(srcPath, 'utf-8')
 

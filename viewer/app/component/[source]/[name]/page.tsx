@@ -66,10 +66,23 @@ export default async function ComponentPage({ params }: PageProps) {
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-8">
-        {/* Live preview — full width, interactive */}
+        {/* Live preview — full width, natural-centered */}
         <section className="mb-8">
           <h2 className="mb-3 text-sm font-medium uppercase tracking-wider text-neutral-400">Live Preview</h2>
-          <LivePreview source={component.source} slug={component.name} scale={1} height={500} />
+          <div
+            className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-neutral-800 bg-neutral-950 isolate"
+            style={{
+              contain: 'strict',
+              ['--preview-scale' as string]: '1',
+            }}
+          >
+            <LivePreview
+              source={component.source}
+              slug={component.name}
+              mode="natural-centered"
+              inert={false}
+            />
+          </div>
         </section>
 
         {/* Code files section FIRST — priority for Shaan */}

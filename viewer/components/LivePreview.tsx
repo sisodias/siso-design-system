@@ -98,6 +98,10 @@ export default function LivePreview({ source, slug, mode = 'scaled', scale = 1, 
   }, [slug])
 
   if (isNatural) {
+    // Strategy: render demo inside a fixed-size viewport (600x450 = 4:3),
+    // then use CSS zoom to scale the whole viewport down to fit the card.
+    // Demos written against "h-screen" / full-viewport layouts will fill
+    // the 450px inner frame instead of the actual browser viewport.
     return (
       <ErrorBoundary
         fallback={
@@ -107,12 +111,22 @@ export default function LivePreview({ source, slug, mode = 'scaled', scale = 1, 
         }
       >
         <div
-          className="flex h-full w-full items-center justify-center overflow-hidden"
+          className="relative h-full w-full overflow-hidden bg-neutral-950"
           style={{ pointerEvents: inert ? 'none' : 'auto' }}
         >
-          <Suspense fallback={null}>
-            <Demo />
-          </Suspense>
+          <div
+            className="absolute left-1/2 top-1/2 flex items-center justify-center"
+            style={{
+              width: 600,
+              height: 450,
+              transform: 'translate(-50%, -50%) scale(var(--preview-scale, 0.5))',
+              transformOrigin: 'center center',
+            }}
+          >
+            <Suspense fallback={null}>
+              <Demo />
+            </Suspense>
+          </div>
         </div>
       </ErrorBoundary>
     )
