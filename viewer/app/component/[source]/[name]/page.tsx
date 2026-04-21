@@ -4,6 +4,7 @@ import { readAllComponentFiles } from '@/lib/files'
 import SourceBadge from '@/components/SourceBadge'
 import CopyPathButton from '@/components/CopyPathButton'
 import CodeBlock from '@/components/CodeBlock'
+import LivePreview from '@/components/LivePreview'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
@@ -65,6 +66,12 @@ export default async function ComponentPage({ params }: PageProps) {
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-8">
+        {/* Live preview — full width, interactive */}
+        <section className="mb-8">
+          <h2 className="mb-3 text-sm font-medium uppercase tracking-wider text-neutral-400">Live Preview</h2>
+          <LivePreview source={component.source} slug={component.name} scale={1} height={500} />
+        </section>
+
         {/* Code files section FIRST — priority for Shaan */}
         {fileBlocks.length > 0 && (
           <section className="mb-8">
