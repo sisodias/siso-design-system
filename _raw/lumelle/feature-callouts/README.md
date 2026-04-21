@@ -1,5 +1,7 @@
 # FeatureCallouts
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 **Source:** `luminelle-partnership / src/domains/client/shop/products/ui/sections/feature-callouts/FeatureCallouts.tsx`
 
 One of Shaan's favorite components — a dual-variant content-block section used TWICE on the PDP with different props.

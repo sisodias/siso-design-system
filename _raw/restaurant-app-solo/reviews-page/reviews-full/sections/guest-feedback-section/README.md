@@ -1,5 +1,7 @@
 # Guest Feedback Section
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 This section powers the `/reviews` experience. It bundles the stats header, filter sidebar, review grid, modal workflow, and floating CTA so variants can swap layouts without touching the page contract.
 
 - `index.tsx` / `registry.ts` – renderer helpers + `createSectionRegistry` wiring

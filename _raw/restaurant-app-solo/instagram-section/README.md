@@ -1,6 +1,8 @@
 # Instagram Section
 
-**Source:** `restaurant-app-solo` / `src/domains/customer-facing/landing/sections/instagram-section/`
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
+**Source:**** `restaurant-app-solo` / `src/domains/customer-facing/landing/sections/instagram-section/`
 
 **What it is:** "Follow us on Instagram" landing section. Structure: centered Instagram handle pill ("@yourrestaurant" with IG icon), Playfair bold heading "Follow us on Instagram" with pink-purple underline accent, supporting tagline ("Follow us for exclusive offers & 10% off your first order!"), 2x2 grid of circular-cornered food photos (chicken, pancakes, pizza, cake), bottom gradient pink-to-purple pill CTA "Follow for 10% Off →".
 

@@ -2,6 +2,8 @@
 
 Third-party component saves, NOT harvested from SISO-built apps. Already plug-and-play.
 
+**Platform: Mixed.** 21st.dev components come from varied sources — some are desktop-only dashboards, some are mobile-first cards. Check each component's `demo.tsx` or `catalog.json` entry for the intended breakpoint context.
+
 ---
 
 ## Structure

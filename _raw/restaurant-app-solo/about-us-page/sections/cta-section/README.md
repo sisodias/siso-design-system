@@ -1,5 +1,7 @@
 # CTA Section Architecture
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 Follows the shared section playbook (`docs/domains/section-architecture.md`). Use this section to capture dine-in, delivery, or contact CTAs.
 
 - `index.tsx` – public API (`CtaRenderer`, `renderCta`, typed helpers).

@@ -1,5 +1,7 @@
 # Email Capture Card
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 **Source:** luminelle-partnership / src/domains/client/marketing/ui/sections/shop/email-capture-band/EmailCaptureBand.tsx
 
 ## What it is

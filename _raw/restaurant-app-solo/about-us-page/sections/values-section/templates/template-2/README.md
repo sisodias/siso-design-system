@@ -1,5 +1,7 @@
 # Values Template · Template 2
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 - **Best for**: Story-driven overviews where one value deserves the spotlight.
 - **Layout**: Left-column spotlight card with gradient background, right-column list of remaining principles, optional description card.
 - **Content fields**: `pillText`, `title`, `subtitle`, `description`, `values[]`.

@@ -1,5 +1,7 @@
 # Awards Template · Guest Spotlight
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 - **Best for**: sections where a single strong testimonial needs to shine (landing hero, loyalty upsell).
 - **Layout**: centered card with star rating, quote, and attribution; minimal footprint.
 - **Content fields**: `title`, `subtitle`, first entry in `testimonials` (`rating`, `text`, `name`, `date`).

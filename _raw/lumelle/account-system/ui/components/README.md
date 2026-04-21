@@ -1,4 +1,5 @@
-/account#/account /accounta/accountc/accountc/accounto/accountu/accountn/accountt/account//accountu/accounti/account//accountc/accounto/accountm/accountp/accounto/accountn/accounte/accountn/accountt/accounts/account
-/account/account
-/account/accountA/accountc/accountc/accounto/accountu/accountn/accountt/account-/accounts/accountp/accounte/accountc/accounti/accountf/accounti/accountc/account /accountp/accountr/accounte/accounts/accounte/accountn/accountt/accounta/accountt/accounti/accounto/accountn/accounta/accountl/account /accountp/accounti/accounte/accountc/accounte/accounts/account /account(/accounte/account./accountg/account./account,/account /accounta/accountd/accountd/accountr/accounte/accounts/accounts/account /accountc/accounta/accountr/accountd/accounts/account,/account /accountp/accounta/accounty/accountm/accounte/accountn/accountt/account /accountm/accounte/accountt/accounth/accounto/accountd/account /accountt/accounti/accountl/accounte/accounts/account)/account./account /accountE/accountx/accountp/accounto/accountr/accountt/account /accountv/accounti/accounta/account /account`/account@/accounta/accountc/accountc/accounto/accountu/accountn/accountt/account//accountu/accounti/account//accountc/accounto/accountm/accountp/accounto/accountn/accounte/accountn/accountt/accounts/account//account*/account`/account./account
-/account
+# account/ui/components
+
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
+Atomic and molecule-level components used within account UI sections.

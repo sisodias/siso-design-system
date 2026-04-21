@@ -1,5 +1,7 @@
 # Story Section Architecture
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 Built with the shared section playbook (`docs/domains/section-architecture.md`). This section narrates the brand journey with reusable milestone data.
 
 - `index.tsx` – public API (`StoryRenderer`, `renderStory`, typed helpers).

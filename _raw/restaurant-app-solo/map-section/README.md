@@ -1,6 +1,8 @@
 # Map Section — Our Location
 
-**Source:** `restaurant-app-solo / src/domains/customer-facing/landing/sections/map-section/`
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
+**Source:**** `restaurant-app-solo / src/domains/customer-facing/landing/sections/map-section/`
 
 **What it is:** "Our Location" landing section. Structure: small "VISIT US" pill eyebrow with pulsing dot, bold Playfair heading "Our Location" with pink-orange gradient underline, "Open until 11:00 PM" subtitle, then rounded-corner Google Maps embed with a floating "Open in Maps →" pill button overlaid top-left. Neighborhood labels and street names visible on the map.
 

@@ -1,5 +1,7 @@
 # MenuCategories Section Architecture
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 Scaffolded with `pnpm scaffold:section menu menu-categories`. Update the generated files to match the section's data contract and UI.
 
 - `index.tsx` – public API (renderer, helpers, types).

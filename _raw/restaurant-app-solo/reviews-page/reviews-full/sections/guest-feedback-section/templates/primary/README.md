@@ -1,5 +1,7 @@
 # Guest Feedback · Primary Variant
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 - **Best for**: Standalone reviews pages that require rating stats, tag filters, and a write-review workflow.
 - **Layout**: Two-column desktop layout (sticky filter sidebar + responsive grid), collapsible filters on mobile, gradient review cards with photo lightbox.
 - **Content fields**: See `types/schema.ts` (`GuestFeedbackContent`). Provide stats, rating breakdown, review array, featured tags, and viewer state.

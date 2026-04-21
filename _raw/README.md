@@ -2,6 +2,8 @@
 
 **Mode: Museum. Read-only. Do not edit.**
 
+**Platform: Mobile-only.** All harvested components in this directory were browsed and curated on a mobile viewport. Assume mobile-first Tailwind classes unless a component's own README says otherwise.
+
 ---
 
 ## Purpose

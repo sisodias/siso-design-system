@@ -1,5 +1,7 @@
 # Lumelle Menu/Cart Drawer System
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 Preserved as-is from luminelle-partnership (private conductor workspace) for design reference.
 
 ## Source App

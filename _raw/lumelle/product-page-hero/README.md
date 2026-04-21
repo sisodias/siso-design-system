@@ -1,5 +1,7 @@
 # Lumelle Product Detail Page — Hero Section
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 **Source:** `luminelle-partnership / shop/products/ui/pages/ProductPage/` + supporting sections
 
 **What this is:** Complete mobile PDP hero section — everything from the top announcement pill down through the purchase buttons. Shaan specifically flagged: "I love the top hero section all the way up to the Buy Now." Preserved as-is for reference.

@@ -1,5 +1,7 @@
 # Team Section Architecture
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 Follows the shared section playbook (`docs/domains/section-architecture.md`). This section introduces the people behind the restaurant.
 
 - `index.tsx` – public API (`TeamRenderer`, `renderTeam`, typed helpers).

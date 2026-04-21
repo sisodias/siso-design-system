@@ -1,6 +1,8 @@
 # promo-section
 
-**Source:** restaurant-app-solo / src/domains/customer-facing/landing/sections/promo-section/
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
+**Source:**** restaurant-app-solo / src/domains/customer-facing/landing/sections/promo-section/
 
 **What it is:** Promotional section with a signature "LIMITED TIME" pulsing dot pill — a rounded dark pill containing a red pulsing dot and uppercase tracked text. This is the "flashing orb" pill. The pill sits atop a promo hero split (image + copy) followed by a horizontal-scrolling promotion card carousel.
 

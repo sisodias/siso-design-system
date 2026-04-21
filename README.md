@@ -38,6 +38,12 @@ A component can exist in both layers simultaneously — raw copy stays in `_raw/
 - **Restructure shipped:** tier folders live, adapter contracts live, provenance mapped
 - **Nothing promoted yet** — everything is still in `_raw/` or `_external/`. Promotion starts next session.
 
+## Platform scope
+
+**All components in `_raw/` are mobile-first.** Every harvested keeper was browsed and greenlit on a mobile viewport. If you drop these into a desktop-first app they will look wrong at larger breakpoints — either scope them to mobile routes or redesign desktop variants as explicit additions.
+
+The `_external/21st-dev/` bank is platform-agnostic (mix of desktop + mobile + responsive components — see each component's original context).
+
 ## Related docs
 
 - [KEEPERS.md](./KEEPERS.md) — running log of greenlit harvests

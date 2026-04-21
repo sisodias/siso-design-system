@@ -1,5 +1,7 @@
 # Hero Template · Split Feature
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 - **Best for**: showcasing a hero dish or chef portrait beside narrative copy.
 - **Layout**: responsive two-column grid (text left, image right on desktop, stacked on mobile).
 - **Content fields used**: `title`, `subtitle`, `imageUrl`.

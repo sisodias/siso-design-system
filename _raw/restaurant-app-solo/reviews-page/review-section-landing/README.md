@@ -1,5 +1,7 @@
 # Review Section Architecture
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 The review section now follows the shared scaffold (`docs/domains/section-architecture.md`). All legacy `review-templates` variants were migrated into `review-section/` so registry, schema, mocks, Storybook, and tests are consistent.
 
 - `index.tsx` – public renderer + helper utilities

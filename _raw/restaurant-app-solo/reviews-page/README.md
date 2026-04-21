@@ -1,6 +1,8 @@
 # restaurant-app-solo / reviews-page
 
-**Source:** restaurant-app-solo / `src/domains/customer-facing/reviews/` + `src/domains/customer-facing/landing/sections/review-section/`
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
+**Source:**** restaurant-app-solo / `src/domains/customer-facing/reviews/` + `src/domains/customer-facing/landing/sections/review-section/`
 
 **What it is:** Full reviews page (grid view, individual review cards, add-review modal) + a landing page reviews teaser section with 10 distinct visual variants.
 

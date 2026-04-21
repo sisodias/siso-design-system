@@ -1,5 +1,7 @@
 # restaurant-app-solo / menu-page
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 **Source:** `restaurant-app-solo / src/domains/customer-facing/menu/`
 
 **What it is:** The full customer-facing menu experience. Shaan's quote: "the menu cards on the menu page are quite good."

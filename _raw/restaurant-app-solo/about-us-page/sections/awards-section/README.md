@@ -1,5 +1,7 @@
 # Awards Section Architecture
 
+**Platform:** Mobile — all SISO-harvested components are mobile-first. Desktop layouts (if any) are secondary variants inside the same file. Use on mobile surfaces only unless explicitly redesigned.
+
 Derives from the shared section playbook (`docs/domains/section-architecture.md`). This section surfaces review scores, testimonials, and award badges to build social proof.
 
 - `index.tsx` – public API (`AwardsRenderer`, `renderAwards`, typed helpers).
