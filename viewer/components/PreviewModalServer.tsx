@@ -1,4 +1,4 @@
-import { getAllComponents } from '@/lib/walk'
+import { getAllComponents } from '@/lib/registry'
 import PreviewModal from './PreviewModal'
 import { Suspense } from 'react'
 

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-system",
+  "type": "registry:block",
+  "title": "Lumelle Blog System",
+  "description": "Complete blog block system for Lumelle e-commerce. Full vertical slice from data fetch to rendered UI including content data, hooks, business logic, pages, and Supabase-backed React Query application layer.",
+  "source": "lumelle",
+  "platform": "Mobile",
+  "tags": ["blog", "e-commerce", "mobile", "supabase", "react-query", "content"],
+  "files": [
+    { "path": "application/index.ts", "type": "registry:ui" },
+    { "path": "application/useBlogCategories.ts", "type": "registry:ui" },
+    { "path": "application/useBlogPost.ts", "type": "registry:ui" },
+    { "path": "application/useBlogPosts.ts", "type": "registry:ui" },
+    { "path": "data/blog.ts", "type": "registry:ui" },
+    { "path": "infrastructure/supabase.ts", "type": "registry:ui" },
+    { "path": "presentation/components/BlogSocial.tsx", "type": "registry:ui" },
+    { "path": "presentation/components/NewsletterSignup.tsx", "type": "registry:ui" },
+    { "path": "presentation/components/ReadingProgress.tsx", "type": "registry:ui" },
+    { "path": "presentation/layouts/BlogLayout.tsx", "type": "registry:ui" },
+    { "path": "presentation/layouts/index.ts", "type": "registry:ui" },
+    { "path": "presentation/pages/BlogIndexPage.tsx", "type": "registry:ui" },
+    { "path": "presentation/pages/BlogPostPage.tsx", "type": "registry:ui" },
+    { "path": "index.ts", "type": "registry:ui" },
+    { "path": "README.md", "type": "registry:file" },
+    { "path": "ORIGINAL_README.md", "type": "registry:file" }
+  ],
+  "dependencies": ["@tanstack/react-query", "@supabase/supabase-js", "react-router-dom", "lucide-react", "react-helmet-async", "markdown-to-jsx"],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports app-specific providers (auth, cart, product data) that can't be mocked in isolation. Preserved as code-reference."
+  }
+}

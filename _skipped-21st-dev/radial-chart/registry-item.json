@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radial-chart",
+  "type": "registry:ui",
+  "title": "RadialChart",
+  "description": "Shadcn-style chart system wrapping recharts with Chart provider, tooltips, legends, and CSS custom property theming",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "chart",
+    "radial",
+    "recharts",
+    "tooltip",
+    "legend",
+    "theming"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "radial-chart.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "recharts",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [
+    "card",
+    "radial-chart"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

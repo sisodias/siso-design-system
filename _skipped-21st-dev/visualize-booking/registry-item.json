@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "visualize-booking",
+  "type": "registry:ui",
+  "title": "InteractiveCalendar",
+  "description": "A interactivecalendar component.",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "visualize",
+    "booking",
+    "component"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "visualize-booking.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "visualize-booking"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

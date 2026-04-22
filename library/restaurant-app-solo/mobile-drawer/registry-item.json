@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "restaurant-mobile-drawer",
+  "type": "registry:block",
+  "title": "Draco Full-Screen Mobile Drawer",
+  "description": "Full-screen split-layout mobile drawer: dark left nav panel with logo, tagline, animated nav list with icons and badge pills, and Sign In/Out; right half shows full-bleed food photography. Includes a MobileDrawer variant (classic 280px side-drawer without image panel) and DrawerHeader/Footer/NavSection as reusable sub-components.",
+  "source": "restaurant-app-solo",
+  "platform": "Mobile",
+  "tags": ["nav", "drawer", "mobile", "restaurant", "full-screen", "split-layout"],
+  "files": [
+    { "path": "primary/FullScreenDrawer.tsx", "type": "registry:ui" },
+    { "path": "primary/MobileDrawer.tsx", "type": "registry:ui" },
+    { "path": "primary/DrawerHeader.tsx", "type": "registry:ui" },
+    { "path": "primary/DrawerNavSection.tsx", "type": "registry:ui" },
+    { "path": "primary/DrawerFooter.tsx", "type": "registry:ui" },
+    { "path": "primary/DrawerPromoBanner.tsx", "type": "registry:ui" },
+    { "path": "primary/DrawerSearch.tsx", "type": "registry:ui" },
+    { "path": "primary/index.ts", "type": "registry:file" },
+    { "path": "index.ts", "type": "registry:file" },
+    { "path": "ORIGINAL_README.md", "type": "registry:file" },
+    { "path": "CHANGELOG.md", "type": "registry:file" },
+    { "path": "IMAGE-GUIDE.md", "type": "registry:file" },
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "dependencies": ["lucide-react", "next/image", "@supabase/supabase-js"],
+  "registryDependencies": ["@siso/ui"],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports Next Image with static paths, @/domains/shared/*, @siso/ui/primitives/buttons, and @supabase/supabase-js User type. Requires Supabase auth and restaurant-app-solo tenant assets. Preserved as code-reference."
+  }
+}

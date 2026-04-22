@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sean-dropdown-menu",
+  "type": "registry:ui",
+  "title": "SeanDropdownMenu",
+  "description": "Full-featured dropdown menu with submenu support, checkbox/radio items, shortcuts, separators, and labels",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "dropdown",
+    "menu",
+    "navigation",
+    "submenu",
+    "radix-ui"
+  ],
+  "files": [
+    {
+      "path": "sean-dropdown-menu.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-dropdown-menu",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false
+  }
+}

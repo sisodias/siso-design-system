@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { X, ArrowUpRight, Copy, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ComponentEntry } from '@/lib/types'
-import LivePreview from './LivePreview'
+// LivePreview replaced by iframe — see Content section below
 import SourceBadge from './SourceBadge'
 import Link from 'next/link'
 
@@ -110,8 +110,18 @@ export default function PreviewModal({ components }: Props) {
 
       {/* Content */}
       <div className="relative mx-auto max-h-[80vh] w-[min(90vw,1100px)] overflow-auto rounded-xl border border-neutral-800 bg-neutral-950 p-12 shadow-2xl" onClick={e => e.stopPropagation()}>
-        <div className="flex min-h-[400px] items-center justify-center">
-          <LivePreview source={current.source} slug={current.name} scale={1} height={500} inert={false} />
+        <div className="flex min-h-[500px] items-center justify-center">
+          {current.preview?.renderable !== false ? (
+            <iframe
+              src={`/preview/${encodeURIComponent(current.source)}/${encodeURIComponent(current.name)}`}
+              title={current.displayName}
+              className="h-[500px] w-full border-0"
+            />
+          ) : (
+            <div className="text-center text-sm text-neutral-500">
+              {current.preview?.reason || 'Preview not renderable — open for code'}
+            </div>
+          )}
         </div>
       </div>
     </div>

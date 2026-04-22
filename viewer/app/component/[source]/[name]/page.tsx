@@ -1,10 +1,9 @@
-import { getComponent, getComponentFiles } from '@/lib/walk'
+import { getComponent } from '@/lib/registry'
 import { getReadmeContent } from '@/lib/readme'
 import { readAllComponentFiles } from '@/lib/files'
 import SourceBadge from '@/components/SourceBadge'
 import CopyPathButton from '@/components/CopyPathButton'
 import CodeBlock from '@/components/CodeBlock'
-import LivePreview from '@/components/LivePreview'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
@@ -26,7 +25,7 @@ export default async function ComponentPage({ params }: PageProps) {
   if (!component) notFound()
 
   const readme = await getReadmeContent(component.readmePath)
-  const files = await getComponentFiles(component.folderPath)
+  const files = component.files
 
   // Read file contents and render syntax-highlighted HTML
   const fileData = await readAllComponentFiles(component.folderPath, files)
@@ -76,12 +75,23 @@ export default async function ComponentPage({ params }: PageProps) {
               ['--preview-scale' as string]: '1',
             }}
           >
-            <LivePreview
-              source={component.source}
-              slug={component.name}
-              mode="natural-centered"
-              inert={false}
-            />
+            {component.preview?.renderable !== false ? (
+              <iframe
+                src={`/preview/${encodeURIComponent(component.source)}/${encodeURIComponent(component.name)}`}
+                title={`${component.displayName} preview`}
+                className="h-full w-full border-0"
+                style={{
+                  transform: `scale(var(--preview-scale, 1))`,
+                  transformOrigin: 'top left',
+                  width: 'calc(100% / 1)',
+                  height: 'calc(100% / 1)',
+                }}
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-xs text-neutral-500">
+                Live preview not available
+              </div>
+            )}
           </div>
         </section>
 

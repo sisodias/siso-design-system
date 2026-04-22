@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "freelancer-stats-card",
+  "type": "registry:ui",
+  "title": "FreelancerStatsCard",
+  "description": "Freelancer dashboard card with earnings, ranking, project/client stats, and animated availability bar chart",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "freelancer",
+    "stats",
+    "earnings",
+    "dashboard",
+    "card",
+    "availability",
+    "animated",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "stats-card.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion"
+  ],
+  "registryDependencies": [
+    "stats-card"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bar-chart",
+  "type": "registry:ui",
+  "title": "BarChart (shadcn/charts)",
+  "description": "Shadcn-style chart system wrapping recharts with ChartContainer, ChartTooltip, ChartLegend, CSS variable theming, and dark mode support",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "chart",
+    "recharts",
+    "bar",
+    "dashboard",
+    "analytics",
+    "shadcn",
+    "theming"
+  ],
+  "files": [
+    {
+      "path": "bar-chart.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-select",
+    "class-variance-authority",
+    "framer-motion",
+    "lucide-react",
+    "recharts"
+  ],
+  "registryDependencies": [
+    "badge",
+    "bar-chart"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

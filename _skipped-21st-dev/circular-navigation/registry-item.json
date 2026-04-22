@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circular-navigation",
+  "type": "registry:ui",
+  "title": "CircularNavigation",
+  "description": "Full-screen circular navigation menu with animated open/close transition and radial item layout",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "navigation",
+    "menu",
+    "circular",
+    "overlay",
+    "modal",
+    "animated",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "cicular-navigation-bar.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "next"
+  ],
+  "registryDependencies": [
+    "button",
+    "cicular-navigation-bar"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

@@ -1,4 +1,4 @@
-import { getAllComponents } from '@/lib/walk'
+import { getAllComponents } from '@/lib/registry'
 import ComponentGrid from '@/components/ComponentGrid'
 
 export const dynamic = 'force-dynamic'

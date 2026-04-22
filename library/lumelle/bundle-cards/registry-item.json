@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bundle-cards",
+  "type": "registry:block",
+  "title": "Lumelle BundleCards",
+  "description": "Mobile-first product card section with two cards side-by-side on md+ breakpoints. Each card has a full-bleed image panel, price pill overlay, Playfair serif title, feature badge pills, and dual CTA buttons.",
+  "source": "lumelle",
+  "platform": "Mobile",
+  "tags": ["product", "cards", "e-commerce", "mobile", "shop", "bundle"],
+  "files": [
+    { "path": "BundleCards.tsx", "type": "registry:ui" },
+    { "path": "cdn.ts", "type": "registry:ui" },
+    { "path": "product-config.ts", "type": "registry:ui" },
+    { "path": "SectionHeading.tsx", "type": "registry:ui" },
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "dependencies": ["react-router-dom", "lucide-react"],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports app-specific providers (auth, cart, product data) that can't be mocked in isolation. Preserved as code-reference."
+  }
+}

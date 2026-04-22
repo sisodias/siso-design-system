@@ -1,0 +1,12 @@
+/* Preview route overrides - removes sidebar/chrome from parent layout */
+.preview-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: black;
+}
+
+/* Override parent layout's pl-64 spacing */
+.preview-root ~ * {
+  /* Ensure no additional spacing */
+}

@@ -1,5 +1,5 @@
-export type SourceApp = 'lumelle' | 'restaurant-app-solo' | '21st.dev'
-export type PlatformScope = 'Mobile' | 'Mixed'
+export type SourceApp = 'lumelle' | 'restaurant-app-solo' | '21st-dev'
+export type PlatformScope = 'Mobile' | 'Desktop' | 'Mixed'
 
 export interface ComponentEntry {
   source: SourceApp
@@ -12,6 +12,14 @@ export interface ComponentEntry {
   platform: PlatformScope
   tags: string[]
   files: string[]
+  preview?: {
+    width?: number
+    height?: number
+    background?: string
+    interactive?: boolean
+    renderable?: boolean
+    reason?: string
+  }
 }
 
 export interface ReadmeData {

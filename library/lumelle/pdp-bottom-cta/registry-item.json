@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pdp-bottom-cta",
+  "type": "registry:block",
+  "title": "Lumelle PDP Bottom CTA Components",
+  "description": "Bottom CTA card with eyebrow, serif title switching per product, star rating, peach Add to Cart and blush Buy Now buttons, plus optional chip row. Includes MobileStickyCta scroll-triggered sticky buy bar with smart show/hide visibility logic.",
+  "source": "lumelle",
+  "platform": "Mobile",
+  "tags": ["cta", "pdp", "mobile", "conversion", "sticky", "cart"],
+  "files": [
+    { "path": "MobileStickyCta.tsx", "type": "registry:ui" },
+    { "path": "PdpBottomCta.tsx", "type": "registry:ui" },
+    { "path": "SectionsMap.tsx", "type": "registry:ui" },
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports app-specific providers (auth, cart, product data) that can't be mocked in isolation. Preserved as code-reference."
+  }
+}

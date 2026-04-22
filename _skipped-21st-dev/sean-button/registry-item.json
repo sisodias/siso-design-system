@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sean-button",
+  "type": "registry:ui",
+  "title": "SeanButton",
+  "description": "Feature-rich button with 9 variants, multiple modes (default/icon/link/input), sizes, shapes, and CVA-based styling",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "button",
+    "form",
+    "input",
+    "link",
+    "icon",
+    "variant"
+  ],
+  "files": [
+    {
+      "path": "sean-button.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacked-diverging-bar",
+  "type": "registry:ui",
+  "title": "StackedDivergingBar (Incident Report Card)",
+  "description": "Incident report card with reaviz stacked diverging bar chart, 3 KPI metric rows with inline SVG icons and trend indicators, and dark mode support",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "incident",
+    "chart",
+    "diverging-bar",
+    "reaviz",
+    "dashboard",
+    "metrics",
+    "animation"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "stacked-diverging-bar.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "reaviz"
+  ],
+  "registryDependencies": [
+    "stacked-diverging-bar"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

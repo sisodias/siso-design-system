@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-15",
+  "type": "registry:ui",
+  "title": "Loader15",
+  "description": "Hypnotic circular SVG loader with neon pink-to-orange gradient, blur glow filter, and shadow layer",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "loader",
+    "spinner",
+    "svg",
+    "animation",
+    "loading"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "loader-15.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "styled-components"
+  ],
+  "registryDependencies": [
+    "loader-15"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

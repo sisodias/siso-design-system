@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "agent-plan",
+  "type": "registry:ui",
+  "title": "AgentPlan",
+  "description": "Animated task planner with hierarchical tasks, subtasks, dependency tracking, and MCP tool badges",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "task",
+    "planner",
+    "project-management",
+    "animation",
+    "framer-motion",
+    "hierarchy"
+  ],
+  "files": [
+    {
+      "path": "agent-plan.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "agent-plan"
+  ],
+  "preview": {
+    "renderable": false
+  }
+}

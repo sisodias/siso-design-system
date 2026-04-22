@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "product-page-hero",
+  "type": "registry:block",
+  "title": "Lumelle Product Detail Page Hero Section",
+  "description": "Complete mobile PDP hero section from announcement pill through purchase buttons. Includes image carousel with thumbnail strip, product title with rating row, pull-quote review card, price block with discount badges, quantity stepper, and dual CTA buttons.",
+  "source": "lumelle",
+  "platform": "Mobile",
+  "tags": ["product", "pdp", "mobile", "hero", "e-commerce", "carousel"],
+  "files": [
+    { "path": "constants.ts", "type": "registry:ui" },
+    { "path": "FloatingBuyCta.tsx", "type": "registry:ui" },
+    { "path": "HeroMedia.tsx", "type": "registry:ui" },
+    { "path": "HeroProofStrip.tsx", "type": "registry:ui" },
+    { "path": "index.tsx", "type": "registry:ui" },
+    { "path": "PriceBlock.tsx", "type": "registry:ui" },
+    { "path": "SectionsMap.tsx", "type": "registry:ui" },
+    { "path": "useCountUpAnimation.ts", "type": "registry:ui" },
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "dependencies": ["framer-motion", "lucide-react", "react-router-dom"],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports app-specific providers (auth, cart, product data) that can't be mocked in isolation. Preserved as code-reference."
+  }
+}

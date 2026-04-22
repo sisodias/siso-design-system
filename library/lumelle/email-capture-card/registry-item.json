@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-capture-card",
+  "type": "registry:block",
+  "title": "Email Capture Card",
+  "description": "Full-width peach-gradient section containing a centered white card with a peach circle gift icon, bold mixed-weight headline with emphasized 10% typography, email input, and dark-cocoa CTA button.",
+  "source": "lumelle",
+  "platform": "Mobile",
+  "tags": ["email", "capture", "marketing", "mobile", "newsletter", "cta"],
+  "files": [
+    { "path": "EmailCaptureBand.tsx", "type": "registry:ui" },
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports app-specific providers (auth, cart, product data) that can't be mocked in isolation. Preserved as code-reference."
+  }
+}

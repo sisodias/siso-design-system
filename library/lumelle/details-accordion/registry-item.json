@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "details-accordion",
+  "type": "registry:block",
+  "title": "DetailsAccordion",
+  "description": "Clean accordion section with centered eyebrow pill, Playfair serif title, subtitle, and list of expandable rows. Each row has a tight title with a dropdown indicator that rotates 90deg when open.",
+  "source": "lumelle",
+  "platform": "Mobile",
+  "tags": ["accordion", "product", "mobile", "specs", "specifications"],
+  "files": [
+    { "path": "DetailsAccordion.tsx", "type": "registry:ui" },
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "preview": {
+    "renderable": false,
+    "reason": "Imports app-specific providers (auth, cart, product data) that can't be mocked in isolation. Preserved as code-reference."
+  }
+}

@@ -105,7 +105,7 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
                       <TreeExpander />
                       <TreeIcon
                         icon={
-                          sc.source === '21st.dev' ? (
+                          sc.source === '21st-dev' ? (
                             <Package className="h-4 w-4" />
                           ) : (
                             <Folder className="h-4 w-4" />
