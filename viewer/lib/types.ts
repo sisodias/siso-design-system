@@ -12,6 +12,7 @@ export interface ComponentEntry {
   platform: PlatformScope
   tags: string[]
   files: string[]
+  addedAt?: string  // ISO timestamp from registry-item.json._provenance.fetchedAt, or file mtime fallback
   preview?: {
     width?: number
     height?: number

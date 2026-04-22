@@ -23,6 +23,10 @@ interface RegistryItem {
     renderable?: boolean
     reason?: string
   }
+  _provenance?: {
+    fetchedFrom?: string
+    fetchedAt?: string
+  }
 }
 
 export async function getAllComponents(): Promise<ComponentEntry[]> {
@@ -45,6 +49,14 @@ export async function getAllComponents(): Promise<ComponentEntry[]> {
       try {
         const raw = await fs.readFile(itemPath, 'utf-8')
         const item: RegistryItem = JSON.parse(raw)
+        // Prefer explicit provenance timestamp; fall back to the registry-item.json's mtime
+        let addedAt = item._provenance?.fetchedAt
+        if (!addedAt) {
+          try {
+            const stat = await fs.stat(itemPath)
+            addedAt = stat.mtime.toISOString()
+          } catch {}
+        }
         components.push({
           source: source as SourceApp,
           name: slug,
@@ -56,6 +68,7 @@ export async function getAllComponents(): Promise<ComponentEntry[]> {
           platform: (item.platform as PlatformScope) || 'Mixed',
           tags: item.tags || [],
           files: item.files?.map(f => f.path) || [],
+          addedAt,
           preview: item.preview,
         })
       } catch {

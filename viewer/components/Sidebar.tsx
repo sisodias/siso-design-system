@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2 } from 'lucide-react'
+import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2, Clock } from 'lucide-react'
 import {
   TreeExpander,
   TreeIcon,
@@ -28,12 +28,20 @@ interface Props {
 
 export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, onSearchChange, searchValue = '' }: Props) {
   // Tree selection reflects active source
-  const selectedIds = activeSource ? [`source-${activeSource}`] : ['all']
+  const selectedIds = activeSource === 'recent'
+    ? ['recent']
+    : activeSource
+      ? [`source-${activeSource}`]
+      : ['all']
 
   const handleSelectionChange = (ids: string[]) => {
     const id = ids[0]
     if (!id || id === 'all') {
       onSourceFilter?.(null)
+      return
+    }
+    if (id === 'recent') {
+      onSourceFilter?.('recent')
       return
     }
     if (id.startsWith('source-')) {
@@ -81,6 +89,15 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
                 <TreeExpander />
                 <TreeIcon icon={<Home className="h-4 w-4" />} />
                 <TreeLabel>All components</TreeLabel>
+              </TreeNodeTrigger>
+            </TreeNode>
+
+            {/* Recently added */}
+            <TreeNode nodeId="recent">
+              <TreeNodeTrigger>
+                <TreeExpander />
+                <TreeIcon icon={<Clock className="h-4 w-4" />} />
+                <TreeLabel>Recently Added</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
 
