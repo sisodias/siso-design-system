@@ -197,7 +197,9 @@ User wants (in order):
 3. **(Implied)** Make the viewer a better showcase for the scraped corpus once it's pulled in
 
 Research pointers:
-- 21st.dev sitemap: check `https://21st.dev/sitemap.xml` — standard Next.js SEO file
+- **21st.dev sitemap confirmed at `https://21st.dev/sitemap.xml` — returns 6,862 URLs** (as of 2026-04-22). Filter for paths matching `/community/components/{user}/{slug}` to get the actual fetchable components (~5,000-6,000). Strip category pages like `/popular`, `/newest`, `/featured`, `/week`.
+- Extract all URLs: `curl -s 'https://21st.dev/sitemap.xml' | grep -oE 'https://21st.dev/community/components/[^<]+' | grep -v -E '/(popular|newest|featured|week|trending)$'`
+- Then feed each into `node scripts/add-21st.mjs <url>` — can batch with xargs if you build rate-limiting in
 - Alternative: scrape the `https://21st.dev/community/components` list page HTML + extract all `/{user}/{slug}` links
 - Other registries: magicui.design, aceternity.com/components, originui.com, tremor.so — most publish a `/r/` JSON endpoint matching shadcn format
 - See if shadcn's CLI (`npx shadcn@latest add`) logs all the URLs it fetches — that's another way to discover endpoints
