@@ -8,7 +8,7 @@
  * Schema version: 1
  */
 
-import { readFileSync, readdirSync, statSync, writeFileSync } from 'fs'
+import { readFileSync, readdirSync, statSync, writeFileSync, existsSync } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -126,9 +126,10 @@ function buildManifest() {
       folderPath,
       readmePath,
       preview: item.preview,
-      // Thumbnail fields: populated by W3; null here
-      thumbnail: null,
-      hasThumbnail: false,
+      // Thumbnail fields: detect preview.png presence (populated by generate-thumbnails.mjs)
+      ...(existsSync(path.join(folderPath, 'preview.png'))
+        ? { thumbnail: `/thumbnails/${source}__${slug}.png`, hasThumbnail: true }
+        : { thumbnail: null, hasThumbnail: false }),
     }
   })
 
