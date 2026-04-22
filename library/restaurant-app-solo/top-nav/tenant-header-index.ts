@@ -1,1 +1,0 @@
-export { TenantHeader } from './TenantHeader';

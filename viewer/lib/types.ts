@@ -1,4 +1,4 @@
-export type SourceApp = 'lumelle' | 'restaurant-app-solo' | '21st-dev'
+export type SourceApp = '21st-dev' | string
 export type PlatformScope = 'Mobile' | 'Desktop' | 'Mixed'
 
 export interface ComponentEntry {

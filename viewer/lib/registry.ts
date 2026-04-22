@@ -49,6 +49,12 @@ export async function getAllComponents(): Promise<ComponentEntry[]> {
       try {
         const raw = await fs.readFile(itemPath, 'utf-8')
         const item: RegistryItem = JSON.parse(raw)
+
+        // Hide primitive-only folders (no demo.tsx) from the grid — they're
+        // dependency-only, not browsable components.
+        const hasDemo = (item.files || []).some(f => /demo\.(tsx?|jsx?)$/.test(f.path))
+        if (!hasDemo) continue
+
         // Prefer explicit provenance timestamp; fall back to the registry-item.json's mtime
         let addedAt = item._provenance?.fetchedAt
         if (!addedAt) {

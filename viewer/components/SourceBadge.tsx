@@ -5,14 +5,10 @@ interface SourceBadgeProps {
 }
 
 const COLORS: Record<string, string> = {
-  'lumelle': 'bg-orange-100 text-orange-800',
-  'restaurant-app-solo': 'bg-amber-900/50 text-amber-200',
   '21st-dev': 'bg-slate-700 text-slate-200',
 }
 
 const LABELS: Record<string, string> = {
-  'lumelle': 'Lumelle',
-  'restaurant-app-solo': 'Restaurant App',
   '21st-dev': '21st.dev',
 }
 

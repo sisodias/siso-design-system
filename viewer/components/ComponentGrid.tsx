@@ -11,9 +11,7 @@ interface ComponentGridProps {
 }
 
 const SOURCE_LABELS: Record<string, string> = {
-  'lumelle': 'Lumelle (mobile)',
-  'restaurant-app-solo': 'Restaurant (mobile)',
-  '21st-dev': '21st-dev',
+  '21st-dev': '21st.dev',
 }
 
 function sourceLabel(source: string): string {
