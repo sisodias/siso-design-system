@@ -47,6 +47,7 @@ function toComponentEntry(entry: ManifestEntry): ComponentEntry {
     preview: entry.preview,
     thumbnail: entry.thumbnail,
     hasThumbnail: entry.hasThumbnail,
+    importMode: entry.importMode,
   }
 }
 
@@ -92,6 +93,7 @@ export type FilterState = Partial<{
   search: string
   page: number
   pageSize: number
+  importMode: 'curated' | 'all' | 'generic'
 }>
 
 /**
@@ -102,7 +104,7 @@ export function getFilteredComponents(
   filters: FilterState,
 ): { items: ComponentEntry[]; total: number; facets: Manifest['facets'] } {
   const manifest = getManifest()
-  const { source, tags, platform, search, page = 1, pageSize = 120 } = filters
+  const { source, tags, platform, search, page = 1, pageSize = 120, importMode = 'curated' } = filters
 
   let filtered: ManifestEntry[] = manifest.components
 
@@ -131,6 +133,14 @@ export function getFilteredComponents(
         c.tags.some(t => t.toLowerCase().includes(q)),
     )
   }
+
+  // Filter by importMode: curated (default) = not bulk; generic = only bulk; all = no filter
+  if (importMode === 'curated') {
+    filtered = filtered.filter(c => c.importMode !== 'bulk')
+  } else if (importMode === 'generic') {
+    filtered = filtered.filter(c => c.importMode === 'bulk')
+  }
+  // importMode === 'all' → no filter
 
   const total = filtered.length
 

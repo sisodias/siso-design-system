@@ -127,12 +127,18 @@ function shortNameFromPath(p) {
 }
 
 /**
- * Detect unresolvable `@/` imports (anything other than already-handled rewrites).
+ * Detect unresolvable imports in a .tsx/.ts file.
  * Returns { hasUnresolvable, reason }.
- * Currently detects: @/demos/* (21st.dev internal demo harness paths).
+ * Detects:
+ *   - @/demos/* (21st.dev internal demo harness paths)
+ *   - other @/ imports beyond the two rewriteImports() handles
+ *   - any non-relative import we can't statically resolve is left to npm (no check here)
+ *
+ * NOTE: missing relative-sibling files (./avatar when ./avatar.tsx doesn't exist
+ * in the folder) are caught by a second pass after all files are written — see
+ * `hasMissingSiblings()` below.
  */
 function detectUnresolvableImports(content) {
-  // Match @/demos/* imports (21st.dev internal harness, not a real package)
   const demosMatch = content.match(/from\s+["']@\/demos\/([^"']+)["']/)
   if (demosMatch) {
     return {
@@ -140,9 +146,6 @@ function detectUnresolvableImports(content) {
       reason: `imports 21st.dev internal demo harness (@/demos/${demosMatch[1]})`,
     }
   }
-  // Any other @/ import not already handled by rewriteImports()
-  // rewriteImports handles: @/components/ui/X, @/lib/utils
-  // Flag anything else starting with @/ (but not the known-good patterns above)
   const lines = content.split('\n')
   for (const line of lines) {
     const m = line.match(/from\s+["']@\/([^"']+)["']/)
@@ -155,8 +158,44 @@ function detectUnresolvableImports(content) {
         }
       }
     }
+    // CSS side-effect imports reaching outside the folder (e.g. ../../index.css)
+    const cssMatch = line.match(/import\s+["'](\.\.\/\.\.\/[^"']+\.css)["']/)
+    if (cssMatch) {
+      return {
+        hasUnresolvable: true,
+        reason: `imports parent CSS (${cssMatch[1]})`,
+      }
+    }
   }
   return { hasUnresolvable: false, reason: null }
+}
+
+/**
+ * After all files land in the component folder, scan each .tsx/.ts file for
+ * relative imports (./X, ../X) and verify the target exists on disk.
+ * Returns { missing: [path1, ...] } — empty array means all resolved.
+ */
+async function findMissingSiblings(folderPath) {
+  const missing = new Set()
+  const entries = await fs.readdir(folderPath)
+  const files = entries.filter(f => /\.(tsx?|jsx?)$/.test(f))
+  const existingBases = new Set(
+    entries.map(e => e.replace(/\.(tsx?|jsx?|css|scss|json)$/, ''))
+  )
+  for (const f of files) {
+    const content = await fs.readFile(path.join(folderPath, f), 'utf-8')
+    const lines = content.split('\n')
+    for (const line of lines) {
+      const m = line.match(/from\s+["'](\.\/[^"']+)["']/)
+      if (!m) continue
+      const importPath = m[1] // e.g. "./avatar"
+      const base = importPath.replace(/^\.\//, '').split('/')[0]
+      if (!existingBases.has(base)) {
+        missing.add(importPath)
+      }
+    }
+  }
+  return { missing: [...missing] }
 }
 
 function rewriteImports(content) {
@@ -452,6 +491,30 @@ async function importComponents(registryConfig, options) {
 
         await writeComponentFiles(folderPath, items)
         await ensureDemo(folderPath, items)
+
+        // Second pass: after files are on disk, verify relative sibling imports resolve.
+        // Catches ./avatar, ./utils etc. when the scraper didn't pull them in as
+        // registryDependencies. We can't know these are missing until all writes finish.
+        if (!nonRenderableReason) {
+          const { missing } = await findMissingSiblings(folderPath)
+          if (missing.length) {
+            nonRenderableReason = `missing relative sibling imports: ${missing.slice(0, 3).join(', ')}${missing.length > 3 ? ` (+${missing.length - 3} more)` : ''}`
+          }
+        }
+
+        // If non-renderable, replace demo.tsx with a neutral stub so webpack's
+        // dynamic-import glob in PreviewRenderer.tsx doesn't try to compile the
+        // broken source at build time. Runtime fallback is handled by Card.tsx
+        // based on preview.renderable.
+        if (nonRenderableReason) {
+          const demoPath = path.join(folderPath, 'demo.tsx')
+          try {
+            await fs.access(demoPath)
+            const stub = `"use client"\n// Auto-stubbed by bulk-import.mjs — original demo had unresolvable imports.\nexport default function DemoOne() {\n  return <div className="flex h-full w-full items-center justify-center text-xs text-neutral-500">Code reference only</div>\n}\n`
+            await fs.writeFile(demoPath, stub)
+          } catch {}
+        }
+
         await writeRegistryItem(folderPath, items, source, fn, itemUrl, fetchedAt, registryConfig.listSource, nonRenderableReason)
 
         process.stderr.write(`         ok → ${folderPath}${nonRenderableReason ? ' [NON-RENDERABLE: ' + nonRenderableReason + ']' : ''}\n`)

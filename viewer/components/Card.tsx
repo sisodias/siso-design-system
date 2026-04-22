@@ -143,6 +143,11 @@ export default function Card({ component }: Props) {
         }}
       >
         {renderPreviewContent()}
+        {component.importMode === 'bulk' && (
+          <span className="absolute right-2 top-2 rounded-sm bg-neutral-800/80 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-neutral-400 backdrop-blur">
+            generic
+          </span>
+        )}
       </div>
 
       <div className="mt-2 flex items-center justify-between gap-2 px-1">

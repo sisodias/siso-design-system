@@ -12,6 +12,10 @@
   ],
   "files": [
     {
+      "path": "button.tsx",
+      "type": "registry:ui"
+    },
+    {
       "path": "demo.tsx",
       "type": "registry:example"
     },
@@ -35,7 +39,7 @@
   },
   "_provenance": {
     "fetchedFrom": "https://21st.dev/r/jshguo/interfaces-carousel",
-    "fetchedAt": "2026-04-22T05:43:39.362Z",
+    "fetchedAt": "2026-04-22T06:31:44.401Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap"
   }

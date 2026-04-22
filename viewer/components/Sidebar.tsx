@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2, Clock } from 'lucide-react'
 import {
   TreeExpander,
@@ -11,6 +12,8 @@ import {
   TreeProvider,
   TreeView,
 } from '@/components/ui/tree'
+
+type Mode = 'curated' | 'all' | 'generic'
 
 interface SourceCount {
   source: string
@@ -27,6 +30,22 @@ interface Props {
 }
 
 export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, onSearchChange, searchValue = '' }: Props) {
+  const searchParams = useSearchParams()
+  const modeRaw = searchParams.get('mode') as Mode | null
+  const activeMode: Mode = modeRaw === 'all' || modeRaw === 'generic' ? modeRaw : 'curated'
+
+  // Build mode-aware href (preserves other params)
+  function modeHref(mode: Mode): string {
+    const params = new URLSearchParams(searchParams.toString())
+    if (mode === 'curated') {
+      params.delete('mode')
+    } else {
+      params.set('mode', mode)
+    }
+    const qs = params.toString()
+    return qs ? `/?${qs}` : '/'
+  }
+
   // Tree selection reflects active source
   const selectedIds = activeSource === 'recent'
     ? ['recent']
@@ -49,6 +68,12 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
     }
   }
 
+  const modes: { value: Mode; label: string }[] = [
+    { value: 'curated', label: 'Curated' },
+    { value: 'all', label: 'All' },
+    { value: 'generic', label: 'Generic' },
+  ]
+
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-neutral-800 bg-neutral-950 flex flex-col">
       {/* Brand */}
@@ -57,6 +82,25 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
           <span className="inline-flex h-6 w-6 items-center justify-center rounded bg-gradient-to-br from-orange-400 to-red-500 text-[11px] font-bold text-white">S</span>
           <span>SISO</span>
         </Link>
+      </div>
+
+      {/* Mode toggle */}
+      <div className="px-3 pb-3">
+        <div className="flex gap-1 rounded-md border border-neutral-800 bg-neutral-900 p-1">
+          {modes.map(m => (
+            <Link
+              key={m.value}
+              href={modeHref(m.value)}
+              className={`flex-1 rounded-sm px-2 py-1 text-center text-[11px] font-medium transition-colors ${
+                activeMode === m.value
+                  ? 'bg-neutral-800 text-neutral-100'
+                  : 'text-neutral-400 hover:text-neutral-200'
+              }`}
+            >
+              {m.label}
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Search */}

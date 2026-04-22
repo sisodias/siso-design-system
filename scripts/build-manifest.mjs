@@ -130,6 +130,8 @@ function buildManifest() {
       ...(existsSync(path.join(folderPath, 'preview.png'))
         ? { thumbnail: `/thumbnails/${source}__${slug}.png`, hasThumbnail: true }
         : { thumbnail: null, hasThumbnail: false }),
+      // importMode: 'bulk' if set by scraper; undefined = curated (conservative default)
+      importMode: item._provenance?.importMode ?? undefined,
     }
   })
 

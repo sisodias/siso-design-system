@@ -25,6 +25,8 @@ export interface ComponentEntry {
   thumbnail?: string | null
   /** Convenience flag — true when thumbnail is non-null. */
   hasThumbnail?: boolean
+  /** How the component entered the library. 'bulk' = scraped; missing = curated (hand-picked). */
+  importMode?: 'bulk' | 'curated'
 }
 
 export interface ReadmeData {
@@ -59,6 +61,8 @@ export type ManifestEntry = {
   }
   thumbnail?: string | null
   hasThumbnail: boolean
+  /** How the component entered the library. 'bulk' = scraped; missing = curated (hand-picked). */
+  importMode?: 'bulk' | 'curated'
 }
 
 export type Manifest = {

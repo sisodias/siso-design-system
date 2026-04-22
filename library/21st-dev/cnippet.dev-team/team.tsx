@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { Marquee } from "./marquee";
+import { Marquee } from "@/demos/ui/marquee";
 
 const teamMembers = [
   {

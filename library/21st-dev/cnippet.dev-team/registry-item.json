@@ -16,6 +16,10 @@
       "type": "registry:example"
     },
     {
+      "path": "marquee.tsx",
+      "type": "registry:ui"
+    },
+    {
       "path": "team.tsx",
       "type": "registry:ui"
     }
@@ -34,7 +38,7 @@
   },
   "_provenance": {
     "fetchedFrom": "https://21st.dev/r/cnippet.dev/team",
-    "fetchedAt": "2026-04-22T05:43:39.953Z",
+    "fetchedAt": "2026-04-22T06:31:44.927Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap"
   }

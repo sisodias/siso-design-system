@@ -19,6 +19,7 @@ export type FilterState = {
   search: string
   page: number
   pageSize: number
+  importMode: 'curated' | 'all' | 'generic'
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -28,6 +29,7 @@ export type FilterState = {
 const DEFAULT_PAGE = 1
 const DEFAULT_PAGE_SIZE = 120
 const VALID_PLATFORMS = new Set(['Mobile', 'Desktop', 'Mixed'])
+const VALID_MODES = new Set(['curated', 'all', 'generic'])
 
 function normalizeTag(val: string | string[] | undefined): string[] {
   if (!val) return []
@@ -53,6 +55,9 @@ export function parseFilters(
   const platform =
     platformRaw && VALID_PLATFORMS.has(platformRaw) ? platformRaw : null
 
+  const modeRaw = normalizeString(raw.mode)
+  const importMode = (modeRaw && VALID_MODES.has(modeRaw) ? modeRaw : 'curated') as FilterState['importMode']
+
   let page = DEFAULT_PAGE
   if (raw.page !== undefined) {
     const n = parseInt(Array.isArray(raw.page) ? raw.page[0] : raw.page, 10)
@@ -68,7 +73,7 @@ export function parseFilters(
     pageSize = isNaN(n) || n < 1 ? DEFAULT_PAGE_SIZE : n
   }
 
-  return { source, tags, platform, search, page, pageSize }
+  return { source, tags, platform, search, page, pageSize, importMode }
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -99,6 +104,13 @@ export function filterComponents(all: ComponentEntry[], filters: FilterState) {
         c.tags.some(t => t.toLowerCase().includes(q)),
     )
   }
+
+  if (filters.importMode === 'curated') {
+    result = result.filter(c => c.importMode !== 'bulk')
+  } else if (filters.importMode === 'generic') {
+    result = result.filter(c => c.importMode === 'bulk')
+  }
+  // importMode === 'all' → no filter
 
   return result
 }
