@@ -7,3 +7,7 @@ dist/
 build/
 .next/
 .cache/
+
+# Scrape failure logs (per-run artifacts)
+.claude/scrape-failures-*.json
+.claude/feedback/
