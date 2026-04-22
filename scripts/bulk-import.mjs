@@ -126,6 +126,39 @@ function shortNameFromPath(p) {
   return path.basename(p).replace(/\.(tsx?|jsx?|css|scss|mdx?)$/, '')
 }
 
+/**
+ * Detect unresolvable `@/` imports (anything other than already-handled rewrites).
+ * Returns { hasUnresolvable, reason }.
+ * Currently detects: @/demos/* (21st.dev internal demo harness paths).
+ */
+function detectUnresolvableImports(content) {
+  // Match @/demos/* imports (21st.dev internal harness, not a real package)
+  const demosMatch = content.match(/from\s+["']@\/demos\/([^"']+)["']/)
+  if (demosMatch) {
+    return {
+      hasUnresolvable: true,
+      reason: `imports 21st.dev internal demo harness (@/demos/${demosMatch[1]})`,
+    }
+  }
+  // Any other @/ import not already handled by rewriteImports()
+  // rewriteImports handles: @/components/ui/X, @/lib/utils
+  // Flag anything else starting with @/ (but not the known-good patterns above)
+  const lines = content.split('\n')
+  for (const line of lines) {
+    const m = line.match(/from\s+["']@\/([^"']+)["']/)
+    if (m) {
+      const p = m[1]
+      if (!p.startsWith('components/ui/') && p !== 'lib/utils') {
+        return {
+          hasUnresolvable: true,
+          reason: `imports unresolvable path (@/${p})`,
+        }
+      }
+    }
+  }
+  return { hasUnresolvable: false, reason: null }
+}
+
 function rewriteImports(content) {
   return content
     .replace(/from\s+["']@\/components\/ui\/([a-z0-9-]+)["']/g, 'from "./$1"')
@@ -265,13 +298,25 @@ async function ensureDemo(folderPath, items) {
 // registry-item.json builder (Phase 6 provenance)
 // ---------------------------------------------------------------------------
 
-async function writeRegistryItem(folderPath, items, source, slug, fetchedFrom, fetchedAt, listSource) {
+async function writeRegistryItem(folderPath, items, source, slug, fetchedFrom, fetchedAt, listSource, nonRenderableReason = null) {
   const allFiles = (await fs.readdir(folderPath))
     .filter(f => /\.(tsx?|jsx?)$/.test(f))
     .map(f => ({
       path: f,
       type: /demo/i.test(f) ? 'registry:example' : 'registry:ui',
     }))
+
+  const isRenderable = !nonRenderableReason
+  const preview = {
+    width: 400,
+    height: 300,
+    background: 'neutral-950',
+    interactive: false,
+  }
+  if (!isRenderable) {
+    preview.renderable = false
+    preview.reason = nonRenderableReason
+  }
 
   const ourRegistry = {
     $schema: 'https://ui.shadcn.com/schema/registry-item.json',
@@ -285,12 +330,7 @@ async function writeRegistryItem(folderPath, items, source, slug, fetchedFrom, f
     files: allFiles,
     dependencies: allDependencies(items.map(i => i.item)),
     registryDependencies: [],
-    preview: {
-      width: 400,
-      height: 300,
-      background: 'neutral-950',
-      interactive: false,
-    },
+    preview,
     // Phase 6 provenance
     _provenance: {
       fetchedFrom,
@@ -350,7 +390,12 @@ async function importComponents(registryConfig, options) {
   const startTime = new Date().toISOString()
 
   const stats = {
-    succeeded: 0,
+    // written_items: every registry-item.json written (includes deps + components)
+    written_items: 0,
+    // manifest_visible: components that have a demo.tsx (user-facing)
+    manifest_visible: 0,
+    // marked_non_renderable: components flagged with preview.renderable=false
+    marked_non_renderable: 0,
     skipped_existing: 0,
     skipped_empty_json: 0,
     failed_404: 0,
@@ -391,13 +436,33 @@ async function importComponents(registryConfig, options) {
         }
 
         const fetchedAt = new Date().toISOString()
+
+        // Detect unresolvable imports (e.g. @/demos/*) before writing
+        let nonRenderableReason = null
+        for (const { item } of items) {
+          for (const f of item.files || []) {
+            const { hasUnresolvable, reason } = detectUnresolvableImports(f.content ?? '')
+            if (hasUnresolvable) {
+              nonRenderableReason = reason
+              break
+            }
+          }
+          if (nonRenderableReason) break
+        }
+
         await writeComponentFiles(folderPath, items)
         await ensureDemo(folderPath, items)
-        await writeRegistryItem(folderPath, items, source, fn, itemUrl, fetchedAt, registryConfig.listSource)
+        await writeRegistryItem(folderPath, items, source, fn, itemUrl, fetchedAt, registryConfig.listSource, nonRenderableReason)
 
-        process.stderr.write(`         ok → ${folderPath}\n`)
-        stats.succeeded++
-        results.push({ url: itemUrl, reason: 'ok' })
+        process.stderr.write(`         ok → ${folderPath}${nonRenderableReason ? ' [NON-RENDERABLE: ' + nonRenderableReason + ']' : ''}\n`)
+        stats.written_items++
+        if (nonRenderableReason) {
+          stats.marked_non_renderable++
+        } else {
+          // Has demo.tsx — user-facing component visible in manifest
+          stats.manifest_visible++
+        }
+        results.push({ url: itemUrl, reason: 'ok', nonRenderable: !!nonRenderableReason })
       } catch (e) {
         const msg = e.message ?? String(e)
         let reason = 'failed_other'
@@ -423,7 +488,9 @@ async function importComponents(registryConfig, options) {
 
   return {
     attempted: entries.length,
-    succeeded: stats.succeeded,
+    written_items: stats.written_items,
+    manifest_visible: stats.manifest_visible,
+    marked_non_renderable: stats.marked_non_renderable,
     skipped_existing: stats.skipped_existing,
     skipped_empty_json: stats.skipped_empty_json,
     failed_404: stats.failed_404,
@@ -523,7 +590,15 @@ async function main() {
     await regenerateManifest()
   }
 
-  console.log(`\n[bulk-import] Done. attempted=${result.attempted}, succeeded=${result.succeeded ?? 0}, skipped_existing=${result.skipped_existing ?? 0}`)
+  console.log(`[bulk-import] done.`)
+  console.log(`  attempted: ${result.attempted}`)
+  console.log(`  written_items: ${result.written_items}  (includes dependency-only)`)
+  console.log(`  manifest_visible: ${result.manifest_visible}  (user-facing components with demo)`)
+  console.log(`  marked_non_renderable: ${result.marked_non_renderable}  (flagged renderable=false)`)
+  console.log(`  skipped_existing: ${result.skipped_existing ?? 0}`)
+  console.log(`  skipped_empty: ${result.skipped_empty_json ?? 0}`)
+  console.log(`  failed_404: ${result.failed_404 ?? 0}`)
+  console.log(`  failed_5xx: ${result.failed_5xx ?? 0}`)
   if (result.failures?.length) {
     console.log(`[bulk-import] ${result.failures.length} failures — see failure log for details`)
   }
