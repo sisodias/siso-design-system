@@ -1,8 +1,10 @@
 "use client";
 
 import { Ref, forwardRef, useState, useEffect } from "react";
-import Image, { ImageProps } from "next/image";
 import { motion, useMotionValue } from "framer-motion";
+
+// next/image swapped for plain <img> to avoid fill+remote-host complexity inside previews
+type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>
 
 import { cn } from "../_utils/cn";
 import { Button } from "./button";
@@ -186,11 +188,9 @@ function getRandomNumberInRange(min: number, max: number): number {
 }
 
 const MotionImage = motion.create(
-  forwardRef(function MotionImage(
-    props: ImageProps,
-    ref: Ref<HTMLImageElement>
-  ) {
-    return <Image ref={ref} {...props} />;
+  forwardRef<HTMLImageElement, ImageProps>(function MotionImage(props, ref) {
+    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+    return <img ref={ref} {...props} />;
   })
 );
 
@@ -275,11 +275,9 @@ export const Photo = ({
     >
       <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-sm">
         <MotionImage
-          className={cn("rounded-3xl  object-cover")}
-          fill
+          className={cn("h-full w-full rounded-3xl object-cover")}
           src={src}
           alt={alt}
-          {...props}
           draggable={false}
         />
       </div>
