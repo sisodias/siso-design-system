@@ -27,6 +27,13 @@ export interface ComponentEntry {
   hasThumbnail?: boolean
   /** How the component entered the library. 'bulk' = scraped; missing = curated (hand-picked). */
   importMode?: 'bulk' | 'curated'
+  /** AI classification fields (populated by classify-components.mjs). */
+  category?: string
+  visualStyle?: string[]
+  complexity?: 'atomic' | 'composite' | 'system'
+  aiSummary?: string
+  bestForIndustries?: string[]
+  hasClassification?: boolean
 }
 
 export interface ReadmeData {
@@ -63,6 +70,13 @@ export type ManifestEntry = {
   hasThumbnail: boolean
   /** How the component entered the library. 'bulk' = scraped; missing = curated (hand-picked). */
   importMode?: 'bulk' | 'curated'
+  /** AI classification fields (populated by classify-components.mjs). */
+  category?: string
+  visualStyle?: string[]
+  complexity?: 'atomic' | 'composite' | 'system'
+  aiSummary?: string
+  bestForIndustries?: string[]
+  hasClassification?: boolean
 }
 
 export type Manifest = {
@@ -74,5 +88,7 @@ export type Manifest = {
     sources: ManifestFacet[]
     tags: ManifestFacet[]
     platforms: ManifestFacet[]
+    categories: ManifestFacet[]
+    complexity: ManifestFacet[]
   }
 }

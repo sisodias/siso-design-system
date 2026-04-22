@@ -112,6 +112,8 @@ function buildManifest() {
     const sourcePath = path.join(LIBRARY_ROOT, source)
     const folderPath = path.join(sourcePath, slug)
     const readmePath = path.join(folderPath, 'README.md')
+    const classificationPath = path.join(folderPath, 'classification.json')
+    const classification = readJSON(classificationPath)
 
     return {
       source,
@@ -132,6 +134,17 @@ function buildManifest() {
         : { thumbnail: null, hasThumbnail: false }),
       // importMode: 'bulk' if set by scraper; undefined = curated (conservative default)
       importMode: item._provenance?.importMode ?? undefined,
+      // AI classification fields (populated by classify-components.mjs)
+      ...(classification
+        ? {
+            category: classification.category ?? undefined,
+            visualStyle: classification.visual_style ?? undefined,
+            complexity: classification.complexity ?? undefined,
+            aiSummary: classification.ai_summary ?? undefined,
+            bestForIndustries: classification.best_for_industries ?? undefined,
+            hasClassification: true,
+          }
+        : { hasClassification: false }),
     }
   })
 
@@ -142,6 +155,8 @@ function buildManifest() {
     sources: buildFacets(components, 'source'),
     tags: buildFacets(components, 'tags'),
     platforms: buildFacets(components, 'platform'),
+    categories: buildFacets(components.filter(c => c.category), 'category'),
+    complexity: buildFacets(components.filter(c => c.complexity), 'complexity'),
   }
 
   return {

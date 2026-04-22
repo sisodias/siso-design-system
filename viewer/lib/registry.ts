@@ -48,6 +48,13 @@ function toComponentEntry(entry: ManifestEntry): ComponentEntry {
     thumbnail: entry.thumbnail,
     hasThumbnail: entry.hasThumbnail,
     importMode: entry.importMode,
+    // AI classification fields
+    category: entry.category,
+    visualStyle: entry.visualStyle,
+    complexity: entry.complexity,
+    aiSummary: entry.aiSummary,
+    bestForIndustries: entry.bestForIndustries,
+    hasClassification: entry.hasClassification,
   }
 }
 
