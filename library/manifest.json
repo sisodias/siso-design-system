@@ -1,0 +1,972 @@
+{
+  "generatedAt": "2026-04-22T04:24:08.464Z",
+  "schemaVersion": 1,
+  "total": 21,
+  "components": [
+    {
+      "source": "21st-dev",
+      "name": "aliimam-gallery",
+      "displayName": "Gallery",
+      "description": "Installed from 21st.dev/aliimam/gallery",
+      "platform": "Mixed",
+      "tags": [
+        "21st-dev",
+        "aliimam",
+        "gallery"
+      ],
+      "files": [
+        "button.tsx",
+        "demo.tsx",
+        "gallery.tsx"
+      ],
+      "addedAt": "2026-04-22T02:48:38.508Z",
+      "relativePath": "library/21st-dev/aliimam-gallery/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/aliimam-gallery",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/aliimam-gallery/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "animated-card",
+      "displayName": "AnimatedCard",
+      "description": "Animated card with layered chart visual, hover-reveal tooltip panel, and smooth horizontal slide transitions on card hover",
+      "platform": "Mixed",
+      "tags": [
+        "card",
+        "animated",
+        "chart",
+        "hover",
+        "visualization",
+        "data"
+      ],
+      "files": [
+        "animated-card.tsx",
+        "demo.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.039Z",
+      "relativePath": "library/21st-dev/animated-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/animated-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/animated-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "animated-card-chart",
+      "displayName": "AnimatedCardChart",
+      "description": "Layered 3D glass-morphism card with animated bar charts, gradient overlays, and hover tooltip panels",
+      "platform": "Mixed",
+      "tags": [
+        "card",
+        "chart",
+        "animation",
+        "3d",
+        "glassmorphism",
+        "hover",
+        "layered"
+      ],
+      "files": [
+        "animated-card-chart.tsx",
+        "demo.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.040Z",
+      "relativePath": "library/21st-dev/animated-card-chart/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/animated-card-chart",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/animated-card-chart/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "animated-card-diagram",
+      "displayName": "AnimatedCardDiagram",
+      "description": "Multi-layered animated card with SVG donut chart, floating tech badges, and hover-triggered layer transitions",
+      "platform": "Mixed",
+      "tags": [
+        "card",
+        "diagram",
+        "animation",
+        "donut-chart",
+        "hover",
+        "layers"
+      ],
+      "files": [
+        "animated-card-diagram.tsx",
+        "demo.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.040Z",
+      "relativePath": "library/21st-dev/animated-card-diagram/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/animated-card-diagram",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/animated-card-diagram/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "anomaly-heatmap",
+      "displayName": "AnomalyHeatmap",
+      "description": "Data visualization card with intensity-based heatmap grid and hover-reactive cell scaling",
+      "platform": "Mixed",
+      "tags": [
+        "heatmap",
+        "chart",
+        "anomaly",
+        "visualization",
+        "security",
+        "motion"
+      ],
+      "files": [
+        "anomaly-heatmap.tsx",
+        "demo.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.041Z",
+      "relativePath": "library/21st-dev/anomaly-heatmap/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/anomaly-heatmap",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/anomaly-heatmap/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "award",
+      "displayName": "Awards",
+      "description": "Multi-variant awards component with 6 styles: stamp, award, certificate, badge, sticker, and id-card",
+      "platform": "Mixed",
+      "tags": [
+        "award",
+        "badge",
+        "certificate",
+        "achievement",
+        "gamification",
+        "medal"
+      ],
+      "files": [
+        "award.tsx",
+        "demo.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.042Z",
+      "relativePath": "library/21st-dev/award/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/award",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/award/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "countdown-number",
+      "displayName": "AnimatedNumberCountdown",
+      "description": "Animated countdown timer with smooth number transitions using @number-flow/react and framer-motion",
+      "platform": "Mixed",
+      "tags": [
+        "animation",
+        "countdown",
+        "timer",
+        "framer-motion",
+        "number-flow"
+      ],
+      "files": [
+        "countdown-number.tsx",
+        "demo.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.045Z",
+      "relativePath": "library/21st-dev/countdown-number/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/countdown-number",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/countdown-number/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "donut-chart",
+      "displayName": "DonutChart",
+      "description": "Animated SVG donut chart with staggered segment animations, hover highlighting with drop-shadow, and configurable center content",
+      "platform": "Mixed",
+      "tags": [
+        "chart",
+        "donut",
+        "svg",
+        "animation",
+        "data-visualization",
+        "hover"
+      ],
+      "files": [
+        "demo.tsx",
+        "donut-chart.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.046Z",
+      "relativePath": "library/21st-dev/donut-chart/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/donut-chart",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/donut-chart/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "futuristic-file-uploader",
+      "displayName": "FuturisticFileUploader",
+      "description": "Cyberpunk-themed file uploader with drag-and-drop, progress tracking, and image previews",
+      "platform": "Mixed",
+      "tags": [
+        "file-upload",
+        "drag-drop",
+        "form",
+        "cyberpunk",
+        "progress"
+      ],
+      "files": [
+        "demo.tsx",
+        "futuristic-file-uploader.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.047Z",
+      "relativePath": "library/21st-dev/futuristic-file-uploader/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/futuristic-file-uploader",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/futuristic-file-uploader/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "gradient-selector-card",
+      "displayName": "GradientSelectorCard",
+      "description": "Interactive funding tier selector with gradient-filled progress circles, animated orbital dots, and radial glow tracking",
+      "platform": "Mixed",
+      "tags": [
+        "selector",
+        "gradient",
+        "progress",
+        "milestone",
+        "interactive",
+        "framer-motion"
+      ],
+      "files": [
+        "demo.tsx",
+        "gradient-selector-card.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.048Z",
+      "relativePath": "library/21st-dev/gradient-selector-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/gradient-selector-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/gradient-selector-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "messaging-conversation",
+      "displayName": "MessageConversation",
+      "description": "Messaging conversation UI with header, avatars, status badges, and hover-reveal message actions",
+      "platform": "Mixed",
+      "tags": [
+        "messaging",
+        "chat",
+        "conversation",
+        "ui",
+        "shadcn"
+      ],
+      "files": [
+        "demo.tsx",
+        "messaging-conversation.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.049Z",
+      "relativePath": "library/21st-dev/messaging-conversation/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/messaging-conversation",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/messaging-conversation/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "notification",
+      "displayName": "NotificationCard",
+      "description": "A notificationcard component.",
+      "platform": "Mixed",
+      "tags": [
+        "notification",
+        "component"
+      ],
+      "files": [
+        "demo.tsx",
+        "notification.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.050Z",
+      "relativePath": "library/21st-dev/notification/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/notification",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/notification/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "orbiting-skills",
+      "displayName": "OrbitingSkills",
+      "description": "Animated orbital skills showcase with icons rotating in two concentric rings around a central code element",
+      "platform": "Mixed",
+      "tags": [
+        "animation",
+        "skills",
+        "orbital",
+        "tech",
+        "portfolio",
+        "svg-icons"
+      ],
+      "files": [
+        "demo.tsx",
+        "orbiting-skills.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.051Z",
+      "relativePath": "library/21st-dev/orbiting-skills/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/orbiting-skills",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/orbiting-skills/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "pixel-grid",
+      "displayName": "PixelGrid",
+      "description": "A pixelgrid component.",
+      "platform": "Mixed",
+      "tags": [
+        "pixel",
+        "grid",
+        "component"
+      ],
+      "files": [
+        "demo.tsx",
+        "pixel-grid.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.051Z",
+      "relativePath": "library/21st-dev/pixel-grid/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/pixel-grid",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/pixel-grid/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "prediction-market-card",
+      "displayName": "PredictionMarketCard",
+      "description": "Live prediction/betting card with countdown timer, YES/NO voting bars, bank totals, and slide-up betting slip overlay",
+      "platform": "Mixed",
+      "tags": [
+        "betting",
+        "prediction",
+        "market",
+        "timer",
+        "voting",
+        "live",
+        "sports"
+      ],
+      "files": [
+        "demo.tsx",
+        "prediction-market-card.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.052Z",
+      "relativePath": "library/21st-dev/prediction-market-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/prediction-market-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/prediction-market-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "screen-time-card",
+      "displayName": "ScreenTimeCard",
+      "description": "Screen time dashboard card with animated bar graph showing usage over time, total hours display, and top apps list",
+      "platform": "Mixed",
+      "tags": [
+        "screen-time",
+        "dashboard",
+        "bar-chart",
+        "animation",
+        "stats",
+        "health",
+        "wellness"
+      ],
+      "files": [
+        "demo.tsx",
+        "screen-time-card.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.054Z",
+      "relativePath": "library/21st-dev/screen-time-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/screen-time-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/screen-time-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "siri-orb",
+      "displayName": "SiriOrb",
+      "description": "Apple Siri-style animated orb with CSS @property conic gradients, blur/contrast filters, and interactive size/speed controls",
+      "platform": "Mixed",
+      "tags": [
+        "siri",
+        "orb",
+        "animation",
+        "gradient",
+        "css",
+        "ai",
+        "avatar"
+      ],
+      "files": [
+        "demo.tsx",
+        "siri-orb.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.057Z",
+      "relativePath": "library/21st-dev/siri-orb/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/siri-orb",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/siri-orb/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "sleep-tracker-card",
+      "displayName": "SleepTrackerCard",
+      "description": "Sleep tracking card with animated bar graph showing Awake, REM, Core, Deep stages, quality metrics, and legend",
+      "platform": "Mixed",
+      "tags": [
+        "sleep",
+        "health",
+        "card",
+        "chart",
+        "animation",
+        "wellness",
+        "framer-motion"
+      ],
+      "files": [
+        "demo.tsx",
+        "sleep-tracker-card.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.057Z",
+      "relativePath": "library/21st-dev/sleep-tracker-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/sleep-tracker-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/sleep-tracker-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "statistics-card",
+      "displayName": "StatisticsCard",
+      "description": "Animated statistics section with bar charts, candy-stripe backgrounds, NumberFlow counters, and tooltip callouts",
+      "platform": "Mixed",
+      "tags": [
+        "stats",
+        "chart",
+        "bar-chart",
+        "animation",
+        "framer-motion",
+        "number-flow"
+      ],
+      "files": [
+        "demo.tsx",
+        "statistics-card.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.059Z",
+      "relativePath": "library/21st-dev/statistics-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/statistics-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/statistics-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "stats-card-2",
+      "displayName": "CryptoStatsCard (StatsCard2)",
+      "description": "Crypto dashboard card with market cap, animated sparkline chart, Bitcoin dominance bar, and top coin price list with change indicators",
+      "platform": "Mixed",
+      "tags": [
+        "crypto",
+        "stats",
+        "card",
+        "chart",
+        "sparkline",
+        "market-cap",
+        "dashboard"
+      ],
+      "files": [
+        "demo.tsx",
+        "stats-card-2.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.060Z",
+      "relativePath": "library/21st-dev/stats-card-2/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/stats-card-2",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/stats-card-2/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    },
+    {
+      "source": "21st-dev",
+      "name": "to-do-card",
+      "displayName": "TodoCard",
+      "description": "A todocard component.",
+      "platform": "Mixed",
+      "tags": [
+        "card",
+        "component"
+      ],
+      "files": [
+        "demo.tsx",
+        "to-do-card.tsx"
+      ],
+      "addedAt": "2026-04-22T00:04:05.060Z",
+      "relativePath": "library/21st-dev/to-do-card/",
+      "folderPath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/to-do-card",
+      "readmePath": "/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/library/21st-dev/to-do-card/README.md",
+      "preview": {
+        "width": 400,
+        "height": 300,
+        "background": "neutral-950",
+        "interactive": false
+      },
+      "thumbnail": null,
+      "hasThumbnail": false
+    }
+  ],
+  "facets": {
+    "sources": [
+      {
+        "value": "21st-dev",
+        "count": 21
+      }
+    ],
+    "tags": [
+      {
+        "value": "animation",
+        "count": 9
+      },
+      {
+        "value": "chart",
+        "count": 7
+      },
+      {
+        "value": "card",
+        "count": 6
+      },
+      {
+        "value": "hover",
+        "count": 4
+      },
+      {
+        "value": "framer-motion",
+        "count": 4
+      },
+      {
+        "value": "component",
+        "count": 3
+      },
+      {
+        "value": "stats",
+        "count": 3
+      },
+      {
+        "value": "visualization",
+        "count": 2
+      },
+      {
+        "value": "timer",
+        "count": 2
+      },
+      {
+        "value": "number-flow",
+        "count": 2
+      },
+      {
+        "value": "progress",
+        "count": 2
+      },
+      {
+        "value": "gradient",
+        "count": 2
+      },
+      {
+        "value": "dashboard",
+        "count": 2
+      },
+      {
+        "value": "bar-chart",
+        "count": 2
+      },
+      {
+        "value": "health",
+        "count": 2
+      },
+      {
+        "value": "wellness",
+        "count": 2
+      },
+      {
+        "value": "21st-dev",
+        "count": 1
+      },
+      {
+        "value": "aliimam",
+        "count": 1
+      },
+      {
+        "value": "gallery",
+        "count": 1
+      },
+      {
+        "value": "animated",
+        "count": 1
+      },
+      {
+        "value": "data",
+        "count": 1
+      },
+      {
+        "value": "3d",
+        "count": 1
+      },
+      {
+        "value": "glassmorphism",
+        "count": 1
+      },
+      {
+        "value": "layered",
+        "count": 1
+      },
+      {
+        "value": "diagram",
+        "count": 1
+      },
+      {
+        "value": "donut-chart",
+        "count": 1
+      },
+      {
+        "value": "layers",
+        "count": 1
+      },
+      {
+        "value": "heatmap",
+        "count": 1
+      },
+      {
+        "value": "anomaly",
+        "count": 1
+      },
+      {
+        "value": "security",
+        "count": 1
+      },
+      {
+        "value": "motion",
+        "count": 1
+      },
+      {
+        "value": "award",
+        "count": 1
+      },
+      {
+        "value": "badge",
+        "count": 1
+      },
+      {
+        "value": "certificate",
+        "count": 1
+      },
+      {
+        "value": "achievement",
+        "count": 1
+      },
+      {
+        "value": "gamification",
+        "count": 1
+      },
+      {
+        "value": "medal",
+        "count": 1
+      },
+      {
+        "value": "countdown",
+        "count": 1
+      },
+      {
+        "value": "donut",
+        "count": 1
+      },
+      {
+        "value": "svg",
+        "count": 1
+      },
+      {
+        "value": "data-visualization",
+        "count": 1
+      },
+      {
+        "value": "file-upload",
+        "count": 1
+      },
+      {
+        "value": "drag-drop",
+        "count": 1
+      },
+      {
+        "value": "form",
+        "count": 1
+      },
+      {
+        "value": "cyberpunk",
+        "count": 1
+      },
+      {
+        "value": "selector",
+        "count": 1
+      },
+      {
+        "value": "milestone",
+        "count": 1
+      },
+      {
+        "value": "interactive",
+        "count": 1
+      },
+      {
+        "value": "messaging",
+        "count": 1
+      },
+      {
+        "value": "chat",
+        "count": 1
+      },
+      {
+        "value": "conversation",
+        "count": 1
+      },
+      {
+        "value": "ui",
+        "count": 1
+      },
+      {
+        "value": "shadcn",
+        "count": 1
+      },
+      {
+        "value": "notification",
+        "count": 1
+      },
+      {
+        "value": "skills",
+        "count": 1
+      },
+      {
+        "value": "orbital",
+        "count": 1
+      },
+      {
+        "value": "tech",
+        "count": 1
+      },
+      {
+        "value": "portfolio",
+        "count": 1
+      },
+      {
+        "value": "svg-icons",
+        "count": 1
+      },
+      {
+        "value": "pixel",
+        "count": 1
+      },
+      {
+        "value": "grid",
+        "count": 1
+      },
+      {
+        "value": "betting",
+        "count": 1
+      },
+      {
+        "value": "prediction",
+        "count": 1
+      },
+      {
+        "value": "market",
+        "count": 1
+      },
+      {
+        "value": "voting",
+        "count": 1
+      },
+      {
+        "value": "live",
+        "count": 1
+      },
+      {
+        "value": "sports",
+        "count": 1
+      },
+      {
+        "value": "screen-time",
+        "count": 1
+      },
+      {
+        "value": "siri",
+        "count": 1
+      },
+      {
+        "value": "orb",
+        "count": 1
+      },
+      {
+        "value": "css",
+        "count": 1
+      },
+      {
+        "value": "ai",
+        "count": 1
+      },
+      {
+        "value": "avatar",
+        "count": 1
+      },
+      {
+        "value": "sleep",
+        "count": 1
+      },
+      {
+        "value": "crypto",
+        "count": 1
+      },
+      {
+        "value": "sparkline",
+        "count": 1
+      },
+      {
+        "value": "market-cap",
+        "count": 1
+      }
+    ],
+    "platforms": [
+      {
+        "value": "Mixed",
+        "count": 21
+      }
+    ]
+  }
+}
