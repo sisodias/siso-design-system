@@ -15,7 +15,7 @@ export default function ExportPage() {
   }
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-8">
+    <main className="pl-64 mx-auto max-w-5xl px-4 py-8">
       <Link href="/" className="text-sm text-neutral-400 hover:text-neutral-200">← Back to browse</Link>
       <header className="mt-6 mb-6">
         <h1 className="text-3xl font-medium">Export Selection</h1>

@@ -43,7 +43,7 @@ export default async function ComponentPage({ params }: PageProps) {
   const autoOpen = fileBlocks.length <= 5
 
   return (
-    <div className="min-h-screen">
+    <div className="pl-64 min-h-screen">
       <header className="border-b border-neutral-800">
         <div className="mx-auto max-w-4xl px-4 py-6">
           <Link href="/" className="mb-4 inline-block text-sm text-neutral-400 hover:text-neutral-200">

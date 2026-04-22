@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import { CartProvider } from '@/components/CartProvider'
 import CartDrawer from '@/components/CartDrawer'
@@ -15,12 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
+    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         <CartProvider>
-          <div className="pl-64 min-h-screen">
-            {children}
-          </div>
+          {/* Children decide their own layout. Home/detail pages wrap themselves in pl-64;
+              preview routes cover the whole viewport via their own layout. */}
+          {children}
           <PreviewModalServer />
           <CartDrawer />
         </CartProvider>
