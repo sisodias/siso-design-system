@@ -94,6 +94,9 @@ async function main() {
       let content = f.content
       content = content.replace(/from\s+["']@\/components\/ui\/([a-z0-9-]+)["']/g, 'from "./$1"')
       content = content.replace(/from\s+["']@\/lib\/utils["']/g, 'from "../_utils/cn"')
+      // framer-motion v12: motion(Component) is deprecated, must be motion.create(Component)
+      // We scope the replacement to `= motion(` assignments so we don't touch `<motion.div>`.
+      content = content.replace(/=\s*motion\(/g, '= motion.create(')
       await fs.writeFile(outPath, content)
       console.log(`  wrote ${outName} (${content.length} bytes)`)
     }

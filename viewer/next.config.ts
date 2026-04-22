@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
     // to avoid false positives. (We still typecheck viewer source via `tsc --noEmit` if needed.)
     ignoreBuildErrors: true,
   },
+  images: {
+    // Allow next/image from common 21st.dev demo sources (Pexels, Unsplash, placeholders)
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.pexels.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'picsum.photos' },
+      { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'placekitten.com' },
+    ],
+  },
   webpack: (config) => {
     // Let webpack resolve modules relative to viewer/node_modules even for files
     // imported from ../library/

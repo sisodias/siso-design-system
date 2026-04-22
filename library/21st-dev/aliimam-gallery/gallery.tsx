@@ -185,7 +185,7 @@ function getRandomNumberInRange(min: number, max: number): number {
   return Math.random() * (max - min) + min;
 }
 
-const MotionImage = motion(
+const MotionImage = motion.create(
   forwardRef(function MotionImage(
     props: ImageProps,
     ref: Ref<HTMLImageElement>
