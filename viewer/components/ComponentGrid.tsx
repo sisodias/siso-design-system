@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import { ComponentEntry } from '@/lib/types'
 import Sidebar from './Sidebar'
 import Breadcrumb from './Breadcrumb'
@@ -17,6 +18,137 @@ const SOURCE_LABELS: Record<string, string> = {
 function sourceLabel(source: string): string {
   return SOURCE_LABELS[source] ?? source
 }
+
+// Card height estimate: aspect 4:3 at typical grid column width + title row (~40px)
+// At lg breakpoint (3 cols in ~1200px container): col = ~380px, card height = 380*(3/4) + 40 = ~325px
+// Use a conservative 280px as baseline — virtualizer over-renders slightly but that's safe.
+const ESTIMATED_ROW_HEIGHT = 280
+const VIRTUALISATION_THRESHOLD = 60
+
+/**
+ * Determines column count from container width, matching Tailwind responsive classes:
+ * - below md (<768px): 1 col
+ * - md–lg (768px–1023px): 2 cols
+ * - lg+ (>=1024px): 3 cols
+ */
+function getColumnCount(containerWidth: number): number {
+  if (containerWidth >= 1024) return 3
+  if (containerWidth >= 768) return 2
+  return 1
+}
+
+// ------------------------------------------------------------------------------------------------
+// Virtualized grid — renders only the rows in or near the viewport.
+// ------------------------------------------------------------------------------------------------
+
+interface VirtualGridProps {
+  items: ComponentEntry[]
+  /** Unique key prefix so React can differentiate "recent" from main list */
+  keyPrefix?: string
+}
+
+function VirtualGrid({ items, keyPrefix = '' }: VirtualGridProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerWidth, setContainerWidth] = useState(0)
+
+  // Observe container width to compute column count
+  useEffect(() => {
+    if (!containerRef.current) return
+    const observer = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        setContainerWidth(entry.contentRect.width)
+      }
+    })
+    observer.observe(containerRef.current)
+    // Seed with initial width
+    setContainerWidth(containerRef.current.getBoundingClientRect().width)
+    return () => observer.disconnect()
+  }, [])
+
+  const columnCount = useMemo(
+    () => (containerWidth > 0 ? getColumnCount(containerWidth) : 3),
+    [containerWidth],
+  )
+
+  const rowCount = Math.ceil(items.length / columnCount)
+
+  const virtualizer = useVirtualizer({
+    count: rowCount,
+    getScrollElement: () => {
+      // Walk up to find the nearest scrollable ancestor (the page scroll container)
+      let el = containerRef.current?.parentElement ?? null
+      while (el) {
+        const style = getComputedStyle(el)
+        const overflow = style.overflow + style.overflowY
+        if (/auto|scroll/.test(overflow)) return el
+        el = el.parentElement
+      }
+      return document.documentElement
+    },
+    estimateSize: () => ESTIMATED_ROW_HEIGHT + 16, // +16 for gap
+    overscan: 3,
+  })
+
+  const gapClass = 'gap-4'
+  const colClass =
+    columnCount === 3
+      ? 'grid-cols-3'
+      : columnCount === 2
+        ? 'grid-cols-2'
+        : 'grid-cols-1'
+
+  return (
+    // Outer container — provides a stable measurement target
+    <div ref={containerRef} className="w-full">
+      {/* Inner div sized to the total virtual height so the page gets the correct scrollbar */}
+      <div
+        style={{
+          height: `${virtualizer.getTotalSize()}px`,
+          position: 'relative',
+        }}
+      >
+        {virtualizer.getVirtualItems().map(virtualRow => {
+          const startIndex = virtualRow.index * columnCount
+          const rowItems = items.slice(startIndex, startIndex + columnCount)
+
+          return (
+            <div
+              key={virtualRow.key}
+              data-index={virtualRow.index}
+              ref={virtualizer.measureElement}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${virtualRow.start}px)`,
+                paddingBottom: '16px', // gap between rows
+              }}
+            >
+              <div className={`grid ${colClass} ${gapClass}`}>
+                {rowItems.map(c => (
+                  <Card
+                    key={`${keyPrefix}${c.source}-${c.name}`}
+                    component={c}
+                  />
+                ))}
+                {/* Fill empty cells in the last row so layout doesn't collapse */}
+                {rowItems.length < columnCount &&
+                  Array.from({ length: columnCount - rowItems.length }).map((_, i) => (
+                    <div key={`pad-${i}`} aria-hidden="true" />
+                  ))}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ------------------------------------------------------------------------------------------------
+// Main component
+// ------------------------------------------------------------------------------------------------
 
 export default function ComponentGrid({ components }: ComponentGridProps) {
   const [search, setSearch] = useState('')
@@ -62,6 +194,12 @@ export default function ComponentGrid({ components }: ComponentGridProps) {
     }))
   }, [components])
 
+  // The array to render in the main grid slot
+  const mainItems = viewingRecent ? recent : filtered
+
+  // Decide whether to use virtualization for the main grid
+  const useVirtualGrid = mainItems.length > VIRTUALISATION_THRESHOLD
+
   return (
     <>
       <Sidebar
@@ -87,7 +225,8 @@ export default function ComponentGrid({ components }: ComponentGridProps) {
         </h1>
       </div>
 
-      {/* Recently Added rail — only shown on the main grid when nothing is filtered */}
+      {/* Recently Added rail — only shown on the main grid when nothing is filtered.
+          Always renders as a plain grid (max 6 cards) — never virtualized. */}
       {showRecentRail && (
         <div className="px-10 pb-4">
           <div className="mb-3 flex items-baseline justify-between">
@@ -101,6 +240,7 @@ export default function ComponentGrid({ components }: ComponentGridProps) {
               View all →
             </button>
           </div>
+          {/* Plain grid — max 6 cards, no virtualizer */}
           <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {recent.map(c => (
               <Card key={`recent-${c.source}-${c.name}`} component={c} />
@@ -119,11 +259,18 @@ export default function ComponentGrid({ components }: ComponentGridProps) {
             </span>
           </div>
         )}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {(viewingRecent ? recent : filtered).map(c => (
-            <Card key={`${c.source}-${c.name}`} component={c} />
-          ))}
-        </div>
+
+        {/* Main grid — plain below threshold, virtualized above */}
+        {useVirtualGrid ? (
+          <VirtualGrid items={mainItems} />
+        ) : (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {mainItems.map(c => (
+              <Card key={`${c.source}-${c.name}`} component={c} />
+            ))}
+          </div>
+        )}
+
         {!viewingRecent && filtered.length === 0 && (
           <div className="mt-20 text-center text-neutral-500">
             No components match your filters.
