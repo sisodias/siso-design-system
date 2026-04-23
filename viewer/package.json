@@ -118,7 +118,7 @@
     "cmdk": "^1.1.1",
     "cobe": "^2.0.1",
     "color-bits": "^1.1.1",
-    "copy-to-clipboard": "^4.0.0",
+    "copy-to-clipboard": "^3.3.3",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "emoji-datasource": "^16.0.0",
