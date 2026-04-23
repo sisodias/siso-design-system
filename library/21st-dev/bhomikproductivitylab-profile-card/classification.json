@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "data-display"
-  ],
+  "category": "card",
   "subcategory": "profile",
   "visual_style": [
     "gradient",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A polished creator profile card component featuring animated stat counters (likes, posts, views), an animated experience progress bar, and social media link integration for Instagram, Twitter, and Threads. Includes interactive follow button with toggle state, gradient background imagery, and hover effects. Designed for showcasing personal brands, influencer profiles, or team member cards with professional metrics display.",
   "_classifiedAt": "2026-04-22T08:53:34.552Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:28:38.085Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

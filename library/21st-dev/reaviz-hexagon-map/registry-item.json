@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reaviz-hexagon-map",
+  "type": "registry:ui",
+  "title": "Reaviz Hexagon Map",
+  "description": "Installed from https://21st.dev/r/reaviz/hexagon-map",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "reaviz-hexagon-map"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "hexagon-map.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "react-countup",
+    "reaviz"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/reaviz/hexagon-map",
+    "fetchedAt": "2026-04-23T02:32:57.848Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

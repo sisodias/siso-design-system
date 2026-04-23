@@ -1,8 +1,5 @@
 {
-  "category": [
-    "data-display",
-    "pricing"
-  ],
+  "category": "pricing",
   "subcategory": "pricing-badge",
   "visual_style": [
     "minimalist",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A versatile badge component with multiple style variants designed for labeling pricing tiers and highlighting featured content in bento grid pricing layouts. Features standard variants including default, secondary, destructive, and outline styles with hover state support.",
   "_classifiedAt": "2026-04-22T09:17:11.332Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:36:33.546Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

@@ -1,8 +1,5 @@
 {
-  "category": [
-    "input",
-    "feedback"
-  ],
+  "category": "input",
   "subcategory": "otp-verification",
   "visual_style": [
     "minimalist",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A 6-digit OTP input component with full keyboard navigation (arrow keys, backspace, auto-focus), paste support with clipboard integration, and dark/light mode toggle. Features automatic completion detection, individual digit input validation, and seamless navigation between input fields. Provides visual feedback through icons for paste detection and completion states.",
   "_classifiedAt": "2026-04-23T01:36:47.201Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:28:53.043Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

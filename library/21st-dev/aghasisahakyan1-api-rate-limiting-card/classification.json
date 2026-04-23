@@ -1,8 +1,5 @@
 {
-  "category": [
-    "data-display",
-    "card"
-  ],
+  "category": "card",
   "subcategory": "api-monitoring-dashboard",
   "visual_style": [
     "dark",
@@ -30,5 +27,7 @@
   ],
   "ai_summary": "An API rate limiting monitoring card component with animated server visualization that displays throttled and allowed request statuses. Features a dark minimalist design with continuous dot animation around a central server icon, status indicators using shield icons, and a list of recent API events. Designed for developer dashboards and infrastructure monitoring in SaaS and fintech applications.",
   "_classifiedAt": "2026-04-23T01:35:04.443Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:31:57.934Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

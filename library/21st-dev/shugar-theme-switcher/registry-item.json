@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shugar-theme-switcher",
+  "type": "registry:ui",
+  "title": "Shugar Theme Switcher",
+  "description": "Installed from https://21st.dev/r/shugar/theme-switcher",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "shugar-theme-switcher"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "theme-switcher.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/shugar/theme-switcher",
+    "fetchedAt": "2026-04-23T02:33:31.999Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

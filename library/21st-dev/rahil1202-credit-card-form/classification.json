@@ -1,9 +1,5 @@
 {
-  "category": [
-    "form",
-    "card",
-    "input"
-  ],
+  "category": "form",
   "subcategory": "payment-form",
   "visual_style": [
     "gradient",
@@ -33,5 +29,7 @@
   ],
   "ai_summary": "A sophisticated credit card form component combining input fields and a visual card preview. Features real-time Luhn validation, digit masking for security, and customizable gradient accent rings. The component supports desktop and mobile platforms with a modern, colorful aesthetic. Includes live change callbacks and submit handling for seamless integration into e-commerce checkout, SaaS billing, or fintech payment flows.",
   "_classifiedAt": "2026-04-23T01:45:49.563Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:34:49.166Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

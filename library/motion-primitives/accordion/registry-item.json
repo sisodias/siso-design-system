@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "type": "registry:ui",
+  "title": "Accordion",
+  "description": "Installed from https://github.com/ibelick/motion-primitives",
+  "source": "motion-primitives",
+  "platform": "Mixed",
+  "tags": [
+    "motion-primitives",
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "accordion.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/ibelick/motion-primitives/tree/main/public",
+    "fetchedAt": "2026-04-23T02:29:51.403Z",
+    "importMode": "bulk",
+    "importedFromList": "github/ibelick/motion-primitives"
+  }
+}

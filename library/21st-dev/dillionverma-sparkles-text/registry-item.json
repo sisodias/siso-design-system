@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dillionverma-sparkles-text",
+  "type": "registry:ui",
+  "title": "Dillionverma Sparkles Text",
+  "description": "Installed from https://21st.dev/r/dillionverma/sparkles-text",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "dillionverma-sparkles-text"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "sparkles-text.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/dillionverma/sparkles-text",
+    "fetchedAt": "2026-04-23T02:34:14.061Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

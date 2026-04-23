@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "arihantcodes_1f7b8c4d-profile-dropdown",
+  "type": "registry:ui",
+  "title": "Arihantcodes_1f7b8c4d Profile Dropdown",
+  "description": "Installed from https://21st.dev/r/arihantcodes_1f7b8c4d/profile-dropdown",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "arihantcodes_1f7b8c4d-profile-dropdown"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "profile-dropdown.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "next",
+    "next-themes"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/arihantcodes_1f7b8c4d/profile-dropdown",
+    "fetchedAt": "2026-04-23T02:32:10.811Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

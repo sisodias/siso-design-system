@@ -1,8 +1,5 @@
 {
-  "category": [
-    "hero",
-    "media"
-  ],
+  "category": "hero",
   "subcategory": "3d-rotating-cube-animation-hero",
   "visual_style": [
     "3d",
@@ -32,5 +29,7 @@
   ],
   "ai_summary": "A 3D animated hero section featuring a rotating cube with multiple faces that can display poem HTML content. The component includes responsive scaling logic, animated gradient effects, and supports custom background and character images. Designed for immersive storytelling experiences on creative, media, and educational platforms.",
   "_classifiedAt": "2026-04-23T01:38:11.833Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:28:51.534Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

@@ -1,9 +1,5 @@
 {
-  "category": [
-    "hero",
-    "input",
-    "media"
-  ],
+  "category": "hero",
   "subcategory": "AI-powered hero with animated 3D wave background and prompt input",
   "visual_style": [
     "dark",
@@ -31,5 +27,7 @@
   ],
   "ai_summary": "A dynamic hero component featuring an animated 3D wave background rendered with Three.js, post-processing bloom effects, and a typing placeholder animation. Includes integrated AI prompt input with a submit button, designed for SaaS platforms and developer tools focused on AI-assisted code or app generation.",
   "_classifiedAt": "2026-04-22T08:51:00.279Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:28:27.816Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

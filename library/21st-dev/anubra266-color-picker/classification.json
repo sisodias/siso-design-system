@@ -1,8 +1,5 @@
 {
-  "category": [
-    "input",
-    "form"
-  ],
+  "category": "input",
   "subcategory": "color-selector",
   "visual_style": [
     "minimalist",
@@ -32,5 +29,7 @@
   ],
   "ai_summary": "A color picker input component featuring a saturation/brightness picker area with draggable thumb, hex input field, and color swatch trigger. Built on Ark UI with dark mode support, Portal positioning for overlay behavior, and focus/keyboard accessibility. Designed with minimalist flat styling suitable for design tools, e-commerce color selection, or theme customization interfaces.",
   "_classifiedAt": "2026-04-23T01:35:47.954Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:28:28.956Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

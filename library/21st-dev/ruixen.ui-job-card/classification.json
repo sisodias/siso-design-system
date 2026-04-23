@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "data-display"
-  ],
+  "category": "card",
   "subcategory": "job-listing-avatar",
   "visual_style": [
     "minimalist",
@@ -29,5 +26,7 @@
   ],
   "ai_summary": "A minimalist avatar component built on Radix UI primitives for displaying user or company profile images within job card interfaces. Uses standard Tailwind styling with rounded-full design, fallback support for missing images, and shrink-0 properties for consistent layout in list views.",
   "_classifiedAt": "2026-04-23T01:50:14.441Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:35:39.398Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

@@ -1,8 +1,5 @@
 {
-  "category": [
-    "input",
-    "form"
-  ],
+  "category": "pricing",
   "subcategory": "star-rating-input",
   "visual_style": [
     "minimalist",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A customizable star rating group component built on Ark UI that supports full and half-star ratings with interactive hover effects and keyboard navigation. Features accessible focus states with ring indicators and displays contextual rating labels. Perfect for e-commerce product reviews, customer satisfaction surveys, and SaaS applications needing interactive rating inputs.",
   "_classifiedAt": "2026-04-23T01:36:00.205Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:37:46.821Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

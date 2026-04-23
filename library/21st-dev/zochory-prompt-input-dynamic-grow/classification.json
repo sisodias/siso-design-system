@@ -1,8 +1,5 @@
 {
-  "category": [
-    "input",
-    "form"
-  ],
+  "category": "input",
   "subcategory": "chat-prompt-input-expandable",
   "visual_style": [
     "gradient",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A sophisticated chat prompt input component with dynamic height adjustment on focus. Features menu options, send button, glow effects, ripple animations, and keyboard navigation. Designed for AI assistants and chatbot interfaces with expandable textarea that grows based on content.",
   "_classifiedAt": "2026-04-22T09:19:22.545Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:36:53.644Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

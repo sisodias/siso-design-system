@@ -1,8 +1,5 @@
 {
-  "category": [
-    "input",
-    "ai"
-  ],
+  "category": "input",
   "subcategory": "ai-chat-input",
   "visual_style": [
     "minimalist",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A modern AI input component with auto-resizing textarea functionality that smoothly animates between different placeholder states. Features a custom hook for height adjustment and AnimatePresence for fluid placeholder transitions between 'Ask AI anything' and 'Search the web' modes. Includes icon buttons for attachments and actions, designed with dark mode support using Tailwind CSS.",
   "_classifiedAt": "2026-04-23T01:54:26.060Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:36:53.243Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "isaiahbjork-ruler-carousel",
+  "type": "registry:ui",
+  "title": "Isaiahbjork Ruler Carousel",
+  "description": "Installed from https://21st.dev/r/isaiahbjork/ruler-carousel",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "isaiahbjork-ruler-carousel"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "ruler-carousel.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/isaiahbjork/ruler-carousel",
+    "fetchedAt": "2026-04-23T02:32:55.802Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

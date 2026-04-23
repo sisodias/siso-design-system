@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "xubohuah-flow-button",
+  "type": "registry:ui",
+  "title": "Xubohuah Flow Button",
+  "description": "Installed from https://21st.dev/r/xubohuah/flow-button",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "xubohuah-flow-button"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "flow-button.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/xubohuah/flow-button",
+    "fetchedAt": "2026-04-23T02:33:20.557Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

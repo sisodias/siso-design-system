@@ -1,8 +1,5 @@
 {
-  "category": [
-    "data-display",
-    "feedback"
-  ],
+  "category": "data-display",
   "subcategory": "live-visitor-counter social-proof",
   "visual_style": [
     "flat",
@@ -30,5 +27,7 @@
   ],
   "ai_summary": "A live visitor counter component featuring animated avatar stacks with colored backgrounds and spring-based number animations. Uses Framer Motion for smooth transitions and displays real-time visitor counts with overlapping avatar badges. Designed for landing pages and marketing sites to demonstrate social proof and create urgency through visible user activity.",
   "_classifiedAt": "2026-04-22T08:59:37.760Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:29:19.132Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

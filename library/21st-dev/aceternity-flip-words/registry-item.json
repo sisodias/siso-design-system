@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aceternity-flip-words",
+  "type": "registry:ui",
+  "title": "Aceternity Flip Words",
+  "description": "Installed from https://21st.dev/r/aceternity/flip-words",
+  "source": "21st-dev",
+  "platform": "Mixed",
+  "tags": [
+    "21st-dev",
+    "aceternity-flip-words"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "flip-words.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "framer-motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://21st.dev/r/aceternity/flip-words",
+    "fetchedAt": "2026-04-23T02:34:07.599Z",
+    "importMode": "bulk",
+    "importedFromList": "21st-dev-sitemap"
+  }
+}

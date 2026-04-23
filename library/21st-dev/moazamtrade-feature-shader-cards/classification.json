@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "media"
-  ],
+  "category": "card",
   "subcategory": "shader-enhanced feature showcase cards",
   "visual_style": [
     "glass-morphism",
@@ -33,5 +30,7 @@
   ],
   "ai_summary": "A feature card component using WebGL shaders (Warp effect from paper-design/shaders-react) with glass-morphism styling and animated gradient backgrounds. Renders multiple feature items with icons, titles, and descriptions in a visually striking layout. Built with React and Tailwind CSS for modern web applications, featuring smooth shader-based animations and hover effects.",
   "_classifiedAt": "2026-04-23T01:44:00.401Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:30:00.732Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

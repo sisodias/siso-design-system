@@ -1,8 +1,5 @@
 {
-  "category": [
-    "form",
-    "input"
-  ],
+  "category": "input",
   "subcategory": "member-multi-select",
   "visual_style": [
     "minimalist",
@@ -29,5 +26,7 @@
   ],
   "ai_summary": "A member selector component that displays avatars in a grid and allows multi-selection of team members. Features smooth framer-motion animations with hover scale and tap feedback, keyboard navigation support, and displays initials fallback for members without avatars. Ideal for SaaS collaboration tools, project management apps, and any interface requiring team member selection.",
   "_classifiedAt": "2026-04-22T09:07:46.109Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:30:13.057Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

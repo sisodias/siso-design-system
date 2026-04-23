@@ -1,8 +1,5 @@
 {
-  "category": [
-    "hero",
-    "navigation"
-  ],
+  "category": "navigation",
   "subcategory": "glass-dock-navigation-hero",
   "visual_style": [
     "glass-morphism",
@@ -32,5 +29,7 @@
   ],
   "ai_summary": "A full-screen dark hero section featuring a floating glass-morphism dock navigation bar with Lucide icons. The design uses radial gradient glows, vignette edges, and subtle noise textures to create an atmospheric backdrop. The dock appears to support hover interactions and is designed to be a central navigation hub for desktop and mobile platforms, installed from 21st.dev.",
   "_classifiedAt": "2026-04-22T09:04:47.419Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:29:43.297Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

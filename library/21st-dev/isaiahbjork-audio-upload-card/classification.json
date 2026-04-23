@@ -1,8 +1,5 @@
 {
-  "category": [
-    "form",
-    "media"
-  ],
+  "category": "input",
   "subcategory": "audio-upload",
   "visual_style": [
     "minimalist",
@@ -32,5 +29,7 @@
   ],
   "ai_summary": "An animated audio upload card component with drag-and-drop functionality and dynamic waveform visualization. Features Framer Motion animations, customizable title and description, and supports both drag-over and click-to-upload interactions. The component includes a base card wrapper that handles upload state styling and is designed for media, creator tools, and SaaS applications requiring audio file uploads.",
   "_classifiedAt": "2026-04-23T01:40:11.301Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:33:19.731Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

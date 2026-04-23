@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "transition-panel",
+  "type": "registry:ui",
+  "title": "Transition Panel",
+  "description": "Installed from https://github.com/ibelick/motion-primitives",
+  "source": "motion-primitives",
+  "platform": "Mixed",
+  "tags": [
+    "motion-primitives",
+    "transition-panel"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "transition-panel.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/ibelick/motion-primitives/tree/main/public",
+    "fetchedAt": "2026-04-23T02:30:03.543Z",
+    "importMode": "bulk",
+    "importedFromList": "github/ibelick/motion-primitives"
+  }
+}

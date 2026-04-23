@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "hero"
-  ],
+  "category": "card",
   "subcategory": "hotel-accommodation-showcase",
   "visual_style": [
     "gradient",
@@ -32,5 +29,7 @@
   ],
   "ai_summary": "A visually appealing hotel showcase component designed for displaying accommodation properties with imagery, pricing, ratings, and key amenities. Built for travel and hospitality platforms with mixed device support, featuring elegant gradients and hover interactions to highlight property details and encourage booking engagement.",
   "_classifiedAt": "2026-04-23T01:42:00.719Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:33:48.734Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

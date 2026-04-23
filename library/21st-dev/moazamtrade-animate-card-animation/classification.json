@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "media"
-  ],
+  "category": "card",
   "subcategory": "animated-card-stack",
   "visual_style": [
     "flat",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "An animated card stack component featuring interactive card transitions with smooth exit/enter animations using Framer Motion. Displays product images, titles, and descriptions in a visually appealing stacked layout with scale and position animations. Supports dark mode and includes a call-to-action button for each card.",
   "_classifiedAt": "2026-04-22T09:06:21.164Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:29:49.259Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

@@ -1,8 +1,5 @@
 {
-  "category": [
-    "hero",
-    "media"
-  ],
+  "category": "hero",
   "subcategory": "webgl-liquid-metal-shader",
   "visual_style": [
     "3d",
@@ -30,5 +27,7 @@
   ],
   "ai_summary": "A WebGL-powered liquid metal vortex shader effect featuring animated metallic fluid patterns with mouse-reactive interactivity. This component renders a full-screen canvas with a custom fragment shader creating glossy, reflective liquid metal visuals that respond to cursor movement. Ideal for premium hero sections and landing pages where a modern, high-end visual impact is needed.",
   "_classifiedAt": "2026-04-23T01:39:16.392Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:37:50.217Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

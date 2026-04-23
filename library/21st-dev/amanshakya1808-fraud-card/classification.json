@@ -1,9 +1,5 @@
 {
-  "category": [
-    "card",
-    "data-display",
-    "feedback"
-  ],
+  "category": "card",
   "subcategory": "security-dashboard-fraud-detection",
   "visual_style": [
     "minimalist",
@@ -32,5 +28,7 @@
   ],
   "ai_summary": "A fraud detection card component that displays a list of blocked emails with smooth animated reveal effects triggered by hover and click interactions. Features staggered motion animations with blur transitions, opacity changes, and a rotating loading indicator. Built with framer-motion for professional-grade animations. Designed primarily for security dashboards, admin panels, and SaaS platforms requiring email threat monitoring and fraud detection interfaces.",
   "_classifiedAt": "2026-04-23T01:35:42.748Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:37:42.102Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

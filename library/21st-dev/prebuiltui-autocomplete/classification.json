@@ -1,8 +1,5 @@
 {
-  "category": [
-    "input",
-    "form"
-  ],
+  "category": "input",
   "subcategory": "autocomplete-search",
   "visual_style": [
     "minimalist",
@@ -32,5 +29,7 @@
   ],
   "ai_summary": "A search autocomplete component built with base-ui that provides an input field with a dropdown popup displaying matching suggestions. Features highlighted selection states, keyboard navigation support, and responsive design with dark mode compatibility. Uses Tailwind CSS for styling with clean, flat aesthetics.",
   "_classifiedAt": "2026-04-23T01:45:16.079Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:34:37.513Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

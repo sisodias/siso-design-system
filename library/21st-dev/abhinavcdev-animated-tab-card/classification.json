@@ -1,8 +1,5 @@
 {
-  "category": [
-    "navigation",
-    "card"
-  ],
+  "category": "card",
   "subcategory": "animated-tab-switcher",
   "visual_style": [
     "gradient",
@@ -30,5 +27,7 @@
   ],
   "ai_summary": "An animated tab card component featuring smooth motion/react transitions and dynamic waveform visualizations. Supports custom icons, color-coded tabs, and animated card content with layered SVG waveforms. Designed for showcasing features or models with engaging visual feedback on tab selection.",
   "_classifiedAt": "2026-04-23T01:35:07.616Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:37:42.973Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

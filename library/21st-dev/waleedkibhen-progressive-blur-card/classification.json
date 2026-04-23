@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "media"
-  ],
+  "category": "card",
   "subcategory": "progressive-blur-overlay-image-card",
   "visual_style": [
     "glass-morphism",
@@ -31,5 +28,7 @@
   ],
   "ai_summary": "A sophisticated image card component featuring progressive blur overlay with backdrop-filter effects, gradient masking, and smooth hover animations. The card includes image zoom on hover, shadow depth changes, and a glass-morphism blur effect that fades content from bottom to top. Built with Tailwind utility classes and Lucide icons for a modern, polished appearance suitable for media-rich interfaces.",
   "_classifiedAt": "2026-04-23T01:55:09.760Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T02:36:59.103Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }
