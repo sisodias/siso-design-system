@@ -342,10 +342,19 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
                 </TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
-                <TreeNode nodeId="build-prompt" level={1}>
+                <TreeNode nodeId="build-compose" level={1}>
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon icon={<Wand2 className="h-4 w-4" />} />
+                    <Link href="/compose" className="flex-1 truncate text-sm">
+                      Compose
+                    </Link>
+                  </TreeNodeTrigger>
+                </TreeNode>
+                <TreeNode nodeId="build-prompt" level={1}>
+                  <TreeNodeTrigger>
+                    <TreeExpander />
+                    <TreeIcon icon={<FileCode className="h-4 w-4" />} />
                     <Link href="/export" className="flex-1 truncate text-sm">
                       Agent prompt
                     </Link>

@@ -76,11 +76,18 @@ export default function CartDrawer() {
         {items.length > 0 && (
           <div className="border-t border-neutral-800 px-5 py-4 flex gap-3">
             <Link
+              href="/compose"
+              onClick={() => setOpen(false)}
+              className="flex-1 rounded-lg bg-green-700 px-4 py-2 text-center text-sm text-white hover:bg-green-600 transition-colors font-medium"
+            >
+              Go to Compose
+            </Link>
+            <Link
               href="/export"
               onClick={() => setOpen(false)}
-              className="flex-1 rounded-lg bg-green-700 px-4 py-2 text-center text-sm text-white hover:bg-green-600 transition-colors"
+              className="rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2 text-sm text-neutral-300 hover:border-neutral-600 transition-colors"
             >
-              Export →
+              Export
             </Link>
             <button
               onClick={() => { if (confirm('Clear all selected?')) clear() }}
