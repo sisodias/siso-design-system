@@ -20,6 +20,10 @@ export type FilterState = {
   page: number
   pageSize: number
   importMode: 'curated' | 'all' | 'generic'
+  categories: string[]
+  visualStyles: string[]
+  industries: string[]
+  complexity: ('atomic' | 'composite' | 'system')[]
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -58,6 +62,15 @@ export function parseFilters(
   const modeRaw = normalizeString(raw.mode)
   const importMode = (modeRaw && VALID_MODES.has(modeRaw) ? modeRaw : 'curated') as FilterState['importMode']
 
+  // AI classification filters (array, repeatable URL params)
+  const categories = normalizeTag(raw.category)
+  const visualStyles = normalizeTag(raw.style)
+  const industries = normalizeTag(raw.industry)
+  const complexityRaw = normalizeTag(raw.complexity)
+  const complexity = complexityRaw.filter(v =>
+    v === 'atomic' || v === 'composite' || v === 'system',
+  ) as FilterState['complexity']
+
   let page = DEFAULT_PAGE
   if (raw.page !== undefined) {
     const n = parseInt(Array.isArray(raw.page) ? raw.page[0] : raw.page, 10)
@@ -73,7 +86,7 @@ export function parseFilters(
     pageSize = isNaN(n) || n < 1 ? DEFAULT_PAGE_SIZE : n
   }
 
-  return { source, tags, platform, search, page, pageSize, importMode }
+  return { source, tags, platform, search, page, pageSize, importMode, categories, visualStyles, industries, complexity }
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -101,8 +114,41 @@ export function filterComponents(all: ComponentEntry[], filters: FilterState) {
       c =>
         c.displayName.toLowerCase().includes(q) ||
         c.description.toLowerCase().includes(q) ||
-        c.tags.some(t => t.toLowerCase().includes(q)),
+        c.tags.some(t => t.toLowerCase().includes(q)) ||
+        (c.aiSummary ? c.aiSummary.toLowerCase().includes(q) : false) ||
+        (Array.isArray(c.useCases) && c.useCases.some((u: string) => u.toLowerCase().includes(q))),
     )
+  }
+
+  // AI classification filters (OR match)
+  if (filters.categories.length > 0) {
+    result = result.filter(c => {
+      if (!c.category || c.category.length === 0) return false
+      const cats = (Array.isArray(c.category) ? c.category : [c.category]).map(v => v.toLowerCase())
+      return filters.categories.some(f => cats.includes(f.toLowerCase()))
+    })
+  }
+
+  if (filters.visualStyles.length > 0) {
+    result = result.filter(c => {
+      if (!c.visualStyle || c.visualStyle.length === 0) return false
+      return filters.visualStyles.some(f => c.visualStyle!.map(v => v.toLowerCase()).includes(f.toLowerCase()))
+    })
+  }
+
+  if (filters.industries.length > 0) {
+    result = result.filter(c => {
+      if (!c.bestForIndustries || c.bestForIndustries.length === 0) return false
+      return filters.industries.some(f => c.bestForIndustries!.map(v => v.toLowerCase()).includes(f.toLowerCase()))
+    })
+  }
+
+  if (filters.complexity.length > 0) {
+    result = result.filter(c => {
+      if (!c.complexity) return false
+      const comp = Array.isArray(c.complexity) ? c.complexity : [c.complexity]
+      return filters.complexity.some(f => comp.includes(f))
+    })
   }
 
   if (filters.importMode === 'curated') {
@@ -123,16 +169,46 @@ export function buildFacets(all: ComponentEntry[]): {
   sources: ManifestFacet[]
   tags: ManifestFacet[]
   platforms: ManifestFacet[]
+  categories: ManifestFacet[]
+  visualStyles: ManifestFacet[]
+  industries: ManifestFacet[]
+  complexity: ManifestFacet[]
 } {
   const sourceCounts: Record<string, number> = {}
   const tagCounts: Record<string, number> = {}
   const platformCounts: Record<string, number> = {}
+  const categoryCounts: Record<string, number> = {}
+  const visualStyleCounts: Record<string, number> = {}
+  const industryCounts: Record<string, number> = {}
+  const complexityCounts: Record<string, number> = {}
 
   for (const c of all) {
     sourceCounts[c.source] = (sourceCounts[c.source] ?? 0) + 1
-    tagCounts[c.platform] = (tagCounts[c.platform] ?? 0) + 1
+    platformCounts[c.platform] = (platformCounts[c.platform] ?? 0) + 1
     for (const t of c.tags) {
       tagCounts[t] = (tagCounts[t] ?? 0) + 1
+    }
+    if (c.category) {
+      const cats = Array.isArray(c.category) ? c.category : [c.category]
+      for (const cat of cats) {
+        categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1
+      }
+    }
+    if (c.visualStyle) {
+      for (const style of c.visualStyle) {
+        visualStyleCounts[style] = (visualStyleCounts[style] ?? 0) + 1
+      }
+    }
+    if (c.bestForIndustries) {
+      for (const ind of c.bestForIndustries) {
+        industryCounts[ind] = (industryCounts[ind] ?? 0) + 1
+      }
+    }
+    if (c.complexity) {
+      const comps = Array.isArray(c.complexity) ? c.complexity : [c.complexity]
+      for (const comp of comps) {
+        complexityCounts[comp] = (complexityCounts[comp] ?? 0) + 1
+      }
     }
   }
 
@@ -146,6 +222,18 @@ export function buildFacets(all: ComponentEntry[]): {
       .map(([value, count]) => ({ value, count }))
       .sort(sortDesc),
     platforms: Object.entries(platformCounts)
+      .map(([value, count]) => ({ value, count }))
+      .sort(sortDesc),
+    categories: Object.entries(categoryCounts)
+      .map(([value, count]) => ({ value, count }))
+      .sort(sortDesc),
+    visualStyles: Object.entries(visualStyleCounts)
+      .map(([value, count]) => ({ value, count }))
+      .sort(sortDesc),
+    industries: Object.entries(industryCounts)
+      .map(([value, count]) => ({ value, count }))
+      .sort(sortDesc),
+    complexity: Object.entries(complexityCounts)
       .map(([value, count]) => ({ value, count }))
       .sort(sortDesc),
   }

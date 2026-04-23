@@ -28,6 +28,12 @@ function readJSON(filePath) {
 /**
  * Derive addedAt: prefer _provenance.fetchedAt, else mtime of registry-item.json.
  */
+function normalizeToArray(val) {
+  if (Array.isArray(val)) return val
+  if (val != null) return [val]
+  return undefined
+}
+
 function getAddedAt(itemPath) {
   const item = readJSON(itemPath)
   if (item?._provenance?.fetchedAt) return item._provenance.fetchedAt
@@ -135,13 +141,15 @@ function buildManifest() {
       // importMode: 'bulk' if set by scraper; undefined = curated (conservative default)
       importMode: item._provenance?.importMode ?? undefined,
       // AI classification fields (populated by classify-components.mjs)
+      // Normalize category and complexity to always be arrays
       ...(classification
         ? {
-            category: classification.category ?? undefined,
+            category: normalizeToArray(classification.category),
             visualStyle: classification.visual_style ?? undefined,
-            complexity: classification.complexity ?? undefined,
+            complexity: normalizeToArray(classification.complexity),
             aiSummary: classification.ai_summary ?? undefined,
             bestForIndustries: classification.best_for_industries ?? undefined,
+            useCases: classification.use_cases ?? undefined,
             hasClassification: true,
           }
         : { hasClassification: false }),
@@ -151,19 +159,27 @@ function buildManifest() {
   // Sort components by source/name
   components.sort((a, b) => `${a.source}/${a.name}`.localeCompare(`${b.source}/${b.name}`))
 
+  // Normalize complexity (may be a string or array in source data)
+  const normalizedComponents = components.map(c => ({
+    ...c,
+    complexity: Array.isArray(c.complexity) ? c.complexity : (c.complexity ? [c.complexity] : []),
+  }))
+
   const facets = {
-    sources: buildFacets(components, 'source'),
-    tags: buildFacets(components, 'tags'),
-    platforms: buildFacets(components, 'platform'),
-    categories: buildFacets(components.filter(c => c.category), 'category'),
-    complexity: buildFacets(components.filter(c => c.complexity), 'complexity'),
+    sources: buildFacets(normalizedComponents, 'source'),
+    tags: buildFacets(normalizedComponents, 'tags'),
+    platforms: buildFacets(normalizedComponents, 'platform'),
+    categories: buildFacets(normalizedComponents.filter(c => c.category), 'category'),
+    visualStyles: buildFacets(normalizedComponents.filter(c => c.visualStyle), 'visualStyle'),
+    industries: buildFacets(normalizedComponents.filter(c => c.bestForIndustries), 'bestForIndustries'),
+    complexity: buildFacets(normalizedComponents.filter(c => c.complexity && c.complexity.length > 0), 'complexity'),
   }
 
   return {
     generatedAt: existingGeneratedAt || new Date().toISOString(),
     schemaVersion: 1,
-    total: components.length,
-    components,
+    total: normalizedComponents.length,
+    components: normalizedComponents,
     facets,
   }
 }
@@ -191,4 +207,16 @@ console.log(
 )
 console.log(
   `  Sources: ${manifest.facets.sources.map(s => `${s.value}(${s.count})`).join(', ')}`
+)
+console.log(
+  `  Categories: ${manifest.facets.categories.slice(0, 5).map(s => `${s.value}(${s.count})`).join(', ')}...`
+)
+console.log(
+  `  VisualStyles: ${manifest.facets.visualStyles.slice(0, 5).map(s => `${s.value}(${s.count})`).join(', ')}...`
+)
+console.log(
+  `  Industries: ${manifest.facets.industries.slice(0, 5).map(s => `${s.value}(${s.count})`).join(', ')}...`
+)
+console.log(
+  `  Complexity: ${manifest.facets.complexity.map(s => `${s.value}(${s.count})`).join(', ')}`
 )

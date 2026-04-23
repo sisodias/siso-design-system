@@ -1,7 +1,8 @@
 'use client'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
-import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2, Clock } from 'lucide-react'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2, Clock, ChevronDown } from 'lucide-react'
 import {
   TreeExpander,
   TreeIcon,
@@ -21,6 +22,15 @@ interface SourceCount {
   count: number
 }
 
+type Facet = { value: string; count: number }
+
+interface SidebarFacets {
+  categories: Facet[]
+  visualStyles: Facet[]
+  industries: Facet[]
+  complexity: Facet[]
+}
+
 interface Props {
   sourceCounts: SourceCount[]
   activeSource?: string
@@ -29,10 +39,110 @@ interface Props {
   searchValue?: string
 }
 
+function FacetSection({
+  label,
+  facets,
+  paramKey,
+  activeValues,
+}: {
+  label: string
+  facets: Facet[]
+  paramKey: string
+  activeValues: string[]
+}) {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const [open, setOpen] = useState(false)
+
+  const topFacets = facets.slice(0, 15)
+
+  function toggle(value: string) {
+    const params = new URLSearchParams(searchParams.toString())
+    const current = activeValues.filter(v => v !== value)
+    if (current.length > 0) {
+      params.delete(paramKey)
+      current.forEach(v => params.append(paramKey, v))
+    } else {
+      params.delete(paramKey)
+    }
+    router.push(`/?${params.toString()}`, { scroll: false })
+  }
+
+  if (facets.length === 0) return null
+
+  return (
+    <div className="mb-2">
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="flex w-full items-center gap-1 px-3 py-1.5 text-left"
+      >
+        <ChevronDown className={`h-3 w-3 text-neutral-500 transition-transform ${open ? 'rotate-0' : '-rotate-90'}`} />
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">{label}</span>
+      </button>
+
+      {open && (
+        <div className="px-3 pb-1">
+          {activeValues.length > 0 && (
+            <button
+              onClick={() => {
+                const params = new URLSearchParams(searchParams.toString())
+                params.delete(paramKey)
+                router.push(`/?${params.toString()}`, { scroll: false })
+              }}
+              className="mb-1 text-[10px] text-neutral-500 hover:text-neutral-300"
+            >
+              Clear all
+            </button>
+          )}
+          {topFacets.map(facet => {
+            const active = activeValues.includes(facet.value)
+            return (
+              <button
+                key={facet.value}
+                onClick={() => toggle(facet.value)}
+                className={`flex w-full items-center gap-2 rounded px-2 py-0.5 text-left text-xs transition-colors ${
+                  active
+                    ? 'bg-neutral-800 text-neutral-100'
+                    : 'text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200'
+                }`}
+              >
+                <span className={`h-1.5 w-1.5 rounded-full ${active ? 'bg-orange-400' : 'bg-neutral-600'}`} />
+                <span className="flex-1 truncate">{facet.value}</span>
+                <span className="text-neutral-600">{facet.count}</span>
+              </button>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, onSearchChange, searchValue = '' }: Props) {
   const searchParams = useSearchParams()
   const modeRaw = searchParams.get('mode') as Mode | null
   const activeMode: Mode = modeRaw === 'all' || modeRaw === 'generic' ? modeRaw : 'curated'
+
+  const [facets, setFacets] = useState<SidebarFacets | null>(null)
+
+  useEffect(() => {
+    fetch('/api/facets')
+      .then(r => r.json())
+      .then(data => {
+        setFacets({
+          categories: data.categories || [],
+          visualStyles: data.visualStyles || [],
+          industries: data.industries || [],
+          complexity: data.complexity || [],
+        })
+      })
+      .catch(() => {})
+  }, [])
+
+  const activeCategories = searchParams.getAll('category')
+  const activeStyles = searchParams.getAll('style')
+  const activeIndustries = searchParams.getAll('industry')
+  const activeComplexities = searchParams.getAll('complexity')
 
   // Build mode-aware href (preserves other params)
   function modeHref(mode: Mode): string {
@@ -180,6 +290,36 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
                 ))}
               </TreeNodeContent>
             </TreeNode>
+
+            {/* AI Classification facets — inserted after Sources */}
+            {facets && (
+              <>
+                <FacetSection
+                  label="Category"
+                  facets={facets.categories}
+                  paramKey="category"
+                  activeValues={activeCategories}
+                />
+                <FacetSection
+                  label="Style"
+                  facets={facets.visualStyles}
+                  paramKey="style"
+                  activeValues={activeStyles}
+                />
+                <FacetSection
+                  label="Industry"
+                  facets={facets.industries}
+                  paramKey="industry"
+                  activeValues={activeIndustries}
+                />
+                <FacetSection
+                  label="Complexity"
+                  facets={facets.complexity}
+                  paramKey="complexity"
+                  activeValues={activeComplexities}
+                />
+              </>
+            )}
 
             {/* Build group */}
             <TreeNode nodeId="build">

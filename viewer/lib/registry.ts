@@ -54,6 +54,7 @@ function toComponentEntry(entry: ManifestEntry): ComponentEntry {
     complexity: entry.complexity,
     aiSummary: entry.aiSummary,
     bestForIndustries: entry.bestForIndustries,
+    useCases: entry.useCases,
     hasClassification: entry.hasClassification,
   }
 }
@@ -101,6 +102,10 @@ export type FilterState = Partial<{
   page: number
   pageSize: number
   importMode: 'curated' | 'all' | 'generic'
+  categories: string[]
+  visualStyles: string[]
+  industries: string[]
+  complexity: ('atomic' | 'composite' | 'system')[]
 }>
 
 /**
@@ -111,7 +116,12 @@ export function getFilteredComponents(
   filters: FilterState,
 ): { items: ComponentEntry[]; total: number; facets: Manifest['facets'] } {
   const manifest = getManifest()
-  const { source, tags, platform, search, page = 1, pageSize = 120, importMode = 'curated' } = filters
+  const {
+    source, tags, platform, search,
+    page = 1, pageSize = 120,
+    importMode = 'curated',
+    categories = [], visualStyles = [], industries = [], complexity = [],
+  } = filters
 
   let filtered: ManifestEntry[] = manifest.components
 
@@ -130,15 +140,48 @@ export function getFilteredComponents(
     filtered = filtered.filter(c => tags.every(t => c.tags.includes(t)))
   }
 
-  // Filter by search (case-insensitive match on title, description, tags)
+  // Filter by search (case-insensitive match on title, description, tags, aiSummary, useCases)
   if (search && search.trim()) {
     const q = search.trim().toLowerCase()
     filtered = filtered.filter(
       c =>
         c.displayName.toLowerCase().includes(q) ||
         c.description.toLowerCase().includes(q) ||
-        c.tags.some(t => t.toLowerCase().includes(q)),
+        c.tags.some(t => t.toLowerCase().includes(q)) ||
+        (c.aiSummary ? c.aiSummary.toLowerCase().includes(q) : false) ||
+        (Array.isArray(c.useCases) && c.useCases.some((u: string) => u.toLowerCase().includes(q))),
     )
+  }
+
+  // Filter by AI classification (OR match)
+  if (categories.length > 0) {
+    filtered = filtered.filter(c => {
+      if (!c.category || c.category.length === 0) return false
+      const cats = (Array.isArray(c.category) ? c.category : [c.category]).map(v => v.toLowerCase())
+      return categories.some(f => cats.includes(f.toLowerCase()))
+    })
+  }
+
+  if (visualStyles.length > 0) {
+    filtered = filtered.filter(c => {
+      if (!c.visualStyle || c.visualStyle.length === 0) return false
+      return visualStyles.some(f => c.visualStyle!.map(v => v.toLowerCase()).includes(f.toLowerCase()))
+    })
+  }
+
+  if (industries.length > 0) {
+    filtered = filtered.filter(c => {
+      if (!c.bestForIndustries || c.bestForIndustries.length === 0) return false
+      return industries.some(f => c.bestForIndustries!.map(v => v.toLowerCase()).includes(f.toLowerCase()))
+    })
+  }
+
+  if (complexity.length > 0) {
+    filtered = filtered.filter(c => {
+      if (!c.complexity) return false
+      const comps = Array.isArray(c.complexity) ? c.complexity : [c.complexity]
+      return complexity.some(f => comps.includes(f))
+    })
   }
 
   // Filter by importMode: curated (default) = not bulk; generic = only bulk; all = no filter

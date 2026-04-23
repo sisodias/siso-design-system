@@ -28,11 +28,12 @@ export interface ComponentEntry {
   /** How the component entered the library. 'bulk' = scraped; missing = curated (hand-picked). */
   importMode?: 'bulk' | 'curated'
   /** AI classification fields (populated by classify-components.mjs). */
-  category?: string
+  category?: string[]
   visualStyle?: string[]
   complexity?: 'atomic' | 'composite' | 'system'
   aiSummary?: string
   bestForIndustries?: string[]
+  useCases?: string[]
   hasClassification?: boolean
 }
 
@@ -71,11 +72,12 @@ export type ManifestEntry = {
   /** How the component entered the library. 'bulk' = scraped; missing = curated (hand-picked). */
   importMode?: 'bulk' | 'curated'
   /** AI classification fields (populated by classify-components.mjs). */
-  category?: string
+  category?: string[]
   visualStyle?: string[]
   complexity?: 'atomic' | 'composite' | 'system'
   aiSummary?: string
   bestForIndustries?: string[]
+  useCases?: string[]
   hasClassification?: boolean
 }
 
@@ -89,6 +91,8 @@ export type Manifest = {
     tags: ManifestFacet[]
     platforms: ManifestFacet[]
     categories: ManifestFacet[]
+    visualStyles: ManifestFacet[]
+    industries: ManifestFacet[]
     complexity: ManifestFacet[]
   }
 }
