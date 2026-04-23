@@ -34,6 +34,7 @@
     "fetchedFrom": "https://21st.dev/r/abbasplusplus/goodreads-currently-reading",
     "fetchedAt": "2026-04-23T02:28:05.625Z",
     "importMode": "bulk",
-    "importedFromList": "21st-dev-sitemap"
+    "importedFromList": "21st-dev-sitemap",
+    "curationTags": []
   }
 }

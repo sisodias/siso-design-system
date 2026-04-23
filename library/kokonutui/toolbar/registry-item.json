@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toolbar",
+  "type": "registry:ui",
+  "title": "Toolbar",
+  "description": "Installed from https://github.com/kokonut-labs/kokonutui",
+  "source": "kokonutui",
+  "platform": "Mixed",
+  "tags": [
+    "kokonutui",
+    "toolbar"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "toolbar.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/kokonut-labs/kokonutui/tree/main/public",
+    "fetchedAt": "2026-04-23T03:01:28.571Z",
+    "importMode": "bulk",
+    "importedFromList": "github/kokonut-labs/kokonutui",
+    "curationTags": []
+  }
+}

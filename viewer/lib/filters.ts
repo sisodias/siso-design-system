@@ -24,6 +24,12 @@ export type FilterState = {
   visualStyles: string[]
   industries: string[]
   complexity: ('atomic' | 'composite' | 'system')[]
+  /** OR-match on any of these curation tags. Empty = no curation filter. */
+  curationTags?: string[]
+  /** When curationTags set, require ALL instead of ANY. */
+  requireAllTags?: boolean
+  /** Never match any of these curation tags. */
+  excludeTags?: string[]
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -71,6 +77,13 @@ export function parseFilters(
     v === 'atomic' || v === 'composite' || v === 'system',
   ) as FilterState['complexity']
 
+  // Curation tag filters
+  const curationTags = normalizeTag(raw.tag)
+  const requireAllTags = raw.requireAllTags !== undefined
+    ? normalizeString(raw.requireAllTags) === '1' || normalizeString(raw.requireAllTags) === 'true'
+    : false
+  const excludeTags = normalizeTag(raw.excludeTag)
+
   let page = DEFAULT_PAGE
   if (raw.page !== undefined) {
     const n = parseInt(Array.isArray(raw.page) ? raw.page[0] : raw.page, 10)
@@ -86,7 +99,7 @@ export function parseFilters(
     pageSize = isNaN(n) || n < 1 ? DEFAULT_PAGE_SIZE : n
   }
 
-  return { source, tags, platform, search, page, pageSize, importMode, categories, visualStyles, industries, complexity }
+  return { source, tags, platform, search, page, pageSize, importMode, categories, visualStyles, industries, complexity, curationTags, requireAllTags, excludeTags }
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -158,6 +171,23 @@ export function filterComponents(all: ComponentEntry[], filters: FilterState) {
   }
   // importMode === 'all' → no filter
 
+  // Curation tag filters
+  if (filters.curationTags && filters.curationTags.length > 0) {
+    result = result.filter(c => {
+      const ct = c.curationTags ?? []
+      return filters.requireAllTags
+        ? filters.curationTags!.every(t => ct.includes(t))
+        : filters.curationTags!.some(t => ct.includes(t))
+    })
+  }
+
+  if (filters.excludeTags && filters.excludeTags.length > 0) {
+    result = result.filter(c => {
+      const ct = c.curationTags ?? []
+      return !filters.excludeTags!.some(t => ct.includes(t))
+    })
+  }
+
   return result
 }
 
@@ -173,6 +203,7 @@ export function buildFacets(all: ComponentEntry[]): {
   visualStyles: ManifestFacet[]
   industries: ManifestFacet[]
   complexity: ManifestFacet[]
+  curationTags: ManifestFacet[]
 } {
   const sourceCounts: Record<string, number> = {}
   const tagCounts: Record<string, number> = {}
@@ -181,6 +212,7 @@ export function buildFacets(all: ComponentEntry[]): {
   const visualStyleCounts: Record<string, number> = {}
   const industryCounts: Record<string, number> = {}
   const complexityCounts: Record<string, number> = {}
+  const curationTagCounts: Record<string, number> = {}
 
   for (const c of all) {
     sourceCounts[c.source] = (sourceCounts[c.source] ?? 0) + 1
@@ -210,6 +242,11 @@ export function buildFacets(all: ComponentEntry[]): {
         complexityCounts[comp] = (complexityCounts[comp] ?? 0) + 1
       }
     }
+    if (c.curationTags) {
+      for (const ct of c.curationTags) {
+        curationTagCounts[ct] = (curationTagCounts[ct] ?? 0) + 1
+      }
+    }
   }
 
   const sortDesc = (a: ManifestFacet, b: ManifestFacet) => b.count - a.count
@@ -234,6 +271,9 @@ export function buildFacets(all: ComponentEntry[]): {
       .map(([value, count]) => ({ value, count }))
       .sort(sortDesc),
     complexity: Object.entries(complexityCounts)
+      .map(([value, count]) => ({ value, count }))
+      .sort(sortDesc),
+    curationTags: Object.entries(curationTagCounts)
       .map(([value, count]) => ({ value, count }))
       .sort(sortDesc),
   }

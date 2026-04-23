@@ -36,6 +36,7 @@
     "fetchedFrom": "https://21st.dev/r/tom_ui/tweet",
     "fetchedAt": "2026-04-22T06:32:05.884Z",
     "importMode": "bulk",
-    "importedFromList": "21st-dev-sitemap"
+    "importedFromList": "21st-dev-sitemap",
+    "curationTags": []
   }
 }

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-voice",
+  "type": "registry:ui",
+  "title": "Ai Voice",
+  "description": "Installed from https://github.com/kokonut-labs/kokonutui",
+  "source": "kokonutui",
+  "platform": "Mixed",
+  "tags": [
+    "kokonutui",
+    "ai-voice"
+  ],
+  "files": [
+    {
+      "path": "ai-voice.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    }
+  ],
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/kokonut-labs/kokonutui/tree/main/public",
+    "fetchedAt": "2026-04-23T03:01:27.710Z",
+    "importMode": "bulk",
+    "importedFromList": "github/kokonut-labs/kokonutui",
+    "curationTags": []
+  }
+}

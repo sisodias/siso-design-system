@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "team-selector",
+  "type": "registry:ui",
+  "title": "Team Selector",
+  "description": "Installed from https://github.com/kokonut-labs/kokonutui",
+  "source": "kokonutui",
+  "platform": "Mixed",
+  "tags": [
+    "kokonutui",
+    "team-selector"
+  ],
+  "files": [
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "team-selector.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/kokonut-labs/kokonutui/tree/main/public",
+    "fetchedAt": "2026-04-23T03:01:27.597Z",
+    "importMode": "bulk",
+    "importedFromList": "github/kokonut-labs/kokonutui",
+    "curationTags": []
+  }
+}

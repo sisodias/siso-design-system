@@ -1,0 +1,71 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid",
+  "type": "registry:ui",
+  "title": "Bento Grid",
+  "description": "Installed from https://github.com/kokonut-labs/kokonutui",
+  "source": "kokonutui",
+  "platform": "Mixed",
+  "tags": [
+    "kokonutui",
+    "bento-grid"
+  ],
+  "files": [
+    {
+      "path": "anthropic-dark.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "anthropic.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "bento-grid.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "deepseek.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "gemini.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "mistral.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "open-ai-dark.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "open-ai.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false,
+    "renderable": false,
+    "reason": "imports unresolvable path (@/components/icons/anthropic)"
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/kokonut-labs/kokonutui/tree/main/public",
+    "fetchedAt": "2026-04-23T03:01:28.067Z",
+    "importMode": "bulk",
+    "importedFromList": "github/kokonut-labs/kokonutui",
+    "curationTags": []
+  }
+}

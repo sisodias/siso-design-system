@@ -56,6 +56,8 @@ function toComponentEntry(entry: ManifestEntry): ComponentEntry {
     bestForIndustries: entry.bestForIndustries,
     useCases: entry.useCases,
     hasClassification: entry.hasClassification,
+    curationTags: entry.curationTags,
+    tokens: entry.tokens,
   }
 }
 
@@ -106,6 +108,9 @@ export type FilterState = Partial<{
   visualStyles: string[]
   industries: string[]
   complexity: ('atomic' | 'composite' | 'system')[]
+  curationTags?: string[]
+  requireAllTags?: boolean
+  excludeTags?: string[]
 }>
 
 /**
@@ -121,6 +126,7 @@ export function getFilteredComponents(
     page = 1, pageSize = 120,
     importMode = 'curated',
     categories = [], visualStyles = [], industries = [], complexity = [],
+    curationTags, requireAllTags, excludeTags,
   } = filters
 
   let filtered: ManifestEntry[] = manifest.components
@@ -191,6 +197,24 @@ export function getFilteredComponents(
     filtered = filtered.filter(c => c.importMode === 'bulk')
   }
   // importMode === 'all' → no filter
+
+  // Filter by curation tags
+  if (curationTags && curationTags.length > 0) {
+    filtered = filtered.filter(c => {
+      const ct = c.curationTags ?? []
+      return requireAllTags
+        ? curationTags.every(t => ct.includes(t))
+        : curationTags.some(t => ct.includes(t))
+    })
+  }
+
+  // Exclude curation tags
+  if (excludeTags && excludeTags.length > 0) {
+    filtered = filtered.filter(c => {
+      const ct = c.curationTags ?? []
+      return !excludeTags.some(t => ct.includes(t))
+    })
+  }
 
   const total = filtered.length
 

@@ -35,6 +35,10 @@ export interface ComponentEntry {
   bestForIndustries?: string[]
   useCases?: string[]
   hasClassification?: boolean
+  /** Multi-tag curation system. Replaces importMode binary. Empty = not curated. */
+  curationTags?: string[]
+  /** Precomputed search tokens (BM25). Populated by build-manifest.mjs. */
+  tokens?: string[]
 }
 
 export interface ReadmeData {
@@ -79,6 +83,10 @@ export type ManifestEntry = {
   bestForIndustries?: string[]
   useCases?: string[]
   hasClassification?: boolean
+  /** Precomputed search tokens (BM25). Populated by build-manifest.mjs. */
+  tokens?: string[]
+  /** Multi-tag curation system. Replaces importMode binary. Empty = not curated. */
+  curationTags?: string[]
 }
 
 export type Manifest = {
@@ -94,5 +102,9 @@ export type Manifest = {
     visualStyles: ManifestFacet[]
     industries: ManifestFacet[]
     complexity: ManifestFacet[]
+    /** IDF table: token → log(N/df). Populated by build-manifest.mjs. */
+    idf?: Record<string, number>
+    /** Curation tag facets. */
+    curationTags?: ManifestFacet[]
   }
 }

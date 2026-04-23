@@ -1,0 +1,59 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-prompt",
+  "type": "registry:ui",
+  "title": "Ai Prompt",
+  "description": "Installed from https://github.com/kokonut-labs/kokonutui",
+  "source": "kokonutui",
+  "platform": "Mixed",
+  "tags": [
+    "kokonutui",
+    "ai-prompt"
+  ],
+  "files": [
+    {
+      "path": "ai-prompt.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "anthropic-dark.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "anthropic.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "demo.tsx",
+      "type": "registry:example"
+    },
+    {
+      "path": "use-auto-resize-textarea.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "textarea",
+    "button",
+    "dropdown-menu"
+  ],
+  "preview": {
+    "width": 400,
+    "height": 300,
+    "background": "neutral-950",
+    "interactive": false,
+    "renderable": false,
+    "reason": "imports unresolvable path (@/components/icons/anthropic)"
+  },
+  "_provenance": {
+    "fetchedFrom": "https://github.com/kokonut-labs/kokonutui/tree/main/public",
+    "fetchedAt": "2026-04-23T03:01:25.456Z",
+    "importMode": "bulk",
+    "importedFromList": "github/kokonut-labs/kokonutui",
+    "curationTags": []
+  }
+}

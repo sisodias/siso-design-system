@@ -65,6 +65,7 @@
     "fetchedFrom": "https://21st.dev/r/shugar/calendar",
     "fetchedAt": "2026-04-23T03:03:00.097Z",
     "importMode": "bulk",
-    "importedFromList": "21st-dev-sitemap"
+    "importedFromList": "21st-dev-sitemap",
+    "curationTags": []
   }
 }

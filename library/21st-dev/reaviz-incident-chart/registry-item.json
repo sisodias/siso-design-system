@@ -34,6 +34,7 @@
     "fetchedFrom": "https://21st.dev/r/reaviz/incident-chart",
     "fetchedAt": "2026-04-23T03:04:36.642Z",
     "importMode": "bulk",
-    "importedFromList": "21st-dev-sitemap"
+    "importedFromList": "21st-dev-sitemap",
+    "curationTags": []
   }
 }

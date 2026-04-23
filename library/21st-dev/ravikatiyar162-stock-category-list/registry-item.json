@@ -39,6 +39,7 @@
     "fetchedFrom": "https://21st.dev/r/ravikatiyar162/stock-category-list",
     "fetchedAt": "2026-04-23T01:16:25.809Z",
     "importMode": "bulk",
-    "importedFromList": "21st-dev-sitemap"
+    "importedFromList": "21st-dev-sitemap",
+    "curationTags": []
   }
 }

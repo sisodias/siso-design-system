@@ -37,6 +37,7 @@
     "fetchedFrom": "https://21st.dev/r/airbnb/heatmaps",
     "fetchedAt": "2026-04-23T03:04:42.632Z",
     "importMode": "bulk",
-    "importedFromList": "21st-dev-sitemap"
+    "importedFromList": "21st-dev-sitemap",
+    "curationTags": []
   }
 }

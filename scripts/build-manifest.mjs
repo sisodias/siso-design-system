@@ -11,11 +11,79 @@
 import { readFileSync, readdirSync, statSync, writeFileSync, existsSync } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
 
+const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const LIBRARY_ROOT = path.join(ROOT, 'library')
 const MANIFEST_PATH = path.join(ROOT, 'library', 'manifest.json')
+const RATINGS_DB_PATH = path.join(ROOT, 'ratings.db')
+// better-sqlite3 is installed inside viewer/node_modules (not at root)
+const VIEWER_NODE_MODULES = path.join(ROOT, 'viewer', 'node_modules')
+
+// ------------------------------------------------------------------------------------------------
+// SQLite tag merge — reads component_tags from ratings.db (if table exists)
+// SQLite wins on conflict (it is more recent than the registry-item.json snapshot).
+// ------------------------------------------------------------------------------------------------
+
+let _sqliteTags = null
+
+function getSqliteTagsForComponent(source, slug) {
+  if (_sqliteTags === null) {
+    _sqliteTags = new Map()
+    try {
+      // Use require for synchronous loading (better-sqlite3 is CommonJS)
+      const Database = require(path.join(VIEWER_NODE_MODULES, 'better-sqlite3'))
+      const db = new Database(RATINGS_DB_PATH)
+      const rows = db
+        .prepare('SELECT source, slug, tag FROM component_tags')
+        .all()
+      for (const row of rows) {
+        const key = `${row.source}/${row.slug}`
+        if (!_sqliteTags.has(key)) _sqliteTags.set(key, new Set())
+        _sqliteTags.get(key).add(row.tag)
+      }
+      db.close()
+    } catch {
+      // No ratings.db or no component_tags table — no-op
+      _sqliteTags = new Map()
+    }
+  }
+  const key = `${source}/${slug}`
+  return _sqliteTags.has(key) ? [..._sqliteTags.get(key)] : []
+}
+
+// ------------------------------------------------------------------------------------------------
+// Merge curation tags: registry-item.json + SQLite (SQLite wins on conflicts)
+// Persist merged tags back to registry-item.json if SQLite adds new tags.
+// ------------------------------------------------------------------------------------------------
+
+function getAndMergeCurationTags(item, source, slug) {
+  const jsonTags = item._provenance?.curationTags ?? []
+  const sqliteTags = getSqliteTagsForComponent(source, slug)
+
+  // Merge: all JSON tags + SQLite tags not already in JSON
+  const merged = [...new Set([...jsonTags, ...sqliteTags])]
+
+  // If SQLite contributed new tags, update registry-item.json for persistence
+  const hasNewSqliteTags = sqliteTags.some(t => !jsonTags.includes(t))
+  if (hasNewSqliteTags && merged.length > 0) {
+    try {
+      if (!item._provenance) item._provenance = {}
+      item._provenance.curationTags = merged.sort()
+      writeFileSync(
+        path.join(LIBRARY_ROOT, source, slug, 'registry-item.json'),
+        JSON.stringify(item, null, 2) + '\n',
+        'utf-8',
+      )
+    } catch {
+      // Non-fatal — best-effort persistence
+    }
+  }
+
+  return merged
+}
 
 // Known broken package import patterns that cause webpack build failures.
 // These packages are referenced in library component source files but are NOT
@@ -343,6 +411,9 @@ function buildManifest() {
       ? { ...item.preview, renderable: false }
       : item.preview
 
+    // Merge curation tags: registry-item.json + SQLite (SQLite wins)
+    const curationTags = getAndMergeCurationTags(item, source, slug)
+
     return {
       source,
       name: slug,
@@ -371,6 +442,7 @@ function buildManifest() {
             hasClassification: true,
           }
         : { hasClassification: false }),
+      curationTags,
     }
   })
 
@@ -389,6 +461,7 @@ function buildManifest() {
     visualStyles: buildFacets(normalizedComponents.filter(c => c.visualStyle), 'visualStyle'),
     industries: buildFacets(normalizedComponents.filter(c => c.bestForIndustries), 'bestForIndustries'),
     complexity: buildFacets(normalizedComponents.filter(c => c.complexity && c.complexity.length > 0), 'complexity'),
+    curationTags: buildFacets(normalizedComponents.filter(c => c.curationTags && c.curationTags.length > 0), 'curationTags'),
   }
 
   return {
@@ -404,7 +477,39 @@ function prettifyName(name) {
   return name.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 }
 
+const STOPWORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'but', 'of', 'to', 'in', 'on', 'at', 'for',
+  'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have',
+  'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should',
+  'may', 'might', 'must', 'shall', 'this', 'that', 'these', 'those', 'it',
+  'its', 'component', 'ui', 'react', 'design', 'layout',
+])
+
+function tokenize(text) {
+  if (!text) return []
+  return text.toLowerCase().split(/\W+/).filter(t => t.length >= 2 && !STOPWORDS.has(t))
+}
+
 const manifest = buildManifest()
+
+// ------------------------------------------------------------------------------------------------
+// Tokenize aiSummary + useCases per component; compute IDF across corpus
+// ------------------------------------------------------------------------------------------------
+
+const docFreq = new Map()
+for (const entry of manifest.components) {
+  const txt = (entry.aiSummary || '') + ' ' + ((entry.useCases || []).join(' '))
+  entry.tokens = [...new Set(tokenize(txt))]
+  for (const t of entry.tokens) docFreq.set(t, (docFreq.get(t) || 0) + 1)
+}
+const N = manifest.components.length
+manifest.facets.idf = Object.fromEntries(
+  [...docFreq].map(([t, df]) => [t, Math.log(N / df)])
+)
+
+// ------------------------------------------------------------------------------------------------
+// Write manifest
+// ------------------------------------------------------------------------------------------------
 
 const sourcesTotal = manifest.facets.sources.reduce((s, f) => s + f.count, 0)
 if (sourcesTotal !== manifest.total) {
