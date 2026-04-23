@@ -14,6 +14,10 @@ import {
   TreeView,
 } from '@/components/ui/tree'
 
+// ------------------------------------------------------------------------------------------------
+// Types
+// ------------------------------------------------------------------------------------------------
+
 type Mode = 'curated' | 'all' | 'generic'
 
 interface SourceCount {
@@ -30,6 +34,172 @@ interface SidebarFacets {
   industries: Facet[]
   complexity: Facet[]
 }
+
+interface TagInfo {
+  name: string
+  count: number
+}
+
+// ------------------------------------------------------------------------------------------------
+// Semantic Search Toggle
+// ------------------------------------------------------------------------------------------------
+
+function SemanticToggle({ active }: { active: boolean }) {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
+  function toggle() {
+    const params = new URLSearchParams(searchParams.toString())
+    if (active) {
+      params.delete('semantic')
+    } else {
+      params.set('semantic', '1')
+    }
+    router.push(`/?${params.toString()}`, { scroll: false })
+  }
+
+  return (
+    <button
+      onClick={toggle}
+      title={active ? 'Disable semantic search' : 'Enable semantic search (AI-ranked results)'}
+      className={`flex items-center gap-1.5 rounded px-2 py-1 text-[11px] font-medium transition-colors ${
+        active
+          ? 'bg-orange-500/20 text-orange-400 border border-orange-500/40'
+          : 'bg-neutral-800 text-neutral-400 border border-neutral-700 hover:text-neutral-200'
+      }`}
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${active ? 'bg-orange-400 animate-pulse' : 'bg-neutral-600'}`} />
+      Semantic
+    </button>
+  )
+}
+
+// ------------------------------------------------------------------------------------------------
+// Curation Tags Section
+// ------------------------------------------------------------------------------------------------
+
+function CurationTagsSection() {
+  const searchParams = useSearchParams()
+  const [tags, setTags] = useState<TagInfo[]>([])
+  const [open, setOpen] = useState(false)
+  const [showAll, setShowAll] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/tags')
+      .then(r => r.json())
+      .then((data: { tags: TagInfo[] }) => setTags(data.tags || []))
+      .catch(() => {})
+  }, [])
+
+  const activeTags = searchParams.getAll('tag')
+  const excludeTag = searchParams.get('excludeTag')
+
+  const visibleTags = showAll ? tags : tags.slice(0, 10)
+
+  function tagHref(tag: string): string {
+    const params = new URLSearchParams(searchParams.toString())
+    const current = activeTags.filter(t => t !== tag)
+    params.delete('tag')
+    current.forEach(t => params.append('tag', t))
+    if (!current.includes(tag)) {
+      params.append('tag', tag)
+    }
+    return `/?${params.toString()}`
+  }
+
+  function excludeHref(tag: string): string {
+    const params = new URLSearchParams(searchParams.toString())
+    const current = params.get('excludeTag')
+    if (current === tag) {
+      params.delete('excludeTag')
+    } else {
+      params.set('excludeTag', tag)
+    }
+    return `/?${params.toString()}`
+  }
+
+  function clearAll() {
+    const params = new URLSearchParams(searchParams.toString())
+    params.delete('tag')
+    params.delete('excludeTag')
+    return `/?${params.toString()}`
+  }
+
+  const hasTagFilters = activeTags.length > 0 || !!excludeTag
+
+  return (
+    <div className="mb-2">
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="flex w-full items-center gap-1 px-3 py-1.5 text-left"
+      >
+        <ChevronDown className={`h-3 w-3 text-neutral-500 transition-transform ${open ? 'rotate-0' : '-rotate-90'}`} />
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">Curation Tags</span>
+        {hasTagFilters && <span className="ml-1 h-1.5 w-1.5 rounded-full bg-orange-400" />}
+      </button>
+
+      {open && (
+        <div className="px-3 pb-1">
+          {visibleTags.map(tag => {
+            const active = activeTags.includes(tag.name)
+            const isExclude = excludeTag === tag.name
+            return (
+              <div key={tag.name} className="flex items-center gap-1">
+                {/* Include toggle */}
+                <a
+                  href={tagHref(tag.name)}
+                  className={`flex flex-1 items-center gap-2 rounded px-2 py-0.5 text-left text-xs transition-colors truncate ${
+                    active
+                      ? 'bg-neutral-800 text-neutral-100'
+                      : 'text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200'
+                  }`}
+                >
+                  <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${active ? 'bg-orange-400' : 'bg-neutral-600'}`} />
+                  <span className="flex-1 truncate">{tag.name}</span>
+                  <span className="text-neutral-600 flex-shrink-0">{tag.count}</span>
+                </a>
+                {/* Exclude toggle */}
+                <a
+                  href={excludeHref(tag.name)}
+                  title={`Exclude "${tag.name}"`}
+                  className={`flex-shrink-0 rounded px-1 py-0.5 text-[10px] transition-colors ${
+                    isExclude
+                      ? 'bg-red-500/20 text-red-400'
+                      : 'text-neutral-600 hover:text-red-400 hover:bg-red-500/10'
+                  }`}
+                >
+                  ✕
+                </a>
+              </div>
+            )
+          })}
+
+          {!showAll && tags.length > 10 && (
+            <button
+              onClick={() => setShowAll(true)}
+              className="mt-1 text-[10px] text-neutral-500 hover:text-neutral-300 pl-2"
+            >
+              Show more... ({tags.length - 10} more)
+            </button>
+          )}
+
+          {hasTagFilters && (
+            <a
+              href={clearAll()}
+              className="mt-2 block text-[10px] text-neutral-500 hover:text-neutral-300 border-t border-neutral-800 pt-1.5 pl-2"
+            >
+              Clear tag filters
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ------------------------------------------------------------------------------------------------
+// FacetSection (existing)
+// ------------------------------------------------------------------------------------------------
 
 interface Props {
   sourceCounts: SourceCount[]
@@ -213,18 +383,37 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
         </div>
       </div>
 
-      {/* Search */}
+      {/* Semantic search toggle row */}
       <div className="px-3 pb-2">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-neutral-500" />
-          <input
-            type="text"
-            value={searchValue}
-            onChange={(e) => onSearchChange?.(e.target.value)}
-            placeholder="Search"
-            className="w-full rounded-md border border-neutral-800 bg-neutral-900 py-1.5 pl-9 pr-10 text-sm placeholder-neutral-500 focus:border-neutral-600 focus:outline-none"
-          />
-          <kbd className="absolute right-2 top-1/2 -translate-y-1/2 rounded border border-neutral-700 bg-neutral-800 px-1.5 py-0.5 text-[10px] text-neutral-400">⌘K</kbd>
+        <div className="flex items-center gap-2">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-neutral-500" />
+            <input
+              type="text"
+              value={searchValue}
+              onChange={(e) => {
+                const value = e.target.value
+                const isSemantic = searchParams.get('semantic') === '1'
+                if (isSemantic) {
+                  // Navigate to ?semantic=1&query=... for ranker path
+                  const params = new URLSearchParams(searchParams.toString())
+                  if (value) {
+                    params.set('query', value)
+                    params.delete('q')
+                  } else {
+                    params.delete('query')
+                  }
+                  router.push(`/?${params.toString()}`, { scroll: false })
+                } else {
+                  onSearchChange?.(value)
+                }
+              }}
+              placeholder="Search"
+              className="w-full rounded-md border border-neutral-800 bg-neutral-900 py-1.5 pl-9 pr-10 text-sm placeholder-neutral-500 focus:border-neutral-600 focus:outline-none"
+            />
+            <kbd className="absolute right-2 top-1/2 -translate-y-1/2 rounded border border-neutral-700 bg-neutral-800 px-1.5 py-0.5 text-[10px] text-neutral-400">⌘K</kbd>
+          </div>
+          <SemanticToggle active={searchParams.get('semantic') === '1'} />
         </div>
       </div>
 
@@ -318,6 +507,7 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
                   paramKey="complexity"
                   activeValues={activeComplexities}
                 />
+                <CurationTagsSection />
               </>
             )}
 

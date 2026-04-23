@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo, useRef, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { ComponentEntry } from '@/lib/types'
 import Sidebar from './Sidebar'
@@ -151,7 +152,13 @@ function VirtualGrid({ items, keyPrefix = '' }: VirtualGridProps) {
 // ------------------------------------------------------------------------------------------------
 
 export default function ComponentGrid({ components }: ComponentGridProps) {
-  const [search, setSearch] = useState('')
+  const searchParams = useSearchParams()
+  const isSemantic = searchParams.get('semantic') === '1'
+  const queryParam = searchParams.get('query')
+
+  // In semantic mode, initialise search from the ?query= URL param;
+  // in normal mode start blank (user types into sidebar search).
+  const [search, setSearch] = useState(() => isSemantic && queryParam ? queryParam : '')
   const [activeSource, setActiveSource] = useState<string | null>(null)
 
   const filtered = useMemo(() => {
