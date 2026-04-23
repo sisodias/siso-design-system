@@ -32,7 +32,7 @@
     "background": "neutral-950",
     "interactive": false,
     "renderable": false,
-    "reason": "imports @base-ui-components/react/navigation-menu (subpath not exported)"
+    "reason": "imports @base-ui-components/react/<subpath> (not exported)"
   },
   "_provenance": {
     "fetchedFrom": "https://21st.dev/r/sean0205/navigation-menu-1",

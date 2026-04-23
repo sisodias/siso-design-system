@@ -59,10 +59,14 @@ const nextConfig: NextConfig = {
     // chokidar's scope so HMR fires only on viewer/ + library/manifest.json.
     if (dev) {
       const libraryRoot = path.resolve(__dirname, '../library')
+      // Normalize existing ignored patterns to an array of strings (filter non-string values)
       const existingIgnored = Array.isArray(config.watchOptions?.ignored)
-        ? config.watchOptions.ignored
-        : config.watchOptions?.ignored
-        ? [config.watchOptions.ignored as string]
+        ? (config.watchOptions.ignored as (string | RegExp)[]).filter(
+            (p): p is string => typeof p === 'string' && p.length > 0
+          )
+        : typeof config.watchOptions?.ignored === 'string' &&
+          config.watchOptions.ignored.length > 0
+        ? [config.watchOptions.ignored]
         : []
       config.watchOptions = {
         ...(config.watchOptions || {}),

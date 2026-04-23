@@ -32,7 +32,7 @@
     "background": "neutral-950",
     "interactive": false,
     "renderable": false,
-    "reason": "Package @base-ui-components/react does not exist (correct package is @base-ui/react)"
+    "reason": "imports @base-ui-components/react/<subpath> (not exported)"
   },
   "_provenance": {
     "fetchedFrom": "https://21st.dev/r/sean0205/base-accordion",

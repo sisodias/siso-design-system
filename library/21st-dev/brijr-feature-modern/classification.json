@@ -1,8 +1,5 @@
 {
-  "category": [
-    "card",
-    "data-display"
-  ],
+  "category": "layout",
   "subcategory": "Feature showcase section with icon cards",
   "visual_style": [],
   "interactions": [
@@ -28,5 +25,7 @@
   ],
   "ai_summary": "A modern feature showcase component with card-based layout for displaying product capabilities. Features clean minimalist design with hover interactions and icon-driven feature cards. Part of the brijr design system, commonly used on SaaS landing pages and product documentation sites to communicate key features to potential customers.",
   "_classifiedAt": "2026-04-22T08:53:55.982Z",
-  "_classifierModel": "claude-haiku-4-5-20251001"
+  "_classifierModel": "claude-haiku-4-5-20251001",
+  "_reclassifiedAt": "2026-04-23T03:01:02.973Z",
+  "_reclassifierModel": "claude-haiku-4-5-20251001"
 }

@@ -1,10 +1,4 @@
 "use client"
-import { Component } from "./switch-1"
-
 export default function DemoOne() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <Component />
-    </div>
-  )
+  return <div className="flex h-full w-full items-center justify-center text-xs text-neutral-500">Code reference only</div>
 }

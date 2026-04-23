@@ -36,11 +36,13 @@
     "width": 400,
     "height": 300,
     "background": "neutral-950",
-    "interactive": false
+    "interactive": false,
+    "renderable": false,
+    "reason": "imports react-player/lazy (subpath not exported)"
   },
   "_provenance": {
     "fetchedFrom": "https://21st.dev/r/cult-ui/side-panel-video",
-    "fetchedAt": "2026-04-23T02:32:09.233Z",
+    "fetchedAt": "2026-04-23T03:04:00.168Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap"
   }

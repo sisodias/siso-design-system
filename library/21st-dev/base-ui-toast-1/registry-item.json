@@ -28,11 +28,13 @@
     "width": 400,
     "height": 300,
     "background": "neutral-950",
-    "interactive": false
+    "interactive": false,
+    "renderable": false,
+    "reason": "imports @base-ui-components/react/<subpath> (not exported)"
   },
   "_provenance": {
     "fetchedFrom": "https://21st.dev/r/base-ui/toast-1",
-    "fetchedAt": "2026-04-23T02:30:22.481Z",
+    "fetchedAt": "2026-04-23T03:02:18.759Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap"
   }

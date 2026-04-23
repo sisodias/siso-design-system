@@ -2,6 +2,7 @@
 
 import nextDynamic from 'next/dynamic'
 import { Suspense, useMemo, type ComponentType } from 'react'
+import { previewLoaders } from '@/lib/preview-imports.generated'
 import ErrorBoundary from './ErrorBoundary'
 
 interface Props {
@@ -11,22 +12,27 @@ interface Props {
 
 export default function PreviewRenderer({ source, slug }: Props) {
   const Demo: ComponentType = useMemo(() => {
-    if (source !== '21st-dev') {
-      const Empty: ComponentType = () => (
+    const key = `${source}/${slug}`
+    const loader = previewLoaders[key]
+
+    if (!loader) {
+      const NotFound: ComponentType = () => (
         <div className="flex h-full w-full items-center justify-center text-xs text-neutral-500">
-          Live preview only available for 21st-dev components
+          Loader not found for {key}
         </div>
       )
-      return Empty
+      return NotFound
     }
+
     return nextDynamic(
       () =>
-        import(`@lib/21st-dev/${slug}/demo`)
-          .then((m: Record<string, unknown>) => {
+        loader()
+          .then((m) => {
+            const mod = m as { default?: ComponentType; DemoOne?: ComponentType } & Record<string, unknown>
             const picked =
-              (m.DemoOne as ComponentType | undefined) ||
-              (m.default as ComponentType | undefined) ||
-              (m.Demo as ComponentType | undefined)
+              mod.default ||
+              mod.DemoOne ||
+              (Object.values(mod)[0] as ComponentType)
             if (!picked) {
               const fallback: ComponentType = () => (
                 <div className="flex h-full w-full items-center justify-center text-xs text-neutral-500">
@@ -37,7 +43,7 @@ export default function PreviewRenderer({ source, slug }: Props) {
             }
             return { default: picked }
           })
-          .catch(err => {
+          .catch((err) => {
             console.error(`[PreviewRenderer] Failed to load demo for ${slug}:`, err)
             const fail: ComponentType = () => (
               <div className="flex h-full w-full items-center justify-center text-xs text-neutral-500">
