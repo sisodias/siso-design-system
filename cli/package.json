@@ -1,0 +1,26 @@
+{
+  "name": "@siso/cli",
+  "version": "0.1.0",
+  "description": "SISO Design System CLI — visual component picker for AI coding agents",
+  "type": "module",
+  "bin": { "siso": "./dist/cli.js" },
+  "main": "./dist/cli.js",
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "open": "^10.0.0",
+    "chalk": "^5.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": { "node": ">=18" },
+  "publishConfig": { "access": "public" }
+}
