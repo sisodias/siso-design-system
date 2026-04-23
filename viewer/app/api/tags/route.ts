@@ -17,9 +17,12 @@ export async function GET() {
       },
     )
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    const status = msg.includes('unavailable on Cloudflare Workers') ? 503 : 500
+    const error = status === 503 ? 'Tag system unavailable in cloud deployment (local-only feature)' : 'Failed to list tags'
     return NextResponse.json(
-      { error: 'Failed to list tags' },
-      { status: 500, headers: { 'Access-Control-Allow-Origin': '*' } },
+      { error },
+      { status, headers: { 'Access-Control-Allow-Origin': '*' } },
     )
   }
 }

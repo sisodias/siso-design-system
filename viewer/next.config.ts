@@ -1,18 +1,27 @@
 import type { NextConfig } from 'next'
 import path from 'path'
 
+// OpenNext Cloudflare: initialise bindings shim in dev so `getCloudflareContext()`
+// works locally. Must be called before the config object is exported.
+// Guard against Workers runtime (no require/conditional imports needed).
+if (process.env.NODE_ENV === 'development') {
+  // Dynamic require keeps this import out of the production bundle entirely.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { initOpenNextCloudflareForDev } = require('@opennextjs/cloudflare')
+  initOpenNextCloudflareForDev()
+}
+
 const isProd = process.env.NODE_ENV === 'production'
 
-// Cloudflare Pages uses @cloudflare/next-on-pages adapter; `output: 'standalone'`
-// conflicts with it (produces Node server output instead of Pages-compatible artifacts).
-// Disabled in production so Cloudflare's adapter can transform .next → .vercel/output/static.
-// outputFileTracingIncludes still useful for Cloudflare bundling.
+// OpenNext Cloudflare handles the build transform; `output: 'standalone'`
+// conflicts with it (produces a Node server instead of a Worker bundle).
+// Keep standalone disabled in all production builds.
+// isCloudflareBuild kept for any future env checks.
 const isCloudflareBuild = process.env.CF_PAGES === '1' || process.env.CLOUDFLARE_PAGES === '1'
 
 const nextConfig: NextConfig = {
-  ...(isProd && !isCloudflareBuild && {
-    output: 'standalone' as const,
-  }),
+  // output: 'standalone' removed — OpenNext Cloudflare manages its own Worker bundling.
+  // (standalone produces a Node.js server which is incompatible with the Workers runtime.)
   ...(isProd && {
     outputFileTracingRoot: path.resolve(__dirname, '..'),
     outputFileTracingIncludes: {

@@ -14,6 +14,17 @@ import { getAllComponents } from './registry'
 import { ComponentEntry } from './types'
 
 // ------------------------------------------------------------------------------------------------
+// Cloudflare Workers guard
+// better-sqlite3 is a native Node.js addon and cannot run on the Workers runtime.
+// All exported functions bail out with a clear error when CF_WORKERS=1.
+// ------------------------------------------------------------------------------------------------
+const IS_CF_WORKERS = process.env.CF_WORKERS === '1'
+
+function cfUnavailable(): never {
+  throw new Error('Rating DB unavailable on Cloudflare Workers (native SQLite not supported)')
+}
+
+// ------------------------------------------------------------------------------------------------
 // Constants
 // ------------------------------------------------------------------------------------------------
 
@@ -51,6 +62,7 @@ const DB_PATH = path.resolve(process.cwd(), '../ratings.db')
 let _db: Database.Database | null = null
 
 export function getDb(): Database.Database {
+  if (IS_CF_WORKERS) cfUnavailable()
   if (_db) return _db
   _db = new Database(DB_PATH)
 

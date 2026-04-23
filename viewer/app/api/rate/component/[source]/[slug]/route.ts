@@ -32,6 +32,10 @@ export async function GET(
       rating_deviation: row.rating_deviation,
     })
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    if (msg.includes('unavailable on Cloudflare Workers')) {
+      return NextResponse.json({ error: 'Rating system unavailable in cloud deployment (local-only feature)' }, { status: 503 })
+    }
     console.error('rate/component error', err)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
