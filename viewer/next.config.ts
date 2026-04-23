@@ -46,6 +46,13 @@ const nextConfig: NextConfig = {
       ...(config.resolve.modules || []),
     ]
 
+    // Resolve @lib alias (tsconfig paths) so template-literal dynamic imports
+    // in PreviewRenderer.tsx are webpack-resolved at build time.
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@lib': path.resolve(__dirname, '../library'),
+    }
+
     // better-sqlite3 is a native module — must not be bundled by webpack
     if (isServer) {
       config.externals = [...(config.externals ?? []), 'better-sqlite3']
@@ -89,6 +96,23 @@ const nextConfig: NextConfig = {
     }
 
     return config
+  },
+
+  async headers() {
+    return [
+      {
+        source: '/pick',
+        headers: [
+          { key: 'Content-Security-Policy', value: 'frame-ancestors *' },
+        ],
+      },
+      {
+        source: '/pick/:path*',
+        headers: [
+          { key: 'Content-Security-Policy', value: 'frame-ancestors *' },
+        ],
+      },
+    ]
   },
 }
 
