@@ -11,3 +11,9 @@ build/
 # Scrape failure logs (per-run artifacts)
 .claude/scrape-failures-*.json
 .claude/feedback/
+
+# Ratings DB (local persistence, not committed)
+ratings.db
+ratings.db-journal
+ratings.db-wal
+ratings.db-shm

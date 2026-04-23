@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2, Clock, ChevronDown } from 'lucide-react'
+import { Search, Home, Package, Folder, Bookmark, FileCode, Wand2, Clock, ChevronDown, Star } from 'lucide-react'
 import {
   TreeExpander,
   TreeIcon,
@@ -320,6 +320,17 @@ export default function Sidebar({ sourceCounts, activeSource, onSourceFilter, on
                 />
               </>
             )}
+
+            {/* Rate link */}
+            <TreeNode nodeId="rate">
+              <TreeNodeTrigger>
+                <TreeExpander />
+                <TreeIcon icon={<Star className="h-4 w-4" />} />
+                <Link href="/rate" className="flex-1 truncate text-sm">
+                  Rate
+                </Link>
+              </TreeNodeTrigger>
+            </TreeNode>
 
             {/* Build group */}
             <TreeNode nodeId="build">

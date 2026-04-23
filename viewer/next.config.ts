@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'placekitten.com' },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     // Let webpack resolve modules relative to viewer/node_modules even for files
     // imported from ../library/
     config.resolve.modules = [
@@ -35,6 +35,12 @@ const nextConfig: NextConfig = {
       'node_modules',
       ...(config.resolve.modules || []),
     ]
+
+    // better-sqlite3 is a native module — must not be bundled by webpack
+    if (isServer) {
+      config.externals = [...(config.externals ?? []), 'better-sqlite3']
+    }
+
     return config
   },
 }
