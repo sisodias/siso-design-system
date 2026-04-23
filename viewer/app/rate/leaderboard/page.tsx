@@ -10,12 +10,25 @@ export default async function LeaderboardPage() {
 
   const enriched = rows.map((row, i) => {
     const comp = getComponent(row.source, row.slug)
+    const confidence =
+      row.votes < 5 ? 'low' : row.votes < 20 ? 'medium' : 'high'
+    // Compute days ago for last_rated
+    let lastRatedLabel = null
+    if (row.last_rated) {
+      const diffMs = Date.now() - new Date(row.last_rated).getTime()
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+      lastRatedLabel = diffDays === 0 ? 'today' : `${diffDays}d ago`
+    }
     return {
       rank: i + 1,
       source: row.source,
       slug: row.slug,
       elo: row.elo,
+      effective_elo: row.effective_elo,
       votes: row.votes,
+      confidence,
+      lastRatedLabel,
+      rating_deviation: row.rating_deviation,
       displayName: comp?.displayName ?? row.slug,
       category: comp?.category ?? [],
       thumbnail: comp?.thumbnail ?? null,
@@ -39,11 +52,17 @@ export default async function LeaderboardPage() {
     return 'text-neutral-500'
   }
 
-  function eloColor(elo: number): string {
+  function effectiveEloColor(elo: number): string {
     if (elo >= 1400) return 'text-yellow-400'
     if (elo >= 1300) return 'text-orange-400'
     if (elo >= 1200) return 'text-neutral-300'
     return 'text-neutral-500'
+  }
+
+  function confidenceBadgeColor(confidence: string): string {
+    if (confidence === 'high') return 'bg-green-900/60 text-green-300 border border-green-700'
+    if (confidence === 'medium') return 'bg-yellow-900/40 text-yellow-300 border border-yellow-700'
+    return 'bg-neutral-800 text-neutral-500 border border-neutral-700'
   }
 
   return (
@@ -55,7 +74,7 @@ export default async function LeaderboardPage() {
             <Trophy className="h-6 w-6 text-yellow-400" />
             <div>
               <h1 className="text-2xl font-bold text-neutral-100">Leaderboard</h1>
-              <p className="text-sm text-neutral-500 mt-0.5">Top {enriched.length} components by Elo rating</p>
+              <p className="text-sm text-neutral-500 mt-0.5">Top {enriched.length} components by effective Elo rating</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -95,8 +114,10 @@ export default async function LeaderboardPage() {
                     <th className="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-neutral-500 w-12">#</th>
                     <th className="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-neutral-500">Component</th>
                     <th className="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-neutral-500 hidden md:table-cell">Category</th>
-                    <th className="px-4 py-3 text-right text-[11px] font-semibold uppercase tracking-wider text-neutral-500 w-20">Elo</th>
-                    <th className="px-4 py-3 text-right text-[11px] font-semibold uppercase tracking-wider text-neutral-500 w-16">Votes</th>
+                    <th className="px-4 py-3 text-right text-[11px] font-semibold uppercase tracking-wider text-neutral-500 w-24">Eff. Elo</th>
+                    <th className="px-4 py-3 text-right text-[11px] font-semibold uppercase tracking-wider text-neutral-500 w-12">Votes</th>
+                    <th className="px-4 py-3 text-right text-[11px] font-semibold uppercase tracking-wider text-neutral-500 hidden lg:table-cell">Last rated</th>
+                    <th className="px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-wider text-neutral-500 w-16">Confidence</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -147,11 +168,19 @@ export default async function LeaderboardPage() {
                           <span className="text-neutral-600">—</span>
                         )}
                       </td>
-                      <td className={`px-4 py-3 text-right font-mono font-bold tabular-nums ${eloColor(item.elo)}`}>
-                        {item.elo}
+                      <td className={`px-4 py-3 text-right font-mono font-bold tabular-nums ${effectiveEloColor(item.effective_elo)}`}>
+                        {Math.round(item.effective_elo)}
                       </td>
-                      <td className="px-4 py-3 text-right text-neutral-500 tabular-nums">
+                      <td className="px-4 py-3 text-right text-neutral-400 tabular-nums">
                         {item.votes}
+                      </td>
+                      <td className="px-4 py-3 text-right text-neutral-600 tabular-nums hidden lg:table-cell">
+                        {item.lastRatedLabel ?? '—'}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeColor(item.confidence)}`}>
+                          {item.confidence}
+                        </span>
                       </td>
                     </tr>
                   ))}
