@@ -1,0 +1,25 @@
+{
+  "name": "@siso-ui/mcp-server",
+  "version": "0.1.0",
+  "description": "SISO Design System MCP server — let AI agents query, pick, and install UI components",
+  "type": "module",
+  "bin": { "siso-mcp-server": "./dist/index.mjs" },
+  "main": "./dist/index.mjs",
+  "files": ["dist", "README.md", "smithery.yaml", "llms-install.md"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": { "node": ">=18" },
+  "publishConfig": { "access": "public" }
+}

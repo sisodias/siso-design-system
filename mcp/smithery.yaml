@@ -1,0 +1,11 @@
+name: "@siso-ui/mcp-server"
+description: "SISO Design System MCP server — query, pick, and install UI components from a curated bank of 3,500+."
+command: npx
+args:
+  - "-y"
+  - "@siso-ui/mcp-server@latest"
+env:
+  SISO_BASE_URL:
+    description: "Override the SISO Design System base URL (optional)."
+    required: false
+    default: "https://siso-design-system.vercel.app"
