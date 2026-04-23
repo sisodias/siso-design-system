@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-04-23T17:37:54.569Z",
+  "threshold": 0.67,
+  "scanned": 3580,
+  "clustersFound": 5,
+  "avgBucketSize": 10.62,
+  "pairsScanned": 5,
+  "clusters": [
+    {
+      "canonical": "motion-primitives/carousel",
+      "aliases": [
+        "21st-dev/ibelick-carousel"
+      ],
+      "scores": [
+        0.75
+      ]
+    },
+    {
+      "canonical": "motion-primitives/morphing-popover",
+      "aliases": [
+        "21st-dev/ibelick-morphing-popover"
+      ],
+      "scores": [
+        0.749954052563867
+      ]
+    },
+    {
+      "canonical": "motion-primitives/progressive-blur",
+      "aliases": [
+        "21st-dev/ibelick-progressive-blur"
+      ],
+      "scores": [
+        0.7478533094812165
+      ]
+    },
+    {
+      "canonical": "21st-dev/originui-button",
+      "aliases": [
+        "21st-dev/button"
+      ],
+      "scores": [
+        0.6739261769689826
+      ]
+    },
+    {
+      "canonical": "21st-dev/originui-avatar",
+      "aliases": [
+        "21st-dev/avatar"
+      ],
+      "scores": [
+        0.6700936978565011
+      ]
+    }
+  ]
+}
