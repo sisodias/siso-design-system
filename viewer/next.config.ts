@@ -3,12 +3,17 @@ import path from 'path'
 
 const isProd = process.env.NODE_ENV === 'production'
 
+// Cloudflare Pages uses @cloudflare/next-on-pages adapter; `output: 'standalone'`
+// conflicts with it (produces Node server output instead of Pages-compatible artifacts).
+// Disabled in production so Cloudflare's adapter can transform .next → .vercel/output/static.
+// outputFileTracingIncludes still useful for Cloudflare bundling.
+const isCloudflareBuild = process.env.CF_PAGES === '1' || process.env.CLOUDFLARE_PAGES === '1'
+
 const nextConfig: NextConfig = {
-  // F12: standalone output + outputFileTracingRoot are build-time concerns.
-  // In dev mode they cause unnecessary work and expand the module graph /
-  // trace set. Gate to production only.
-  ...(isProd && {
+  ...(isProd && !isCloudflareBuild && {
     output: 'standalone' as const,
+  }),
+  ...(isProd && {
     outputFileTracingRoot: path.resolve(__dirname, '..'),
     outputFileTracingIncludes: {
       '/**': ['../library/manifest.json', '../library/**/registry-item.json'],
