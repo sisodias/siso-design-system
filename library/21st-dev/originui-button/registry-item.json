@@ -36,6 +36,12 @@
     "fetchedAt": "2026-04-23T03:05:50.664Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap",
-    "curationTags": []
+    "curationTags": [],
+    "aliases": [
+      {
+        "source": "21st-dev",
+        "slug": "button"
+      }
+    ]
   }
 }

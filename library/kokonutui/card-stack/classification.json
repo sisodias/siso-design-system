@@ -1,0 +1,30 @@
+{
+  "category": [
+    "card"
+  ],
+  "subcategory": "interactive card carousel",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "click-reveal"
+  ],
+  "best_for_industries": [
+    "fintech",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying and selecting between multiple payment product options in a stacked interface",
+    "Comparing product features and specifications side by side",
+    "Showcasing fintech services like payment processing, crypto, and global transfers",
+    "Interactive product catalog with animated card navigation"
+  ],
+  "ai_summary": "An interactive card stack component designed for fintech and e-commerce platforms, featuring multiple payment product options displayed in a stacked carousel format. Supports smooth animated transitions between cards, displays product specifications, images, and titles with a clean minimalist design. Ideal for payment method selection interfaces, service comparison views, or product feature showcases with interactive click-to-reveal functionality.",
+  "_classifiedAt": "2026-04-23T17:46:26.581Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

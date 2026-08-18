@@ -1,0 +1,33 @@
+{
+  "category": [
+    "data-display"
+  ],
+  "subcategory": "scroll-based text reveal",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "creator-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying a vertically scrolling list of text items that highlights the currently visible item using intersection observer",
+    "Creating animated text reveal effects triggered by scroll position",
+    "Building interactive tech stack showcases or feature displays",
+    "Enabling scroll-triggered animations for content presentation",
+    "Providing visual feedback on scroll position through active state highlighting"
+  ],
+  "ai_summary": "A scroll-based text reveal component that tracks the currently visible item using the Intersection Observer API and applies motion animations for reveal effects. Ideal for showcasing tech stacks, feature lists, or any content that benefits from scroll-triggered visibility changes.",
+  "_classifiedAt": "2026-04-23T17:47:08.362Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

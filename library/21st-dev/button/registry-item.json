@@ -25,6 +25,11 @@
     "renderable": false
   },
   "_provenance": {
-    "curationTags": []
+    "curationTags": [],
+    "canonicalOf": {
+      "source": "21st-dev",
+      "slug": "originui-button"
+    },
+    "duplicateSignalScore": 0.67
   }
 }

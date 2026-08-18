@@ -1,0 +1,30 @@
+{
+  "category": "overlay",
+  "subcategory": "accordion-collapsible",
+  "visual_style": [],
+  "interactions": [
+    "click-reveal",
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Creating animated accordion sections for FAQ pages",
+    "Building collapsible sidebar navigation menus",
+    "Implementing expandable card details with smooth transitions",
+    "Developing nested disclosure hierarchies for complex content organization",
+    "Adding animated expand/collapse functionality to any content section"
+  ],
+  "ai_summary": "A motion-powered disclosure component providing context-based state management for creating animated expand/collapse patterns. Built with Framer Motion for smooth morphing transitions, supporting both controlled and uncontrolled usage through a Provider pattern and custom hook.",
+  "_classifiedAt": "2026-04-23T17:48:14.973Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

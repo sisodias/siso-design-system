@@ -1,0 +1,32 @@
+{
+  "category": "card",
+  "subcategory": "liquid-glass-card",
+  "visual_style": [
+    "glass-morphism"
+  ],
+  "interactions": [
+    "hover-glow",
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "media",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Display premium product showcases with liquid glassmorphism effects",
+    "Create hero section feature cards with depth and light refraction",
+    "Build pricing cards with frosted glass aesthetic for SaaS products",
+    "Design media or portfolio cards with interactive hover states",
+    "Display content with dynamic light-based shadows and transparency"
+  ],
+  "ai_summary": "A liquid glass card component featuring advanced glassmorphism with feTurbulence filters, multi-layer inset shadows, and subtle light effects. Supports both light and dark modes with distinct shadow configurations. Includes interactive button states and smooth animations for hover states. Built on Shadcn UI Card with custom SVG filters for the liquid glass refraction effect.",
+  "_classifiedAt": "2026-04-23T17:46:54.132Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,34 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "canvas-animated-background",
+  "visual_style": [
+    "gradient"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Creating an animated hero section backdrop with ambient light beams",
+    "Adding visual depth to dark-themed landing pages",
+    "Enhancing product showcases with subtle pulsing gradients",
+    "Providing decorative backgrounds for SaaS marketing pages",
+    "Creating atmospheric effects for media and entertainment sites"
+  ],
+  "ai_summary": "BeamsBackground is a canvas-based animated background component that renders continuously pulsing, translucent beams with gradient coloring. The component supports dark mode detection, three intensity levels (subtle, medium, strong), and uses requestAnimationFrame for smooth 60fps animation. Each beam has randomized properties including position, angle, speed, hue, and pulse behavior to create a dynamic, ambient light effect suitable for hero sections or decorative backgrounds.",
+  "_classifiedAt": "2026-04-23T17:46:21.491Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

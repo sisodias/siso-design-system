@@ -1,0 +1,33 @@
+{
+  "category": [
+    "navigation"
+  ],
+  "subcategory": "expandable-toolbar",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "click-reveal",
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "media",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Settings and profile menu in SaaS applications",
+    "Quick actions toolbar for content management interfaces",
+    "Floating action panel for document or project management tools",
+    "User navigation menu with expandable sections"
+  ],
+  "ai_summary": "An expandable toolbar component featuring animated panels that reveal contextual content for each toolbar item. Uses Framer Motion spring animations for smooth transitions and includes click-outside detection for automatic panel closing. Icons from Lucide represent different sections like User, Messages, and Documents.",
+  "_classifiedAt": "2026-04-23T17:49:20.218Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,34 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "animated-text-display",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Animated hero section headings that cycle through text sequences",
+    "Dynamic call-to-action text with typewriter effect",
+    "Interactive landing page headlines with auto-looping text",
+    "Animated placeholder or loading text displays",
+    "Marketing pages requiring engaging text reveal animations"
+  ],
+  "ai_summary": "A typewriter animation component that displays text character-by-character with configurable typing speed, natural variance for human-like delays, and support for cycling through multiple text sequences. Features auto-loop capability and customizable pause/delete timing, making it ideal for hero sections and attention-grabbing animated headlines on landing pages.",
+  "_classifiedAt": "2026-04-23T17:47:40.139Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

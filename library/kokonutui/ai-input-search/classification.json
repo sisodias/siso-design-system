@@ -1,0 +1,34 @@
+{
+  "category": [
+    "input"
+  ],
+  "subcategory": "ai-search-bar",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "click-reveal",
+    "keyboard-nav"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "AI-powered web search input with auto-resizing text area",
+    "Chat-style input interfaces for AI assistants",
+    "Modern search bars with focus state animations",
+    "Command-style input fields in SaaS applications",
+    "Interactive search containers with accessibility support"
+  ],
+  "ai_summary": "A polished AI search input component featuring an auto-resizing textarea, focus state animations, and keyboard navigation support. Includes Lucide icons for search, globe, and attachment, with dark mode compatibility. Designed for seamless integration into AI-powered SaaS applications, providing an intuitive and accessible search experience across desktop and mobile platforms.",
+  "_classifiedAt": "2026-04-23T17:45:45.897Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,29 @@
+{
+  "category": "input",
+  "subcategory": "ai-prompt-textarea",
+  "visual_style": [],
+  "interactions": [
+    "click-reveal",
+    "keyboard-nav"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "AI chat interface prompt input with auto-resizing text area",
+    "Multi-provider AI model selection dropdown with visual icons",
+    "Text submission with keyboard shortcuts for AI interactions",
+    "Dark mode compatible prompt interface for AI tools",
+    "Modern chatbot input field with provider switching"
+  ],
+  "ai_summary": "A modern AI prompt input component featuring an auto-resizing textarea, dropdown menu for selecting AI providers (OpenAI, Anthropic), and submission controls. Includes dark mode support, keyboard navigation, and smooth animations. Ideal for building AI chat interfaces, chatbot UIs, and prompt engineering tools in SaaS applications and developer platforms.",
+  "_classifiedAt": "2026-04-23T17:45:53.404Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

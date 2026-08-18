@@ -327,7 +327,7 @@ Remove all instrumentation added in §2. Re-measure. Write `PERF_RESULTS.md` in 
 ### Global acceptance
 
 ```bash
-cd /Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/viewer
+cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system/viewer
 rm -rf .next
 npm run dev -- -p 3005 &
 sleep 45

@@ -1,0 +1,33 @@
+{
+  "category": "input",
+  "subcategory": "gradient-button",
+  "visual_style": [
+    "gradient"
+  ],
+  "interactions": [
+    "hover-glow",
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "dev-tools",
+    "fintech",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Primary call-to-action buttons on landing pages and marketing sites",
+    "Interactive form submission buttons with visual feedback",
+    "Highlighted action buttons in dashboard interfaces",
+    "Stylized navigation buttons with gradient aesthetics",
+    "E-commerce product detail page purchase buttons"
+  ],
+  "ai_summary": "A versatile gradient button component with support for multiple color variants (emerald, purple, orange) and both light and dark themes. Features sophisticated gradient borders, glow effects, and hover states for enhanced visual feedback. Built as a React component extending standard HTML button attributes, making it easy to integrate into any React application.",
+  "_classifiedAt": "2026-04-23T17:46:41.230Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,33 @@
+{
+  "category": [
+    "card"
+  ],
+  "subcategory": "experience-cards-carousel",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "click-reveal",
+    "none"
+  ],
+  "best_for_industries": [
+    "e-commerce",
+    "media",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying collections of experience or product cards with ratings and pricing in a carousel layout",
+    "E-commerce listings with wishlist functionality and review counts",
+    "Featured items showcase with navigation controls for browsing multiple cards",
+    "Experience-based booking displays with location, date, and price information",
+    "Media or entertainment content cards showing celebrity or event experiences"
+  ],
+  "ai_summary": "A carousel card component for displaying experience or product listings in a scrollable grid format. Features include image cards with title, location, price, currency, star ratings, review counts, badges, and dates. Supports navigation via arrow controls and includes a wishlist heart interaction. Built as a composite component using card primitives with flat, minimalist styling suitable for e-commerce and media industry applications.",
+  "_classifiedAt": "2026-04-23T17:46:28.780Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

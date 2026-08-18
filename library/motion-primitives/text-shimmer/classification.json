@@ -1,0 +1,35 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "animated-text",
+  "visual_style": [
+    "gradient",
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "e-commerce",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Hero section headlines with premium shimmer effect to capture attention",
+    "Feature highlight text with animated gradient for visual emphasis",
+    "Logo or brand name displays with luxury animation feel",
+    "Call-to-action buttons with shimmer effect to increase engagement",
+    "Loading state text with continuous animation"
+  ],
+  "ai_summary": "A text shimmer effect component that animates a gradient sweep across text content using CSS background-position animation. Supports dark mode and configurable duration/spread parameters. Commonly used in hero sections, feature highlights, and premium brand displays to create a polished, dynamic visual experience.",
+  "_classifiedAt": "2026-04-23T17:49:10.152Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

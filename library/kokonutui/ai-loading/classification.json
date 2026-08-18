@@ -1,0 +1,32 @@
+{
+  "category": [
+    "feedback"
+  ],
+  "subcategory": "progress-indicator",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Displaying AI processing status with animated progress ring to keep users informed during long operations",
+    "Showing multi-step task sequences with status messages and sub-tasks during AI computations",
+    "Providing visual feedback for web search, analysis, and UI enhancement workflows",
+    "Enhancing user experience with smooth animated loading states in AI-powered applications",
+    "Indicating progress for background operations like caching, optimization, and performance testing"
+  ],
+  "ai_summary": "An AI loading state component featuring an animated SVG circular progress indicator that cycles through predefined task sequences including web searching, result analysis, and UI/UX enhancement. The component displays dynamic status messages with nested task lines to keep users informed during multi-step AI operations, designed with a clean minimalist aesthetic suitable for SaaS and developer tools interfaces.",
+  "_classifiedAt": "2026-04-23T17:45:49.879Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

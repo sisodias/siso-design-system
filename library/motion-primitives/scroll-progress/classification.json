@@ -1,0 +1,32 @@
+{
+  "category": [
+    "feedback"
+  ],
+  "subcategory": "scroll-indicator",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "education",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Display reading progress on long-form content like articles or documentation",
+    "Show page scroll position as a visual indicator for users navigating single-page applications",
+    "Indicate download or loading progress when combined with scroll-triggered content",
+    "Visual feedback for scroll-based navigation in web apps"
+  ],
+  "ai_summary": "A lightweight scroll progress indicator component that renders an animated horizontal bar tracking the user's scroll position. Built with Framer Motion's useScroll and useSpring hooks, it provides smooth spring-based animation with customizable styling and animation options. Supports both page-level and container-scoped scroll tracking.",
+  "_classifiedAt": "2026-04-23T17:48:44.400Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

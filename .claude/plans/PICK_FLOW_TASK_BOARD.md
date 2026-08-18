@@ -51,7 +51,7 @@ This allows embedding from any origin. All other routes should keep their defaul
 **Worker model:** Haiku
 **Estimated wall time:** 4h
 **Depends on:** nothing (all prior infrastructure is shipped — manifest, registry, filters, Card.tsx, ComponentGrid.tsx all exist)
-**Repo root (absolute):** `/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system`
+**Repo root (absolute):** `/Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system`
 
 ### Files
 
@@ -80,7 +80,7 @@ This allows embedding from any origin. All other routes should keep their defaul
 
 ```
 You are a Haiku worker implementing Phase A of the SISO Design System pick flow.
-Repo root: /Users/shaansisodia/SISO_Workspace/SISO_Library/design-system
+Repo root: /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system
 Viewer runs at localhost:3005. Dev server: cd viewer && npm run dev -- -p 3005
 
 READ THESE FILES FIRST (in order):
@@ -260,7 +260,7 @@ RETURN (single line, no code dump):
 **Worker model:** Haiku
 **Estimated wall time:** 6h
 **Depends on:** nothing (fully independent subproject; calls live Vercel URL, not localhost)
-**Repo root (absolute):** `/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system`
+**Repo root (absolute):** `/Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system`
 
 ### Files
 
@@ -311,7 +311,7 @@ Thin MCP wrapper (~200 LOC) using `@modelcontextprotocol/sdk ^1.25` with stdio t
 ### Phase A
 
 ```bash
-REPO=/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system
+REPO=/Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system
 cd $REPO/viewer && npm run build 2>&1 | tail -5        # exit 0
 curl -sI http://localhost:3005/pick | grep -i content-security-policy  # contains "frame-ancestors *"
 curl -sI http://localhost:3005/pick | grep -i x-frame-options           # empty
@@ -321,7 +321,7 @@ curl -sI http://localhost:3005/ | grep -i "frame-ancestors"             # empty 
 ### Phase B
 
 ```bash
-cd /Users/shaansisodia/SISO_Workspace/SISO_Library/design-system/cli
+cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system/cli
 npm install && npm run build                              # exit 0
 du -sh dist/                                              # <2MB
 node dist/cli.js --version                                # prints version

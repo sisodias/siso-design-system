@@ -41,6 +41,11 @@
     "fetchedAt": "2026-04-23T03:05:10.325Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap",
-    "curationTags": []
+    "curationTags": [],
+    "canonicalOf": {
+      "source": "motion-primitives",
+      "slug": "morphing-popover"
+    },
+    "duplicateSignalScore": 0.75
   }
 }

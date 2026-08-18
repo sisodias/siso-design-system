@@ -1,0 +1,27 @@
+{
+  "category": "input",
+  "subcategory": "3d-tilt-effect",
+  "visual_style": [],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "creator-tools",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Add 3D perspective tilt effect to cards or images on mouse hover",
+    "Create interactive product showcases with depth perception",
+    "Enhance CTA buttons or pricing cards with physics-based rotation",
+    "Build engaging interactive portfolios or galleries",
+    "Add premium micro-interactions to any UI element"
+  ],
+  "ai_summary": "A reusable 3D tilt component that tracks mouse position and applies perspective rotation with spring physics. Wraps any content and creates an interactive depth effect where the element rotates toward the cursor with smooth, damped animation. Configurable rotation factor and spring settings.",
+  "_classifiedAt": "2026-04-23T17:49:19.605Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -36,6 +36,11 @@
     "fetchedAt": "2026-04-23T03:05:09.706Z",
     "importMode": "bulk",
     "importedFromList": "21st-dev-sitemap",
-    "curationTags": []
+    "curationTags": [],
+    "canonicalOf": {
+      "source": "motion-primitives",
+      "slug": "carousel"
+    },
+    "duplicateSignalScore": 0.75
   }
 }

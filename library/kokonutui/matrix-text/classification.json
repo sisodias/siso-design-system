@@ -1,0 +1,31 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "text-animation-matrix-effect",
+  "visual_style": [
+    "dark"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "dev-tools",
+    "saas",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Creating animated hero headlines with a cyberpunk/matrix aesthetic for dev-tools landing pages",
+    "Adding cinematic text reveal effects to SaaS product marketing sections",
+    "Implementing engaging typography animations for entertainment and gaming interfaces"
+  ],
+  "ai_summary": "Matrix Text is a React component that creates a cyberpunk-inspired text animation effect where each letter briefly displays random binary characters (0/1) before revealing the actual character. Built with Framer Motion, it animates letters sequentially with configurable timing, making it ideal for hero sections and dramatic typography reveals in tech-focused applications.",
+  "_classifiedAt": "2026-04-23T17:46:52.851Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

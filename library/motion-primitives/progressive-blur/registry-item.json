@@ -35,6 +35,12 @@
     "fetchedAt": "2026-04-23T02:30:05.229Z",
     "importMode": "bulk",
     "importedFromList": "github/ibelick/motion-primitives",
-    "curationTags": []
+    "curationTags": [],
+    "aliases": [
+      {
+        "source": "21st-dev",
+        "slug": "ibelick-progressive-blur"
+      }
+    ]
   }
 }

@@ -1,0 +1,30 @@
+{
+  "category": "media",
+  "subcategory": "text-animation",
+  "visual_style": [],
+  "interactions": [
+    "scroll-animate",
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "education",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Animated text reveals for hero sections with staggered character, word, or line effects",
+    "Eye-catching typography animations for landing pages and marketing content",
+    "Scroll-triggered text animations for storytelling and narrative presentations",
+    "Dynamic entrance effects for headings, titles, and callouts",
+    "Interactive text displays with configurable blur, scale, and fade presets"
+  ],
+  "ai_summary": "A motion primitives text animation component that reveals text content with configurable presets including blur, scale, fade-in-blur, and slide effects. Supports per-character, per-word, or per-line animation granularity with staggered timing controls. Built on motion/react for smooth GPU-accelerated animations.",
+  "_classifiedAt": "2026-04-23T17:48:57.190Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

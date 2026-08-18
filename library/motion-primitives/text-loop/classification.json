@@ -1,0 +1,34 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "animated-text-cycler",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "e-commerce",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Rotating hero headlines that cycle through marketing messages automatically",
+    "Cycling through testimonials or customer quotes with smooth transitions",
+    "Displaying rotating feature highlights for product pages",
+    "Animated tagline or status message display in dashboards",
+    "Carousel-style text announcements in notification areas"
+  ],
+  "ai_summary": "TextLoop is a lightweight React component from motion-primitives that automatically cycles through text or content items at configurable intervals. It leverages Framer Motion for smooth Y-axis and opacity transitions, supporting custom animation variants and modes. Ideal for hero sections, testimonials, or any context requiring rotating text content with elegant motion effects.",
+  "_classifiedAt": "2026-04-23T17:48:58.767Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

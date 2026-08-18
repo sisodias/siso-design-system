@@ -1,0 +1,33 @@
+{
+  "category": "other",
+  "subcategory": "motion-interaction-primitive",
+  "visual_style": [],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools",
+    "healthcare",
+    "media",
+    "education",
+    "real-estate"
+  ],
+  "platform_fit": [
+    "desktop"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Creating magnetic pull effects on CTA buttons that draw toward the cursor",
+    "Adding delightful hover interactions to navigation menu items",
+    "Implementing magnetic attraction on interactive card components",
+    "Enhancing icon buttons with cursor-following motion effects",
+    "Building eye-catching links that magnetically respond to mouse proximity"
+  ],
+  "ai_summary": "A motion primitive component that creates a physics-based magnetic attraction effect, pulling wrapped elements toward the cursor using spring animations. This behavioral wrapper applies to any children and responds to mouse proximity within a configurable range, making it ideal for adding premium micro-interactions to buttons, cards, and navigation elements in web applications.",
+  "_classifiedAt": "2026-04-23T17:48:34.612Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

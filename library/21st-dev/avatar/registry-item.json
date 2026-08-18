@@ -24,6 +24,11 @@
     "renderable": false
   },
   "_provenance": {
-    "curationTags": []
+    "curationTags": [],
+    "canonicalOf": {
+      "source": "21st-dev",
+      "slug": "originui-avatar"
+    },
+    "duplicateSignalScore": 0.67
   }
 }

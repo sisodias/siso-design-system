@@ -1,0 +1,31 @@
+{
+  "category": [
+    "data-display"
+  ],
+  "subcategory": "fitness-activity-ring-card",
+  "visual_style": [
+    "gradient",
+    "colorful"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "healthcare",
+    "fitness"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying daily fitness metrics with circular progress indicators like Apple Watch activity rings",
+    "Health and wellness dashboard widget showing Move, Exercise, and Stand goals",
+    "Visualizing progress toward fitness targets with animated ring indicators",
+    "Tracking health metrics in mobile and desktop fitness applications",
+    "Presenting health data with colorful, gradient-styled circular progress visualizations"
+  ],
+  "ai_summary": "Apple Activity Card is a fitness-inspired data display component that mimics Apple Watch activity rings, showing Move, Exercise, and Stand metrics with animated circular progress indicators. Features gradient-styled rings in vibrant colors (pink, green, cyan) with smooth mount animations, designed for health tracking dashboards and fitness applications across mobile and desktop platforms.",
+  "_classifiedAt": "2026-04-23T17:46:03.724Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

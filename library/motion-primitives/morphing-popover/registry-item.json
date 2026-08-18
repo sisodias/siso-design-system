@@ -39,6 +39,12 @@
     "fetchedAt": "2026-04-23T02:30:04.520Z",
     "importMode": "bulk",
     "importedFromList": "github/ibelick/motion-primitives",
-    "curationTags": []
+    "curationTags": [],
+    "aliases": [
+      {
+        "source": "21st-dev",
+        "slug": "ibelick-morphing-popover"
+      }
+    ]
   }
 }

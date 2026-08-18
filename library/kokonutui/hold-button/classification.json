@@ -1,0 +1,32 @@
+{
+  "category": [
+    "input"
+  ],
+  "subcategory": "hold-button",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "click-reveal"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Hold-to-confirm for destructive actions like deletion to prevent accidental clicks",
+    "Secure form submission requiring deliberate user intent",
+    "Confirmation flow for financial transactions or sensitive operations",
+    "Preventing accidental triggers in mobile interfaces",
+    "GDPR/compliance-related confirmation dialogs"
+  ],
+  "ai_summary": "A hold button component requiring users to press and maintain contact for a specified duration before executing an action. Features multiple color variants (red, green, blue, orange, grey) and smooth motion animations. Designed to prevent accidental clicks on critical actions, making it ideal for destructive operations, financial confirmations, and compliance-required acknowledgments in SaaS and fintech applications.",
+  "_classifiedAt": "2026-04-23T17:46:49.261Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

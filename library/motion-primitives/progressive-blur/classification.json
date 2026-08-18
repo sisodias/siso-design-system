@@ -1,0 +1,33 @@
+{
+  "category": "overlay",
+  "subcategory": "progressive-blur-gradient-mask",
+  "visual_style": [
+    "gradient",
+    "glass-morphism"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "media",
+    "real-estate"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Creates frosted glass effects by layering progressive blur masks over content",
+    "Adds visual depth and atmosphere to hero sections and backgrounds",
+    "Produces smooth opacity gradients with blur for modern UI aesthetics",
+    "Enables direction-controlled blur reveals for dramatic visual transitions",
+    "Serves as decorative overlay elements in landing pages and dashboards"
+  ],
+  "ai_summary": "A React component that generates multiple layered blur masks with gradient-based opacity control, creating a frosted glass or progressive reveal effect. Uses CSS backdrop-filter and mask-image properties to apply increasing blur intensity across configurable directional layers.",
+  "_classifiedAt": "2026-04-23T17:48:37.041Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,33 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "rotating-text",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Displaying animated loading indicators with spinning text",
+    "Creating decorative circular text layouts for branding elements",
+    "Building eye-catching hero section typography with rotating messages",
+    "Adding visual interest to call-to-action buttons with animated text",
+    "Implementing creative logo treatments with revolving text"
+  ],
+  "ai_summary": "A motion-primitives component that renders text arranged in a circular pattern and continuously rotates it. Uses Framer Motion for smooth animation with configurable duration, radius, and direction. The text characters are positioned using CSS custom properties and transforms to create a circular layout. Ideal for creating engaging loading states, decorative text elements, or attention-grabbing hero typography.",
+  "_classifiedAt": "2026-04-23T17:48:48.283Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

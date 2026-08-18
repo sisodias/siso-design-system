@@ -1,0 +1,33 @@
+{
+  "category": "media",
+  "subcategory": "animated-text-shimmer",
+  "visual_style": [
+    "gradient",
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "media",
+    "education"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Displaying animated headlines or titles in hero sections and marketing pages",
+    "Creating visually engaging loading or placeholder text states",
+    "Adding visual polish to call-to-action buttons and section headers",
+    "Enhancing feature highlights with eye-catching animated typography",
+    "Using as decorative animated text elements in landing pages"
+  ],
+  "ai_summary": "A lightweight React component that applies a continuous horizontal shimmer animation to text using CSS gradients and Framer Motion. The text displays a gradient background that moves from left to right infinitely, creating a polished metallic shine effect. Supports customization via className and includes both light and dark mode gradient variants. Perfect for adding visual interest to headings, loading states, and decorative text elements.",
+  "_classifiedAt": "2026-04-23T17:47:12.002Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

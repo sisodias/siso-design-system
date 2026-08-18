@@ -1,0 +1,36 @@
+{
+  "category": [
+    "hero"
+  ],
+  "subcategory": "animated floating shapes hero",
+  "visual_style": [
+    "glass-morphism",
+    "gradient",
+    "minimalist"
+  ],
+  "interactions": [
+    "scroll-animate",
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "creator-tools",
+    "media",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Landing page hero sections with animated decorative elements",
+    "Product feature showcases with elegant shape animations",
+    "Portfolio or creative agency landing pages",
+    "SaaS landing pages requiring modern visual appeal",
+    "Marketing site hero sections with floating gradients"
+  ],
+  "ai_summary": "An elegant hero component featuring multiple animated floating shapes with glass-morphism effects and gradient styling. Shapes animate into view with smooth fade and slide transitions, then continuously float with subtle vertical motion. Includes backdrop blur, soft glow effects, and radial gradient overlays for a premium, modern aesthetic suitable for landing pages.",
+  "_classifiedAt": "2026-04-23T17:47:02.476Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

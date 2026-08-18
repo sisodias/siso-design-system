@@ -1,0 +1,35 @@
+{
+  "category": [
+    "overlay",
+    "navigation"
+  ],
+  "subcategory": "animated-dropdown-menu",
+  "visual_style": [],
+  "interactions": [
+    "morph",
+    "click-reveal",
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "fintech",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Trigger contextual menus or tooltips that animate smoothly between hidden and visible states",
+    "Provide navigation dropdowns with fluid morphing transitions between trigger and content",
+    "Create tooltips that scale and fade with spring physics for premium feel",
+    "Implement popovers that gracefully handle controlled and uncontrolled states",
+    "Add animated contextual actions in dashboards or admin interfaces"
+  ],
+  "ai_summary": "A morphing popover component that animates between trigger and content states using spring physics. Supports both controlled and uncontrolled modes with smooth transitions, making it ideal for contextual menus, tooltips, and dropdown navigation in web applications.",
+  "_classifiedAt": "2026-04-23T17:48:35.435Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

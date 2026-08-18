@@ -1,0 +1,37 @@
+{
+  "category": [
+    "layout"
+  ],
+  "subcategory": "animated-interactive-wrapper",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "click-reveal",
+    "keyboard-nav"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "dev-tools",
+    "media",
+    "education",
+    "real-estate"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Tab navigation with smoothly animated sliding background indicator between tab items",
+    "Interactive card grids or lists where background highlight follows user selection",
+    "Select or dropdown menus with animated background transitions between options",
+    "Navigation menus with hover or click-activated background effects",
+    "Interactive form elements requiring visual feedback on selection changes"
+  ],
+  "ai_summary": "A reusable animated background wrapper component from motion-primitives that creates smooth shared-layout transitions between child elements using motion/react's layoutId. Supports both click-based and hover-based interactions via the enableHover prop, with configurable transitions. Acts as a primitive for building tab bars, selection menus, and interactive navigation with professional-grade animations.",
+  "_classifiedAt": "2026-04-23T17:47:49.080Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

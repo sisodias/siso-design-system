@@ -1,0 +1,36 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "content-slider",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "drag",
+    "click-reveal"
+  ],
+  "best_for_industries": [
+    "e-commerce",
+    "media",
+    "saas",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Displaying image or media galleries with smooth drag-to-navigate functionality",
+    "Creating product showcases in e-commerce with controlled or uncontrolled index state",
+    "Building feature carousels for SaaS landing pages with customizable navigation",
+    "Implementing testimonial sliders with drag support and arrow navigation",
+    "Displaying content collections with context-based state management"
+  ],
+  "ai_summary": "A motion-primitives carousel component with drag-to-navigate functionality and smooth animations via motion/react. Features a Provider pattern for context-based state management, supports both controlled and uncontrolled modes, and includes navigation arrows. Fully responsive and composable with customizable drag behavior and index change callbacks.",
+  "_classifiedAt": "2026-04-23T17:48:02.881Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

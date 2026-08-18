@@ -1,0 +1,35 @@
+{
+  "category": [
+    "navigation"
+  ],
+  "subcategory": "tab-switcher",
+  "visual_style": [
+    "gradient",
+    "animated"
+  ],
+  "interactions": [
+    "click-reveal",
+    "hover-glow",
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "e-commerce",
+    "education"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Content sections that require smooth animated transitions between views",
+    "Dashboard navigation with customizable tab items and icons",
+    "Feature comparisons with color-coded tab states",
+    "Settings or configuration pages with grouped content panels",
+    "Product showcases with animated waveform decorative elements"
+  ],
+  "ai_summary": "A smooth tab navigation component with animated SVG waveform decorations and fluid motion transitions. Supports custom icons, descriptions, color customization, and multiple content types per tab. Uses motion/react for orchestrated animations including waveform x-translation and opacity fades, creating an engaging interactive tab-switching experience suitable for dashboards, settings pages, and content-heavy interfaces.",
+  "_classifiedAt": "2026-04-23T17:47:20.343Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

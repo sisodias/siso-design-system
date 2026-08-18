@@ -1,0 +1,39 @@
+{
+  "category": [
+    "overlay"
+  ],
+  "subcategory": "animated-modal",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "click-reveal",
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools",
+    "healthcare",
+    "media",
+    "education",
+    "real-estate"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying confirmation dialogs for user actions like delete or submit operations",
+    "Showing detailed information or forms that require focused attention",
+    "Presenting alerts and notifications that interrupt the current workflow",
+    "Capturing user input through embedded forms within the modal content",
+    "Revealing contextual information or help content without leaving the current page"
+  ],
+  "ai_summary": "An animated dialog component built with Framer Motion that provides smooth scale and opacity transitions for opening and closing. Features scroll prevention on iOS, controlled/uncontrolled state management, and accessibility-focused context with unique IDs for title and description elements. Designed as a reusable overlay primitive suitable for various industry applications.",
+  "_classifiedAt": "2026-04-23T17:48:09.082Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

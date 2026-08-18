@@ -1,0 +1,29 @@
+{
+  "category": [
+    "navigation"
+  ],
+  "subcategory": "external-link-button",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Linking to v0.dev from documentation or demos to open generated UI components",
+    "Providing developers a quick action to export and iterate on UI in v0's environment",
+    "Adding v0 integration to component libraries or design systems"
+  ],
+  "ai_summary": "A utility button component that wraps the Button primitive and creates an external link to v0.dev's component export API. Features dual-tone styling with hover states for both light and dark modes, accessible aria-label, and an embedded v0 SVG logo. Designed specifically for dev-tools and component library integration, enabling one-click export of UI components to the v0 platform for further iteration.",
+  "_classifiedAt": "2026-04-23T17:47:48.807Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

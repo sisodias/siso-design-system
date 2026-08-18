@@ -1,0 +1,32 @@
+{
+  "category": [
+    "navigation"
+  ],
+  "subcategory": "icon-dock, animated-navigation-bar",
+  "visual_style": [
+    "minimalist",
+    "gradient"
+  ],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Application navigation dock with icon magnification effect on hover, similar to macOS dock",
+    "Quick access toolbar for frequently used actions in productivity applications",
+    "Floating navigation bar with smooth spring-based animations",
+    "Icon launcher for application dashboards and admin panels",
+    "Tab switching interface with proximity-based item enlargement"
+  ],
+  "ai_summary": "A macOS-style animated dock navigation component with spring physics and magnetic magnification effects. Items scale up smoothly based on mouse proximity, creating an elegant hover interaction. Built with motion/react for performant spring animations and supports customizable panel height, magnification strength, and distance thresholds. Ideal for creating polished, desktop-class navigation experiences in web applications.",
+  "_classifiedAt": "2026-04-23T17:48:15.201Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

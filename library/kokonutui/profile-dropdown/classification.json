@@ -1,0 +1,28 @@
+{
+  "category": "media",
+  "subcategory": "icon-logo",
+  "visual_style": [],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Displaying Gemini AI branding within profile dropdown navigation menus",
+    "Serving as an AI provider selection option in multi-model dropdown interfaces",
+    "Acting as a status or provider indicator in AI-related application headers",
+    "Used for AI service switching in chatbot or assistant integrations"
+  ],
+  "ai_summary": "A minimalist SVG icon component rendering Google's Gemini AI logo with a blue gradient circular design. This atomic component is designed as a selectable option within profile dropdowns and multi-provider AI selection interfaces, providing visual identification for Gemini-powered services.",
+  "_classifiedAt": "2026-04-23T17:46:59.651Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

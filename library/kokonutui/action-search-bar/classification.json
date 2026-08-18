@@ -1,0 +1,36 @@
+{
+  "category": [
+    "input"
+  ],
+  "subcategory": "command-search-bar",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "keyboard-nav",
+    "click-reveal",
+    "hover-glow",
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "creator-tools",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Command palette for quickly executing actions with keyboard shortcuts",
+    "Search interface with categorized suggestions and debounced input",
+    "Action launcher for navigating between features or commands",
+    "Quick search with expandable animated results panel",
+    "Universal search bar with icon-labeled action items"
+  ],
+  "ai_summary": "A modern search bar component featuring action buttons, categorized suggestions, and keyboard shortcuts like ⌘K. Includes debounced input, expandable animated results using motion/react, and supports icons with metadata like short descriptions and end labels. Designed as a command palette interface for SaaS and dev tools platforms with seamless desktop and mobile support.",
+  "_classifiedAt": "2026-04-23T17:45:46.123Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

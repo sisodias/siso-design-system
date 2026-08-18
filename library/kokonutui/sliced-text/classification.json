@@ -1,0 +1,33 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "text-effect-typography-animation",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "creator-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Creating engaging hover-triggered text reveal animations for headings",
+    "Adding visual depth and interactivity to typography on landing pages",
+    "Building eye-catching text effects for marketing and promotional content"
+  ],
+  "ai_summary": "A minimalist text effect component that splits text into two overlapping layers, creating a sliced effect. On hover, the text smoothly animates to reveal the full content with subtle clip-path transitions and vertical positioning shifts.",
+  "_classifiedAt": "2026-04-23T17:47:09.949Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

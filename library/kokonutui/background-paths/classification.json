@@ -1,0 +1,22 @@
+{
+  "category": "layout",
+  "subcategory": "decorative-background",
+  "visual_style": [],
+  "interactions": [],
+  "best_for_industries": [],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Landing page hero backgrounds with animated flowing elements",
+    "Section dividers with organic curved paths",
+    "Loading screen animations with aesthetic motion",
+    "Decorative page elements that add visual depth",
+    "Brand-forward websites requiring ambient motion"
+  ],
+  "ai_summary": "A decorative background component that renders multiple animated SVG paths creating flowing, organic curves across the viewport. Uses motion/react for smooth animations with configurable amplitude, phase, and easing to generate aesthetic wave patterns in primary, secondary, and accent variants. Ideal for adding visual interest and depth to hero sections or page backgrounds without distracting from content.",
+  "_classifiedAt": "2026-04-23T17:46:15.666Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

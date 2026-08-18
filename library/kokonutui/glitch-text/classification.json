@@ -1,0 +1,32 @@
+{
+  "category": "data-display",
+  "subcategory": "text-effect",
+  "visual_style": [
+    "colorful",
+    "gradient"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "media",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Displaying animated glitch text effects for hero sections and landing pages",
+    "Creating cyberpunk or tech-focused branding elements",
+    "Adding visual interest to headers and titles in creative portfolios",
+    "Enhancing error pages or 404 messages with stylized typography",
+    "Highlighting key feature names in product marketing materials"
+  ],
+  "ai_summary": "A glitch text component that renders animated text with visual distortion effects, featuring multiple color schemes including rainbow, blue, purple, cyan, pink, and orange gradients. The component supports adjustable glitch intensity levels from light to extreme and can be toggled to static mode. Ideal for creating cyberpunk-inspired typography in hero sections, tech branding, and creative landing pages.",
+  "_classifiedAt": "2026-04-23T17:46:48.984Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

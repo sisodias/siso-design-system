@@ -1,0 +1,30 @@
+{
+  "category": "card",
+  "subcategory": "social-media-tweet",
+  "visual_style": [
+    "glass-morphism",
+    "gradient"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "media",
+    "saas"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying a single tweet in social media applications and feeds",
+    "Showing user-generated social proof on landing pages",
+    "Creating Twitter/X integration components for web apps",
+    "Building social media-style notification cards",
+    "Adding testimonial-style content with real social media appearance"
+  ],
+  "ai_summary": "A glass-morphism styled Tweet Card component for displaying social media content. Features translucent backgrounds with backdrop blur effects, gradient borders, and responsive design. Supports displaying author information, tweet content with multiple lines, verification badges, timestamps, and embedded reply threads. Ideal for integrating social media content into SaaS applications, landing pages, or social proof sections.",
+  "_classifiedAt": "2026-04-23T17:47:33.744Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

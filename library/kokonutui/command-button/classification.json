@@ -1,0 +1,26 @@
+{
+  "category": "button",
+  "subcategory": "command-button",
+  "visual_style": [],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Trigger command palette or keyboard shortcut interface",
+    "Display CMD+K style quick action buttons",
+    "Serve as entry point for command-driven interfaces"
+  ],
+  "ai_summary": "A minimalist command button component featuring a Command icon with CMD+K text. Includes hover animations with icon scaling, rotation, and a sweeping gradient effect. Supports both light and dark modes with zinc color palette and subtle transitions.",
+  "_classifiedAt": "2026-04-23T17:46:31.761Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

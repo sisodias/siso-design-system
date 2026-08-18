@@ -60,7 +60,7 @@ All 15 Lumelle keepers are now located at `_raw/lumelle/{keeper}/`:
 **Restructure applied:**
 - Moved `components/lumelle/*` → `_raw/lumelle/*`
 - Created `primitives/`, `composites/`, `systems/`, `adapters/`, `_external/` scaffolds
-- Imported 52 21st.dev components from `SISO_Library/component_library/` → `_external/21st-dev/`
+- Imported 52 21st.dev components from `SISO_Knowledge/component_library/` → `_external/21st-dev/`
 - Wrote adapter contracts (5 interfaces + configureSisoDesign)
 - Wrote PROVENANCE.md mapping every component to source
 - Wrote ADAPTERS.md with wiring recipes for Clerk, Shopify, Supabase

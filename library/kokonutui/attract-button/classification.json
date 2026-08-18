@@ -1,0 +1,33 @@
+{
+  "category": [
+    "input"
+  ],
+  "subcategory": "magnetic-attract-button",
+  "visual_style": [
+    "minimalist",
+    "gradient"
+  ],
+  "interactions": [
+    "hover-glow",
+    "click-reveal"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Landing page call-to-action buttons that draw user attention through magnetic particle animations",
+    "Interactive product showcase buttons with hover attraction effects",
+    "Engagement-focused CTAs for marketing campaigns and conversion pages",
+    "Premium SaaS dashboard buttons with playful micro-interactions"
+  ],
+  "ai_summary": "An interactive button component featuring magnetic particle effects that animate toward the button center on hover and click interactions. Built with motion/react animations and spring physics for smooth particle attraction. Includes customizable particle count and attraction radius with violet-themed styling and dark mode support.",
+  "_classifiedAt": "2026-04-23T17:46:05.860Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

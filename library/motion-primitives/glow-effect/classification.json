@@ -1,0 +1,37 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "animated-gradient-glow",
+  "visual_style": [
+    "glass-morphism",
+    "gradient"
+  ],
+  "interactions": [
+    "scroll-animate",
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Create animated glowing backgrounds for hero sections and landing pages",
+    "Add ambient color animations to cards and pricing components",
+    "Enhance buttons and interactive elements with pulsing glow effects",
+    "Provide decorative animated overlays for media and content displays",
+    "Create visually striking animated effects for marketing and promotional sections"
+  ],
+  "ai_summary": "A versatile animated glow effect component using Framer Motion that creates dynamic gradient animations in multiple modes (rotate, pulse, breathe, colorShift, flowHorizontal, static). Supports customizable colors, blur intensity, scale, and transition timing to create soft, vibrant glowing backgrounds suitable for enhancing cards, buttons, hero sections, and decorative overlays with ambient motion.",
+  "_classifiedAt": "2026-04-23T17:48:18.454Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,36 @@
+{
+  "category": [
+    "data-display"
+  ],
+  "subcategory": "animated-counter",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "healthcare",
+    "education",
+    "real-estate"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Display animated statistics or metrics that smoothly transition between values",
+    "Show live counters for analytics dashboards and reporting tools",
+    "Render price animations for e-commerce product pages",
+    "Present score counters for gaming or educational applications",
+    "Create dynamic number displays for data visualization components"
+  ],
+  "ai_summary": "An atomic animated number component that smoothly transitions numeric values using spring physics. It formats numbers with locale-aware separators and accepts customizable spring animation options. Part of the motion-primitives library, this lightweight component is framework-agnostic and can be styled via className props for various design systems.",
+  "_classifiedAt": "2026-04-23T17:47:57.870Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

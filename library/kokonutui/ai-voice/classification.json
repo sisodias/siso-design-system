@@ -1,0 +1,33 @@
+{
+  "category": [
+    "input",
+    "form"
+  ],
+  "subcategory": "voice-recorder",
+  "visual_style": [],
+  "interactions": [
+    "click-reveal",
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "ai-tools",
+    "dev-tools",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Voice input interface for AI assistants and chatbots",
+    "Audio recording trigger for voice commands in applications",
+    "Interactive voice input for SaaS dashboards and productivity tools",
+    "Voice capture component for developer tools and IDEs",
+    "Recording interface for content creation and creator platforms"
+  ],
+  "ai_summary": "A minimalist voice input component featuring a central microphone button that toggles recording states. Includes a built-in timer display showing recording duration, smooth hover transitions, and supports demo animation mode for showcasing the recording interaction. Perfect for integrating voice capabilities into AI-powered applications and conversational interfaces.",
+  "_classifiedAt": "2026-04-23T17:45:58.699Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

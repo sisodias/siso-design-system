@@ -1,0 +1,33 @@
+{
+  "category": [
+    "data-display"
+  ],
+  "subcategory": "animated-number-counter",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Display animated counters for statistics and metrics on dashboards",
+    "Show smoothly incrementing prices or values in e-commerce product pages",
+    "Animate numerical values in real-time data visualizations",
+    "Create engaging countdown timers with spring-physics animations",
+    "Display financial data with smooth value transitions"
+  ],
+  "ai_summary": "A SlidingNumber component that displays numbers with a smooth spring-physics sliding animation effect. Each digit transitions independently using Framer Motion's useSpring and useTransform hooks, creating a cascading effect when values change. The component supports padding, decimal separators, and uses dynamic height measurements to calculate precise vertical offsets for the sliding animation.",
+  "_classifiedAt": "2026-04-23T17:48:46.955Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,36 @@
+{
+  "category": [
+    "input",
+    "form"
+  ],
+  "subcategory": "avatar-picker",
+  "visual_style": [
+    "flat",
+    "minimalist",
+    "colorful"
+  ],
+  "interactions": [
+    "hover-glow",
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "e-commerce",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Selecting user avatars during account creation or profile setup",
+    "Picking avatars for comment sections or chat applications",
+    "Customizing user identity in messaging or collaboration tools",
+    "Choosing display avatars in social media or community platforms",
+    "Assigning avatars for multi-user systems or admin panels"
+  ],
+  "ai_summary": "An interactive avatar picker component with animated transitions and search functionality. Features a grid of colorful avatar options with color-coded selection rings, smooth hover effects, and motion-based animations. Includes filter input and displays the currently selected avatar with a prominent preview. Built as a composite component using Card, Button, and Input primitives from the kokonutui design system.",
+  "_classifiedAt": "2026-04-23T17:46:09.642Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

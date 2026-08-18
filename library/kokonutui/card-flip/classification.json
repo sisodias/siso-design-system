@@ -1,0 +1,28 @@
+{
+  "category": "card",
+  "subcategory": "card-flip",
+  "visual_style": [],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "education",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Revealing additional card content on hover using 3D flip animation",
+    "Interactive product feature displays with front/back information",
+    "Flashcard-style educational content presentation",
+    "Portfolio or design system feature showcase cards"
+  ],
+  "ai_summary": "An interactive 3D card flip component that smoothly transitions between front and back faces using CSS transform animations on hover. Features dark mode support, subtle gradient backgrounds, and clean borders with shadow effects. The card uses perspective transforms and backface-visibility for realistic 3D rotation, making it ideal for showcasing additional content like features, specifications, or calls-to-action without requiring user clicks.",
+  "_classifiedAt": "2026-04-23T17:46:20.498Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

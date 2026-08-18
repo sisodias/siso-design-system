@@ -1,0 +1,28 @@
+{
+  "category": "data-display",
+  "subcategory": "decorative-text",
+  "visual_style": [],
+  "interactions": [],
+  "best_for_industries": [
+    "saas",
+    "media",
+    "e-commerce",
+    "education",
+    "creator-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Display playful headings with a dynamic hover effect that removes layered shadows",
+    "Add interactive typography to hero sections with colorful multi-shadow styling",
+    "Create engaging call-to-action text with an instant 'swoosh away' shadow reveal on hover",
+    "Enhance landing page headlines with customizable neon-style shadow effects",
+    "Use as decorative section dividers or feature labels with animated text shadows"
+  ],
+  "ai_summary": "A typography component featuring multi-layered colorful text shadows that animate away on hover, creating a playful 'swoosh' reveal effect. Built with motion/react and fully customizable shadow colors, making it ideal for creating dynamic, eye-catching headings and decorative text in hero sections, marketing pages, or feature callouts.",
+  "_classifiedAt": "2026-04-23T17:47:28.478Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

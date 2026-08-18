@@ -1,0 +1,33 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "auto-scrolling-carousel",
+  "visual_style": [
+    "flat"
+  ],
+  "interactions": [
+    "scroll-animate",
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "media",
+    "saas",
+    "e-commerce",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying continuous scrolling testimonials or reviews without user interaction",
+    "Auto-playing product carousels in e-commerce storefronts",
+    "Creating logo strips or partner brand showcases",
+    "Building scrolling news tickers or announcement banners",
+    "Implementing infinite image galleries with automatic advancement"
+  ],
+  "ai_summary": "An infinite auto-scrolling carousel component that smoothly cycles through child content horizontally or vertically. Features configurable speed, hover speed adjustment, and seamless loop transitions using Framer Motion. Supports any content type and works across desktop and mobile platforms for continuous content display scenarios.",
+  "_classifiedAt": "2026-04-23T17:48:25.416Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

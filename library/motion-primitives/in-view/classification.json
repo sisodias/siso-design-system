@@ -1,0 +1,36 @@
+{
+  "category": [
+    "feedback",
+    "other"
+  ],
+  "subcategory": "scroll-triggered animation wrapper utility",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "media",
+    "education",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Fade in or animate content when it scrolls into the viewport",
+    "Create scroll-reveal effects for landing pages",
+    "Trigger entrance animations for list items and cards",
+    "Implement once-only animations that play on first visibility",
+    "Wrap any component to add scroll-triggered motion effects"
+  ],
+  "ai_summary": "A reusable wrapper component from motion-primitives that uses Framer Motion's useInView hook to trigger animations when elements scroll into the viewport. Supports custom motion variants, custom transitions, configurable view options, and optional 'once' behavior for animations that should only play on first visibility. Wraps any React element and applies scroll-based visibility state to drive motion animations.",
+  "_classifiedAt": "2026-04-23T17:48:24.118Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

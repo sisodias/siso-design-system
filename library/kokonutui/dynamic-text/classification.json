@@ -1,0 +1,36 @@
+{
+  "category": [
+    "data-display"
+  ],
+  "subcategory": "animated-text",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "media",
+    "education",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Displaying welcome messages in multilingual applications with animated text transitions",
+    "Creating engaging hero section greetings for landing pages",
+    "Adding animated language displays to international marketing campaigns",
+    "Enhancing user onboarding experiences with dynamic welcomes",
+    "Adding visual interest to dashboard headers with cycling text"
+  ],
+  "ai_summary": "An animated greeting component that cycles through multiple language translations (English, Japanese, French, Spanish, Korean, Italian, German) with smooth motion transitions. The text animates vertically using the motion library, appearing and exiting with opacity and position changes. Designed as a standalone, reusable text display component suitable for hero sections, welcome messages, or language-learning interfaces.",
+  "_classifiedAt": "2026-04-23T17:46:37.808Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

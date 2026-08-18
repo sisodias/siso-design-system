@@ -1,0 +1,24 @@
+{
+  "category": "data-display",
+  "subcategory": "animated-content-switcher",
+  "visual_style": [],
+  "interactions": [],
+  "best_for_industries": [
+    "other"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Displaying animated content panels that transition based on active index state",
+    "Building tab interfaces with smooth animated transitions between content sections",
+    "Creating onboarding flows with animated step-by-step panel transitions",
+    "Implementing carousels or slideshows with motion-powered content switching",
+    "Developing wizard-style interfaces with animated panel progression"
+  ],
+  "ai_summary": "TransitionPanel is a motion-primitives component that animates between content panels based on an active index. It wraps Framer Motion's AnimatePresence with popLayout mode to smoothly transition child components in and out. The component accepts custom variants, transitions, and motion props for full animation customization while providing a clean API for conditional content display with orchestrated motion effects.",
+  "_classifiedAt": "2026-04-23T17:49:26.493Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

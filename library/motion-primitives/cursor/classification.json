@@ -1,0 +1,33 @@
+{
+  "category": [
+    "overlay"
+  ],
+  "subcategory": "spring-animated-custom-cursor",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "creator-tools",
+    "media",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Replacing the default browser cursor with a smooth, spring-animated custom cursor for enhanced visual appeal",
+    "Creating branded cursor experiences in portfolio and showcase websites",
+    "Adding polish and micro-interactions to SaaS landing pages and product demos",
+    "Implementing cursor-following effects for creative tools and interactive media applications",
+    "Building custom cursor states with spring physics for responsive, fluid pointer feedback"
+  ],
+  "ai_summary": "A customizable, spring-animated custom cursor component that smoothly follows mouse movement using Framer Motion's spring physics. Supports attaching to parent elements, custom spring configurations, motion variants, and position change callbacks. Replaces the default browser cursor with a polished, professional interaction element suitable for landing pages, portfolios, and product showcases.",
+  "_classifiedAt": "2026-04-23T17:48:06.269Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

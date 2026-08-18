@@ -1,0 +1,32 @@
+{
+  "category": [
+    "data-display"
+  ],
+  "subcategory": "team-member-avatar-group",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying team members in a project management dashboard with overlapping avatars",
+    "Showing collaborator roster in collaboration and productivity tools",
+    "Visualizing team membership in admin or settings panels",
+    "Presenting team attribution in documentation or content platforms",
+    "Displaying online users or active participants in real-time applications"
+  ],
+  "ai_summary": "A team member selector component that displays avatar images in an overlapping grid layout with smooth motion animations. Features entrance animations, shake/vibration effects for feedback, and graceful handling of multiple team members. Built with React motion library for fluid transitions, suitable for displaying team rosters, collaborators, or user groups in collaborative software interfaces.",
+  "_classifiedAt": "2026-04-23T17:47:32.967Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

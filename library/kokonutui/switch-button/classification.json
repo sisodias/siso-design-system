@@ -1,0 +1,33 @@
+{
+  "category": [
+    "input"
+  ],
+  "subcategory": "theme-toggle-switch",
+  "visual_style": [
+    "glass-morphism",
+    "minimalist",
+    "gradient"
+  ],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "e-commerce",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Toggle between light and dark themes in application headers or navigation bars",
+    "Quick user preference toggle in settings panels",
+    "Theme switching control in dashboard interfaces",
+    "Universal dark/light mode switch for any SaaS application"
+  ],
+  "ai_summary": "A minimalist theme switch button component featuring glass-morphism styling with backdrop blur effects and smooth gradient transitions. Supports light/dark mode toggling via next-themes, with hover states that enhance visual feedback through subtle gradient overlays. Includes customizable sizes (sm/default/lg) and optional labels, making it ideal for headers, navigation bars, or settings panels across any SaaS or web application.",
+  "_classifiedAt": "2026-04-23T17:47:22.348Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

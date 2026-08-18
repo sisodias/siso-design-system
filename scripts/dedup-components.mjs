@@ -11,10 +11,12 @@
  *              + 0.15 * summary_overlap  (Jaccard on aiSummary tokens, when available)
  *              + 0.05 * byte_ratio  (min/max primary .tsx file sizes)
  *
- * Threshold T = 0.60. Pairs at or above T are flagged as likely duplicates.
- * Note: 0.60 (not 0.75) because motion-primitives has no classification.json files,
- * capping republished pairs at 0.60 without the missing-summary heuristic.
- * CLI --threshold=0.75 restores the spec value when classification is complete.
+ * Threshold T = 0.67. Pairs at or above T are flagged as likely duplicates.
+ * Note: the spec design used T=0.75 with expectation of >0.85 top score. In practice,
+ * motion-primitives has zero classification.json files, capping republished pairs at
+ * 0.75 (self-overlap heuristic) and republished pairs with extra deps at ~0.54-0.55.
+ * Threshold 0.67 catches all cross-source republished pairs without same-source false
+ * positives. Override with --threshold=0.75 for stricter matching.
  * Bucketing: first-3-chars of normalized slug. Pairwise only within bucket.
  * Canonical selection: authoritative source > curated > renderable > elo > fetchedAt > alphabetical.
  *
@@ -333,22 +335,35 @@ function selectCanonical(cluster) {
     const mb = b.importMode === 'curated' ? 0 : 1
     if (ma !== mb) return ma - mb
 
-    // 3. renderable > non-renderable
+    // 3. Prefer author-prefixed slugs over generic slugs.
+    // e.g. "originui-button" > "button"; "ibelick-carousel" > "carousel"
+    // A slug has an author prefix if it contains a hyphen and the prefix looks like a username.
+    const hasPrefix = (slug) => {
+      const idx = slug.indexOf('-')
+      if (idx === -1) return false
+      const prefix = slug.slice(0, idx).toLowerCase()
+      return /^[a-z][a-z0-9]{1,}$/.test(prefix)
+    }
+    const pa_hasPrefix = hasPrefix(a.slug)
+    const pb_hasPrefix = hasPrefix(b.slug)
+    if (pa_hasPrefix !== pb_hasPrefix) return pa_hasPrefix ? -1 : 1
+
+    // 4. renderable > non-renderable
     if (a.renderable !== b.renderable) return a.renderable ? -1 : 1
 
-    // 4. Higher effective_elo (only if votes >= 10)
+    // 5. Higher effective_elo (only if votes >= 10)
     if (a.votes >= 10 && b.votes >= 10) {
       if (a.effectiveElo !== b.effectiveElo) return b.effectiveElo - a.effectiveElo
     }
 
-    // 5. Earlier fetchedAt
+    // 6. Earlier fetchedAt
     if (a.fetchedAt && b.fetchedAt) {
       if (a.fetchedAt < b.fetchedAt) return -1
       if (a.fetchedAt > b.fetchedAt) return 1
     } else if (a.fetchedAt) return -1
     else if (b.fetchedAt) return 1
 
-    // 6. Alphabetical
+    // 7. Alphabetical
     return a.id.localeCompare(b.id)
   })[0]
 }
@@ -440,30 +455,81 @@ async function main() {
       aliases: aliases.map(a => a.id),
       scores,
     })
+  }
 
-    // ── Write annotations (unless dry-run) ────────────────────────────────
-    if (!DRY_RUN) {
-      // Write canonical's aliases
-      const canonicalItem = { ...canonical.item }
-      if (!canonicalItem._provenance) canonicalItem._provenance = {}
-      canonicalItem._provenance.aliases = aliases.map(a => ({ source: a.source, slug: a.slug }))
-      await writeFile(canonical.itemPath, JSON.stringify(canonicalItem, null, 2), 'utf-8')
-
-      // Write each alias's canonicalOf + duplicateSignalScore
-      const pairScore = (aliasId) => {
-        const pair = flaggedPairs.find(
-          p => (p.aId === canonical.id && p.bId === aliasId) ||
-               (p.bId === canonical.id && p.aId === aliasId)
-        )
-        return pair ? pair.score : null
+  // ── Write annotations (unless dry-run) ──────────────────────────────────
+  if (!DRY_RUN) {
+    // Build sets of canonical and alias ids for this run
+    const canonicalIds = new Set(clusters.map(c => selectCanonical(c).id))
+    const aliasIds = new Set()
+    for (const cluster of clusters) {
+      const canonical = selectCanonical(cluster)
+      for (const c of cluster) {
+        if (c !== canonical) aliasIds.add(c.id)
       }
-      for (const alias of aliases) {
-        const aliasItem = { ...alias.item }
-        if (!aliasItem._provenance) aliasItem._provenance = {}
-        aliasItem._provenance.canonicalOf = { source: canonical.source, slug: canonical.slug }
-        const ds = pairScore(alias.id)
-        if (ds !== null) aliasItem._provenance.duplicateSignalScore = Math.round(ds * 100) / 100
-        await writeFile(alias.itemPath, JSON.stringify(aliasItem, null, 2), 'utf-8')
+    }
+
+    // Rewrite every component's registry-item.json to ensure stale annotations are cleared
+    for (const comp of components) {
+      const item = JSON.parse(await readFile(comp.itemPath, 'utf-8'))
+      let modified = false
+
+      if (!item._provenance) item._provenance = {}
+
+      // Clear any existing dedup annotations
+      if (canonicalIds.has(comp.id)) {
+        // This component is a canonical — set aliases
+        if (!item._provenance.aliases) modified = true
+        const clusterForCanonical = clusters.find(c => selectCanonical(c).id === comp.id)
+        if (clusterForCanonical) {
+          const canonical = selectCanonical(clusterForCanonical)
+          const aliases = clusterForCanonical.filter(c => c !== canonical)
+          aliases.sort((a, b) => a.id.localeCompare(b.id))
+          const newAliases = aliases.map(a => ({ source: a.source, slug: a.slug }))
+          const existing = JSON.stringify(item._provenance.aliases || [])
+          const updated = JSON.stringify(newAliases)
+          if (existing !== updated) {
+            item._provenance.aliases = newAliases
+            modified = true
+          }
+        }
+      } else if (aliasIds.has(comp.id)) {
+        // This component is an alias — set canonicalOf + duplicateSignalScore
+        const clusterForAlias = clusters.find(c => {
+          const canonical = selectCanonical(c)
+          return c.some(item => item.id === comp.id) && selectCanonical(c).id !== comp.id
+        })
+        if (clusterForAlias) {
+          const canonical = selectCanonical(clusterForAlias)
+          const pair = flaggedPairs.find(
+            p => (p.aId === canonical.id && p.bId === comp.id) ||
+                 (p.bId === canonical.id && p.aId === comp.id)
+          )
+          const newCanonicalOf = { source: canonical.source, slug: canonical.slug }
+          const existingCanonicalOf = JSON.stringify(item._provenance.canonicalOf || {})
+          const updatedCanonicalOf = JSON.stringify(newCanonicalOf)
+          if (existingCanonicalOf !== updatedCanonicalOf) {
+            item._provenance.canonicalOf = newCanonicalOf
+            modified = true
+          }
+          const newDs = pair ? Math.round(pair.score * 100) / 100 : null
+          if (item._provenance.duplicateSignalScore !== newDs) {
+            item._provenance.duplicateSignalScore = newDs
+            modified = true
+          }
+        }
+      } else {
+        // Not in any cluster — clear any existing dedup annotations
+        if (item._provenance.aliases) { delete item._provenance.aliases; modified = true }
+        if (item._provenance.canonicalOf) { delete item._provenance.canonicalOf; modified = true }
+        if (item._provenance.duplicateSignalScore !== undefined) {
+          delete item._provenance.duplicateSignalScore
+          modified = true
+        }
+      }
+
+      if (modified) {
+        await writeFile(comp.itemPath, JSON.stringify(item, null, 2), 'utf-8')
       }
     }
   }

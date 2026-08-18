@@ -12,7 +12,7 @@
 
 **Worker model:** Haiku
 **Estimated wall time:** 1 hour
-**Repo root:** `/Users/shaansisodia/SISO_Workspace/SISO_Library/design-system`
+**Repo root:** `/Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system`
 
 ---
 
@@ -50,7 +50,7 @@ READ-ONLY: `viewer/next.config.ts` (already has production-gated `outputFileTrac
 ```
 You are a Haiku worker shipping the Vercel deployment infrastructure for the SISO design-system viewer.
 
-Repo root: /Users/shaansisodia/SISO_Workspace/SISO_Library/design-system
+Repo root: /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system
 Deploy target: Vercel (project name: siso-design-system, domain: siso-design-system.vercel.app initially)
 
 READ THESE FIRST:
@@ -140,7 +140,7 @@ CREATE docs/DEPLOYMENT.md
   - Rating routes return 503 in prod — document why, how to re-enable later
 
 VALIDATION:
-  cd /Users/shaansisodia/SISO_Workspace/SISO_Library/design-system
+  cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system
   node scripts/emit-registry.mjs
   # Must emit N files matching manifest.total
   ls viewer/public/r/21st-dev/ | wc -l

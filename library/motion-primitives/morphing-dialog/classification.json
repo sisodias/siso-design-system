@@ -1,0 +1,30 @@
+{
+  "category": "overlay",
+  "subcategory": "morphing-dialog",
+  "visual_style": [],
+  "interactions": [
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "system",
+  "use_cases": [
+    "Expanding a button or trigger element into a full dialog with smooth morphing animation",
+    "Creating confirmation dialogs that feel cohesive with their trigger actions",
+    "Building nested modal flows with animated transitions between states",
+    "Implementing accessible dialog patterns with keyboard navigation support",
+    "Replacing traditional modals with more fluid, motion-rich alternatives"
+  ],
+  "ai_summary": "A morphing dialog component from the motion-primitives library that animates from a trigger element into a full dialog overlay. Uses React Context for state management and Framer Motion for smooth transitions. Ideal for creating premium-feeling modal experiences with seamless morph animations between trigger and dialog states.",
+  "_classifiedAt": "2026-04-23T17:48:33.889Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

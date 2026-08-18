@@ -1,0 +1,37 @@
+{
+  "category": [
+    "input"
+  ],
+  "subcategory": "drag-and-drop file upload with states",
+  "visual_style": [
+    "flat",
+    "illustration"
+  ],
+  "interactions": [
+    "drag",
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "dev-tools",
+    "media",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Users drag and drop files or click to upload documents and media",
+    "Forms capture file attachments with validation for file type and size",
+    "Applications display upload progress with animated feedback",
+    "Users manage file uploads with error handling and retry options",
+    "Dashboards track file upload status across different states"
+  ],
+  "ai_summary": "A drag-and-drop file upload component with animated upload illustration, multiple states (idle, dragging, uploading, error), file validation support, and custom progress simulation. Built with framer-motion for smooth transitions and designed for both light and dark modes. Suitable for any application requiring file uploads with visual feedback and error handling.",
+  "_classifiedAt": "2026-04-23T17:46:41.599Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

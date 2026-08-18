@@ -1,0 +1,33 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "border-animation-primitive",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Creates a continuous animated trail effect along an element's border using CSS mask and motion primitives",
+    "Wraps any container component to add visual polish and draw attention to specific UI sections",
+    "Provides a subtle decorative effect that enhances card, button, or modal borders without user interaction"
+  ],
+  "ai_summary": "A lightweight motion primitive component that generates an animated border trail effect around any container. Built with motion/react, it uses CSS mask-clip and offset-path properties to create a continuous moving highlight along border edges. The component is non-interactive and purely decorative, ideal for adding subtle visual interest to UI elements in SaaS, e-commerce, or media applications.",
+  "_classifiedAt": "2026-04-23T17:48:02.746Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

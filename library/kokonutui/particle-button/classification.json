@@ -1,0 +1,33 @@
+{
+  "category": [
+    "input",
+    "feedback"
+  ],
+  "subcategory": "particle-effect-button",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "click-reveal"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Submit button with visual particle confirmation feedback after successful action",
+    "Interactive call-to-action button with engaging success animation",
+    "User feedback component for forms and actions requiring visual acknowledgment"
+  ],
+  "ai_summary": "A button component with click-triggered particle animation effects that provides visual success feedback. The component spawns 6 particles from the button center on click, animating them outward with scale and position transitions. Features configurable success duration and callback hooks for integration with success handlers, making it ideal for form submissions, confirmations, or interactive UI feedback in SaaS and e-commerce applications.",
+  "_classifiedAt": "2026-04-23T17:46:59.807Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

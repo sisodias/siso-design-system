@@ -1,0 +1,33 @@
+{
+  "category": [
+    "navigation"
+  ],
+  "subcategory": "collapsible-sections",
+  "visual_style": [
+    "minimalist",
+    "flat"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "education",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Expandable FAQ sections for product documentation and help centers",
+    "Collapsible content panels for organizing dense information on landing pages",
+    "Navigation menus with nested categories that expand on demand",
+    "Step-by-step wizards with collapsible individual steps",
+    "Feature comparison tables where details expand inline"
+  ],
+  "ai_summary": "A motion-primitives accordion component using Framer Motion for smooth expand/collapse animations. Built with a provider pattern for state management and supports controlled/uncontrolled modes with customizable animation variants. Features a clean, accessible structure with context-based communication between accordion items.",
+  "_classifiedAt": "2026-04-23T17:47:45.591Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

@@ -1,0 +1,25 @@
+{
+  "category": "navigation",
+  "subcategory": "vertical-toolbar",
+  "visual_style": [],
+  "interactions": [],
+  "best_for_industries": [
+    "saas",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Selecting design tools in a canvas-based editor interface",
+    "Switching between tool modes in creative software applications",
+    "Providing quick access to common app functions like export and share",
+    "Navigating between layers and properties panels in design tools",
+    "Displaying notification badges and user profile access in toolbars"
+  ],
+  "ai_summary": "A vertical toolbar component featuring icon-based tool selection with animated label expansion on selection. Built with Framer Motion for smooth transitions and includes support for notification badges. Default items cover common design tool actions like select, move, shapes, layers, and frame operations. Customizable through props for items, active color, and selection callbacks.",
+  "_classifiedAt": "2026-04-23T17:47:36.603Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

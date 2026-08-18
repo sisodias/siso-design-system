@@ -1,0 +1,31 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "logo-icon",
+  "visual_style": [
+    "flat"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Displaying Anthropic branding in headers or navigation",
+    "Company logo representation in footer sections",
+    "AI company identification in partner/product showcases"
+  ],
+  "ai_summary": "A simple flat SVG icon component rendering the Anthropic logo in white fill. This atomic media element is used for displaying company branding or identification in various UI contexts such as headers, footers, or partner showcases. The component scales to any size while maintaining crisp rendering.",
+  "_classifiedAt": "2026-04-23T17:46:14.573Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

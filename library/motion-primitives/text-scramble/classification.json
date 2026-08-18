@@ -1,0 +1,34 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "text-animation",
+  "visual_style": [
+    "flat",
+    "minimalist"
+  ],
+  "interactions": [
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "creator-tools",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Creating engaging text reveal animations for hero headlines that capture user attention",
+    "Displaying loading or processing states with animated placeholder text",
+    "Adding visual interest to password input masking and unmasking effects",
+    "Enhancing data display elements with dynamic text transformation effects",
+    "Building interactive text-based components in educational or media applications"
+  ],
+  "ai_summary": "A text animation utility component that creates a character scrambling effect, progressively revealing text by replacing characters with random symbols before displaying the final message. Built on motion/react for smooth transitions, it supports customizable duration, speed, character sets, and trigger control. Ideal for creating engaging text reveals in hero sections, loading states, or interactive UI elements across SaaS, media, and creator platforms.",
+  "_classifiedAt": "2026-04-23T17:49:11.542Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

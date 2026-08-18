@@ -1,0 +1,34 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "text-roll, text-animation, character-flip",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "media",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Animated headlines for landing pages and marketing sections",
+    "Character-by-character text reveal effects on page load",
+    "Interactive title animations for websites and applications",
+    "Rolling text effects for product names or promotional banners",
+    "Visual emphasis animations for call-to-action text elements"
+  ],
+  "ai_summary": "A 3D text animation utility that creates a rolling or flipping effect on each character of a string using CSS perspective and rotateX transforms. Part of the motion-primitives library, this component is commonly used for animated headlines, text reveals, and marketing content where visual character-by-character transitions add engagement and visual interest.",
+  "_classifiedAt": "2026-04-23T17:49:04.887Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

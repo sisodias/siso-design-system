@@ -1,0 +1,32 @@
+{
+  "category": [
+    "media"
+  ],
+  "subcategory": "text-animation",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "morph"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "media"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "atomic"
+  ],
+  "use_cases": [
+    "Animated text headings with character-by-character spring transitions",
+    "Smooth text content updates with morphing effects",
+    "Hero section text with entrance and exit animations",
+    "Interactive typography displays with fluid character animations"
+  ],
+  "ai_summary": "A text morphing animation component from motion-primitives that splits text into individual characters and animates each one using spring physics, providing smooth entrance and exit effects. Ideal for creating engaging typographic animations in hero sections, headings, or dynamic content displays.",
+  "_classifiedAt": "2026-04-23T17:48:59.515Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

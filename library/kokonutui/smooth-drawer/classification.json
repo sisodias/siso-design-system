@@ -1,0 +1,34 @@
+{
+  "category": [
+    "overlay"
+  ],
+  "subcategory": "slide-up drawer",
+  "visual_style": [
+    "minimalist"
+  ],
+  "interactions": [
+    "scroll-animate"
+  ],
+  "best_for_industries": [
+    "saas",
+    "e-commerce",
+    "fintech",
+    "other"
+  ],
+  "platform_fit": [
+    "desktop, mobile"
+  ],
+  "complexity": [
+    "composite"
+  ],
+  "use_cases": [
+    "Slide-up pricing panel for product pages in e-commerce or SaaS applications",
+    "Display subscription or lifetime access information with animated transitions",
+    "Mobile-friendly overlay for quick actions or checkout flows",
+    "Contextual information drawer that slides smoothly from bottom of screen",
+    "Modal alternative with natural spring-based animations for better UX"
+  ],
+  "ai_summary": "A smooth slide-up drawer component featuring spring-based animations with translateY and subtle 3D rotation effects. Built with motion/react for fluid open/close transitions, includes support for headers, footers, and pricing displays with gradient text styling. Supports dark mode and is optimized for both desktop and mobile platforms.",
+  "_classifiedAt": "2026-04-23T17:47:15.070Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

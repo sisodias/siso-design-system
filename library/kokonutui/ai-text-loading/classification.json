@@ -1,0 +1,31 @@
+{
+  "category": "feedback",
+  "subcategory": "loading-indicator",
+  "visual_style": [
+    "gradient",
+    "minimalist"
+  ],
+  "interactions": [
+    "none"
+  ],
+  "best_for_industries": [
+    "saas",
+    "dev-tools",
+    "ai-tools"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "atomic",
+  "use_cases": [
+    "Displaying animated loading status during AI processing operations",
+    "Showing dynamic feedback during async computation or data fetching",
+    "Indicating bot or AI assistant response preparation status",
+    "Providing visual progress feedback in machine learning pipelines",
+    "Generic loading state indicator for SaaS applications"
+  ],
+  "ai_summary": "An animated AI-themed loading text component that cycles through customizable status messages with fade and slide transitions. Features a dynamic gradient text effect that shifts from dark through neutral tones, supporting both light and dark modes. Designed specifically for AI interfaces, developer tools, and SaaS platforms requiring visual processing feedback with a clean, minimal aesthetic.",
+  "_classifiedAt": "2026-04-23T17:46:01.533Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

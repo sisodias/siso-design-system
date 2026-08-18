@@ -1,0 +1,34 @@
+{
+  "category": [
+    "overlay"
+  ],
+  "subcategory": "spotlight-effect",
+  "visual_style": [
+    "dark",
+    "gradient"
+  ],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "saas",
+    "fintech",
+    "e-commerce",
+    "creator-tools",
+    "dev-tools"
+  ],
+  "platform_fit": [
+    "desktop"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Hero sections with interactive spotlight following the cursor for engaging landing pages",
+    "Card hover effects where a spotlight reveals content or creates depth",
+    "Interactive backgrounds for navigation or sidebar elements",
+    "Dark mode UI enhancements with subtle glow effects on user interaction",
+    "Product showcases with dynamic lighting effects following mouse movement"
+  ],
+  "ai_summary": "A spotlight effect component that creates a radial gradient glow following the mouse cursor using spring physics. Built with Framer Motion's useSpring and useTransform for buttery-smooth animations, this component modifies its parent element's positioning to create an immersive hover experience. Ideal for modern dark-themed UIs requiring subtle interactive feedback without being obtrusive.",
+  "_classifiedAt": "2026-04-23T17:48:50.196Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}

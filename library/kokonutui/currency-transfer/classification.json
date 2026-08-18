@@ -1,0 +1,32 @@
+{
+  "category": [
+    "card"
+  ],
+  "subcategory": "financial/currency-exchange",
+  "visual_style": [
+    "minimalist",
+    "gradient"
+  ],
+  "interactions": [
+    "hover-glow"
+  ],
+  "best_for_industries": [
+    "fintech",
+    "e-commerce"
+  ],
+  "platform_fit": [
+    "desktop",
+    "mobile"
+  ],
+  "complexity": "composite",
+  "use_cases": [
+    "Displaying a currency conversion interface with animated confirmation feedback",
+    "Showing exchange rate comparisons between two currencies with visual transition",
+    "Creating a payment confirmation card with SVG draw animation for the checkmark",
+    "Building international money transfer UI components in fintech applications",
+    "Adding animated transfer status indicators to payment dashboards"
+  ],
+  "ai_summary": "A currency transfer card component featuring an animated SVG checkmark with draw-in effect and tooltip support. The component uses motion/react for smooth animations, lucide-react icons for directional currency flow, and integrates with Card and Tooltip sub-components. Designed for fintech and e-commerce platforms requiring animated payment confirmations and currency exchange interfaces.",
+  "_classifiedAt": "2026-04-23T17:46:32.215Z",
+  "_classifierModel": "claude-haiku-4-5-20251001"
+}
