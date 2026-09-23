@@ -22,7 +22,7 @@
 
 To get a fresh component count:
 ```bash
-cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system
+cd /Users/shaansisodia/SISO_Workspace/Great_Library_of_SISO/knowledge/design-system
 node scripts/build-manifest.mjs
 cat library/manifest.json | python3 -c "import json,sys; m=json.load(sys.stdin); print('total:', m['total'])"
 ```
@@ -53,7 +53,7 @@ Lumelle and restaurant-app-solo components live in `_raw/` at the repo root — 
 
 `classification.json` files are generated per-component by `scripts/classify-components.mjs`. Check how many exist:
 ```bash
-find /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system/library -name "classification.json" | wc -l
+find /Users/shaansisodia/SISO_Workspace/Great_Library_of_SISO/knowledge/design-system/library -name "classification.json" | wc -l
 ```
 
 Fields: `category`, `subcategory`, `visual_style`, `interactions`, `best_for_industries`, `platform_fit`, `complexity`, `use_cases`, `similar_to`, `ai_summary`, `_classifiedAt`, `_classifierModel`.
@@ -61,7 +61,7 @@ Fields: `category`, `subcategory`, `visual_style`, `interactions`, `best_for_ind
 ### Ratings state
 
 ```bash
-sqlite3 /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system/ratings.db \
+sqlite3 /Users/shaansisodia/SISO_Workspace/Great_Library_of_SISO/knowledge/design-system/ratings.db \
   "SELECT COUNT(*) FROM swipes; SELECT COUNT(*) FROM comparisons;"
 ```
 
@@ -143,7 +143,7 @@ The rating system uses standard Elo with K=32. Starting Elo is 1200. Components 
 ### One-off from 21st.dev
 
 ```bash
-cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system
+cd /Users/shaansisodia/SISO_Workspace/Great_Library_of_SISO/knowledge/design-system
 node scripts/add-21st.mjs {user}/{slug}
 # example: node scripts/add-21st.mjs aliimam/gallery
 ```
@@ -172,7 +172,7 @@ Copy `docs/examples/example-component/` into `library/siso-primitives/{slug}/`. 
 
 ```bash
 # 1. Capture build errors
-cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system/viewer
+cd /Users/shaansisodia/SISO_Workspace/Great_Library_of_SISO/knowledge/design-system/viewer
 npm run build 2>&1 | tee /tmp/ds-build.log
 
 # 2. Find missing npm packages
@@ -377,7 +377,7 @@ The following features are planned but have no implementation and no `_DESIGN.md
 
 ## 13. Quick-start for a fresh agent
 
-1. `cd /Users/shaansisodia/SISO_Workspace/SISO_Knowledge/design-system`
+1. `cd /Users/shaansisodia/SISO_Workspace/Great_Library_of_SISO/knowledge/design-system`
 2. Read this file end-to-end, then `ARCHITECTURE.md`, then `CONTRIBUTING.md`.
 3. `cd viewer && npm install --legacy-peer-deps && npm run dev -- -p 3005` — open `http://localhost:3005` and confirm the grid loads with curated components visible.
 4. Test the scraper (dry run, no writes): `cd .. && node scripts/bulk-import.mjs --source=21st-dev --limit=3 --dry-run`
